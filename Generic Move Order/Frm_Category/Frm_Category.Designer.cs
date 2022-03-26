@@ -84,12 +84,12 @@ namespace Generic_Move_Order.Frm_Category
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(187, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Customer";
+            this.label1.Text = "CATEGORY MANAGEMENT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
@@ -139,7 +139,7 @@ namespace Generic_Move_Order.Frm_Category
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -153,7 +153,7 @@ namespace Generic_Move_Order.Frm_Category
             // 
             // btn_new
             // 
-            this.btn_new.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_new.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_new.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -258,7 +258,7 @@ namespace Generic_Move_Order.Frm_Category
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_category.DefaultCellStyle = dataGridViewCellStyle1;
@@ -271,6 +271,7 @@ namespace Generic_Move_Order.Frm_Category
             this.dt_category.Size = new System.Drawing.Size(770, 311);
             this.dt_category.TabIndex = 24;
             this.dt_category.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_category_CellClick);
+            this.dt_category.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_category_DataBindingComplete);
             // 
             // Frm_Category
             // 
@@ -319,6 +320,6 @@ namespace Generic_Move_Order.Frm_Category
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cb_status;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dt_category;
+        public System.Windows.Forms.DataGridView dt_category;
     }
 }

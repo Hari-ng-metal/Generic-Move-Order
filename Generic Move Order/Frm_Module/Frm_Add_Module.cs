@@ -15,9 +15,12 @@ namespace Generic_Move_Order.Frm_Module
     {
         Connection connect = new Connection();
         bool status;
-        public Frm_Add_Module()
+
+        Frm_Module frm;
+        public Frm_Add_Module(Frm_Module _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void InsertModule()
@@ -97,6 +100,7 @@ namespace Generic_Move_Order.Frm_Module
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 
@@ -125,6 +129,8 @@ namespace Generic_Move_Order.Frm_Module
             {
                 //Some task…  
             }
+            frm.GetModule();
+            frm.dt_module.ClearSelection();
         }
 
         private void cb_status_SelectedIndexChanged(object sender, EventArgs e)

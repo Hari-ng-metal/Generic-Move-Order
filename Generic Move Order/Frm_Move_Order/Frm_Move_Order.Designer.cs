@@ -63,6 +63,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
@@ -105,12 +106,12 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(102, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Raw Materials";
+            this.label1.Text = "MOVE ORDER";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -163,6 +164,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.cb_customer.Size = new System.Drawing.Size(236, 24);
             this.cb_customer.TabIndex = 19;
             this.cb_customer.SelectedIndexChanged += new System.EventHandler(this.cb_customer_SelectedIndexChanged);
+            this.cb_customer.TextChanged += new System.EventHandler(this.cb_customer_TextChanged);
             this.cb_customer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_customer_KeyDown);
             this.cb_customer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_customer_KeyPress);
             // 
@@ -236,7 +238,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367F));
             this.tableLayoutPanel2.Controls.Add(this.text_transaction_description, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
@@ -250,17 +252,19 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // text_transaction_description
             // 
+            this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_transaction_description.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_transaction_description.Location = new System.Drawing.Point(116, 3);
+            this.text_transaction_description.Location = new System.Drawing.Point(109, 3);
             this.text_transaction_description.Name = "text_transaction_description";
-            this.text_transaction_description.Size = new System.Drawing.Size(312, 22);
+            this.text_transaction_description.Size = new System.Drawing.Size(290, 22);
             this.text_transaction_description.TabIndex = 11;
+            this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 0);
+            this.label7.Location = new System.Drawing.Point(20, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 10;
@@ -269,7 +273,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(434, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(405, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -290,7 +294,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -304,7 +308,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -371,7 +375,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -385,7 +389,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_new
             // 
-            this.btn_new.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_new.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_new.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -407,13 +411,14 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.id,
             this.item_code,
             this.item_description,
+            this.UOM,
             this.quantity,
             this.remove});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_move.DefaultCellStyle = dataGridViewCellStyle2;
@@ -431,24 +436,34 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // id
             // 
+            this.id.FillWeight = 111.631F;
             this.id.HeaderText = "id";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             // 
             // item_code
             // 
+            this.item_code.FillWeight = 111.631F;
             this.item_code.HeaderText = "item_code";
             this.item_code.MinimumWidth = 6;
             this.item_code.Name = "item_code";
             // 
             // item_description
             // 
+            this.item_description.FillWeight = 111.631F;
             this.item_description.HeaderText = "item_description";
             this.item_description.MinimumWidth = 6;
             this.item_description.Name = "item_description";
             // 
+            // UOM
+            // 
+            this.UOM.HeaderText = "uom";
+            this.UOM.MinimumWidth = 6;
+            this.UOM.Name = "UOM";
+            // 
             // quantity
             // 
+            this.quantity.FillWeight = 111.631F;
             this.quantity.HeaderText = "quantity";
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
@@ -456,11 +471,13 @@ namespace Generic_Move_Order.Frm_Move_Order
             // remove
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.remove.DefaultCellStyle = dataGridViewCellStyle1;
+            this.remove.FillWeight = 53.47594F;
             this.remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remove.HeaderText = "remove";
-            this.remove.MinimumWidth = 6;
+            this.remove.MinimumWidth = 3;
             this.remove.Name = "remove";
             this.remove.Text = "(-)";
             // 
@@ -480,6 +497,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.Name = "Frm_Move_Order";
             this.Text = "Frm_Move_Order";
             this.Load += new System.EventHandler(this.Frm_Move_Order_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Move_Order_KeyDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_Move_Order_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
@@ -533,6 +552,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UOM;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewButtonColumn remove;
     }

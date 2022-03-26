@@ -13,6 +13,9 @@ namespace Generic_Move_Order.Frm_Receiving
         public static string item_code { get; set; }
 
         public static string item_description { get; set; }
+
+        public static string uom { get; set; }
+
         public static decimal quantity { get; set; }
     }
 }

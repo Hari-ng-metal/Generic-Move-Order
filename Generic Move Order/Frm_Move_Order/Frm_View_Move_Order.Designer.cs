@@ -30,6 +30,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_View_Move_Order));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -136,7 +137,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_close
             // 
-            this.btn_close.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_close.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_close.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -150,7 +151,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_print
             // 
-            this.btn_print.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_print.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_print.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_print.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -295,6 +296,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // text_transaction_description
             // 
             this.text_transaction_description.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.text_transaction_description.Enabled = false;
             this.text_transaction_description.Location = new System.Drawing.Point(205, 3);
             this.text_transaction_description.Name = "text_transaction_description";
             this.text_transaction_description.Size = new System.Drawing.Size(562, 22);
@@ -338,7 +340,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_move.DefaultCellStyle = dataGridViewCellStyle1;
@@ -363,11 +365,12 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_View_Move_Order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Frm_View_Move_Order";
+            this.Text = "Move Order";
             this.Load += new System.EventHandler(this.Frm_View_Move_Order_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

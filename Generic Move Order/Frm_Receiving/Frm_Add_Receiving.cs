@@ -23,14 +23,21 @@ namespace Generic_Move_Order.Frm_Receiving
 
         private void Frm_Add_Receiving_Load(object sender, EventArgs e)
         {
+            cb_code.Select();
+            cb_code.Focus();
             GetMasterlist();
             text_desc.Clear();
+            text_uom.Clear();
+
+            cb_code.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_code.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_code.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
         private void AddItem()
         {
             try
             {
-                frm.dt_receiving.Rows.Add(label_id.Text, cb_code.Text, text_desc.Text, text_qty.Text);
+                frm.dt_receiving.Rows.Add(label_id.Text, cb_code.Text, text_desc.Text, text_uom.Text, text_qty.Text);
             }
             catch (Exception ex)
             {
@@ -66,6 +73,42 @@ namespace Generic_Move_Order.Frm_Receiving
             cb_code.SelectedIndex = -1;
         }
 
+        public void GetUOMbyItemCode()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetMasterlistById", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@code", cb_code.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_module.DataSource = dt;
+            connect.con.Close();
+
+            try
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    //MessageBox.Show("" + dt.Rows[0]["item_description"]);
+                    label_id.Text = dt.Rows[0]["int"].ToString();
+                    text_desc.Text = dt.Rows[0]["item_description"].ToString();
+                    text_uom.Text = dt.Rows[0]["uom"].ToString();
+                }
+                else
+                {
+                    //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    text_desc.Clear();
+                    text_uom.Clear();
+                    label_id.Text = "0";
+                    cb_code.Focus();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         private void btn_save_Click(object sender, EventArgs e)
         {
             GetMaserlistByCode();
@@ -86,6 +129,7 @@ namespace Generic_Move_Order.Frm_Receiving
                     cb_code.Focus();
                 }
             }
+            frm.dt_receiving.ClearSelection();
         }
 
         public void GetMaserlistByCode()
@@ -131,6 +175,7 @@ namespace Generic_Move_Order.Frm_Receiving
             if (cb_code.SelectedIndex >= 0)
             {
                 text_desc.Text = cb_code.SelectedValue.ToString();
+                GetUOMbyItemCode();
             }
         }
 
@@ -151,7 +196,7 @@ namespace Generic_Move_Order.Frm_Receiving
 
         private void cb_code_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 GetMaserlistByCode();
                 if (string.IsNullOrEmpty(label_id.Text))
@@ -172,6 +217,33 @@ namespace Generic_Move_Order.Frm_Receiving
         {
             if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
                 e.KeyChar -= (char)32;
+        }
+
+        private void text_qty_KeyDown(object sender, KeyEventArgs e)
+        {
+            //
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                GetMaserlistByCode();
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text))
+                {
+                    //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_code.Focus();
+                }
+                else
+                {
+                    GetMaserlistByCode();
+                    if (int.Parse(label_id.Text.ToString()) > 0)
+                    {
+                        AddItem();
+                    }
+                    else
+                    {
+                        cb_code.Focus();
+                    }
+                }
+                frm.dt_receiving.ClearSelection();
+            }
         }
     }
 }

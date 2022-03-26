@@ -23,6 +23,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             ShowMoeOrderDetails();
             label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_move.RowCount);
+            HeaderName();
         }
 
         private void ShowMoeOrderDetails()
@@ -67,6 +68,19 @@ namespace Generic_Move_Order.Frm_Move_Order
 
             Frm_Printing.Frm_Printing frm = new Frm_Printing.Frm_Printing();
             frm.ShowDialog();
+        }
+
+        private void HeaderName()
+        {
+            //dt_move.Columns["id"].HeaderText = "Id";
+            dt_move.Columns["item_code"].HeaderText = "Item Code";
+            dt_move.Columns["item_description"].HeaderText = "Item Description";
+            dt_move.Columns["uom"].HeaderText = "UOM";
+            dt_move.Columns["quantity"].HeaderText = "Quantity";
+            //dt_move.Columns["actual_quantity"].HeaderText = "Actual Quantity";
+
+            dt_move.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_move.EnableHeadersVisualStyles = false;
         }
     }
 }

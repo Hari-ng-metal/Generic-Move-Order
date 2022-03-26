@@ -29,6 +29,7 @@ namespace Generic_Move_Order.Frm_User
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Add_User));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label_department = new System.Windows.Forms.Label();
@@ -55,7 +56,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -84,11 +85,12 @@ namespace Generic_Move_Order.Frm_User
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel1.Controls.Add(this.cb_status, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.text_password, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cb_department, 3, 0);
@@ -122,26 +124,26 @@ namespace Generic_Move_Order.Frm_User
             this.cb_status.Items.AddRange(new object[] {
             "Active",
             "inActive"});
-            this.cb_status.Location = new System.Drawing.Point(522, 93);
+            this.cb_status.Location = new System.Drawing.Point(495, 93);
             this.cb_status.Name = "cb_status";
-            this.cb_status.Size = new System.Drawing.Size(167, 24);
+            this.cb_status.Size = new System.Drawing.Size(158, 24);
             this.cb_status.TabIndex = 12;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
             this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
             // 
             // text_password
             // 
-            this.text_password.Location = new System.Drawing.Point(522, 48);
+            this.text_password.Location = new System.Drawing.Point(495, 48);
             this.text_password.Name = "text_password";
-            this.text_password.Size = new System.Drawing.Size(167, 22);
+            this.text_password.Size = new System.Drawing.Size(158, 22);
             this.text_password.TabIndex = 10;
             // 
             // cb_department
             // 
             this.cb_department.FormattingEnabled = true;
-            this.cb_department.Location = new System.Drawing.Point(522, 3);
+            this.cb_department.Location = new System.Drawing.Point(495, 3);
             this.cb_department.Name = "cb_department";
-            this.cb_department.Size = new System.Drawing.Size(167, 24);
+            this.cb_department.Size = new System.Drawing.Size(158, 24);
             this.cb_department.TabIndex = 9;
             this.cb_department.SelectedIndexChanged += new System.EventHandler(this.cb_department_SelectedIndexChanged);
             this.cb_department.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_department_KeyPress);
@@ -150,7 +152,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(95, 0);
+            this.label1.Location = new System.Drawing.Point(86, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 45);
             this.label1.TabIndex = 0;
@@ -160,7 +162,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(93, 45);
+            this.label2.Location = new System.Drawing.Point(84, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 45);
             this.label2.TabIndex = 1;
@@ -170,7 +172,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(95, 90);
+            this.label3.Location = new System.Drawing.Point(86, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 45);
             this.label3.TabIndex = 2;
@@ -180,7 +182,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(443, 45);
+            this.label5.Location = new System.Drawing.Point(416, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 45);
             this.label5.TabIndex = 4;
@@ -190,7 +192,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(430, 0);
+            this.label4.Location = new System.Drawing.Point(403, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 45);
             this.label4.TabIndex = 3;
@@ -198,34 +200,35 @@ namespace Generic_Move_Order.Frm_User
             // 
             // text_name
             // 
-            this.text_name.Location = new System.Drawing.Point(176, 3);
+            this.text_name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_name.Location = new System.Drawing.Point(167, 3);
             this.text_name.Name = "text_name";
-            this.text_name.Size = new System.Drawing.Size(167, 22);
+            this.text_name.Size = new System.Drawing.Size(158, 22);
             this.text_name.TabIndex = 6;
             // 
             // text_user
             // 
-            this.text_user.Location = new System.Drawing.Point(176, 48);
+            this.text_user.Location = new System.Drawing.Point(167, 48);
             this.text_user.Name = "text_user";
-            this.text_user.Size = new System.Drawing.Size(167, 22);
+            this.text_user.Size = new System.Drawing.Size(158, 22);
             this.text_user.TabIndex = 7;
             // 
             // cb_role
             // 
             this.cb_role.FormattingEnabled = true;
-            this.cb_role.Location = new System.Drawing.Point(176, 93);
+            this.cb_role.Location = new System.Drawing.Point(167, 93);
             this.cb_role.Name = "cb_role";
-            this.cb_role.Size = new System.Drawing.Size(167, 24);
+            this.cb_role.Size = new System.Drawing.Size(158, 24);
             this.cb_role.TabIndex = 8;
             this.cb_role.SelectedIndexChanged += new System.EventHandler(this.cb_role_SelectedIndexChanged);
             this.cb_role.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_role_KeyPress);
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cancel.Location = new System.Drawing.Point(522, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(495, 138);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
             this.btn_cancel.TabIndex = 6;
@@ -235,11 +238,11 @@ namespace Generic_Move_Order.Frm_User
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save.Location = new System.Drawing.Point(411, 138);
+            this.btn_save.Location = new System.Drawing.Point(384, 138);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
             this.btn_save.TabIndex = 7;
@@ -251,7 +254,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Location = new System.Drawing.Point(464, 90);
+            this.label6.Location = new System.Drawing.Point(437, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 45);
             this.label6.TabIndex = 11;
@@ -270,7 +273,7 @@ namespace Generic_Move_Order.Frm_User
             // label_role
             // 
             this.label_role.AutoSize = true;
-            this.label_role.Location = new System.Drawing.Point(176, 135);
+            this.label_role.Location = new System.Drawing.Point(167, 135);
             this.label_role.Name = "label_role";
             this.label_role.Size = new System.Drawing.Size(46, 17);
             this.label_role.TabIndex = 14;
@@ -287,11 +290,12 @@ namespace Generic_Move_Order.Frm_User
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Add_User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Frm_Add_User";
+            this.Text = "User Form";
             this.Load += new System.EventHandler(this.Frm_Add_User_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

@@ -14,6 +14,7 @@ namespace Generic_Move_Order
     public partial class Frm_Main : Form
     {
         Connection connect = new Connection();
+        public static System.Drawing.Color WindowFrame { get; }
         public Frm_Main()
         {
             InitializeComponent();
@@ -32,6 +33,46 @@ namespace Generic_Move_Order
             menuStrip4.Visible = false;
             menuStrip5.Visible = false;
             menuStrip6.Visible = false;
+            menuStrip7.Visible = false;
+
+            //MISC
+            miscellaneousIssueToolStripMenuItem1.Visible = false;
+            miscellaeousReceiptToolStripMenuItem.Visible = false;
+            miscellaneousIssueRecordToolStripMenuItem.Visible = false;
+            micellaneousReceiptRecordToolStripMenuItem.Visible = false;
+
+            //INV
+            toolStripMenuItem5.Visible = false;
+
+            //REC
+            toolStripMenuItem7.Visible = false;
+            receiveOrderRecordsToolStripMenuItem.Visible = false;
+
+            //MOVE
+            toolStripMenuItem9.Visible = false;
+            toolStripMenuItem10.Visible = false;
+            transactMoveOrderToolStripMenuItem.Visible = false;
+
+            //REPORT
+            toolStripMenuItem12.Visible = false;
+            toolStripMenuItem13.Visible = false;
+            transactedMoveOrderHistoryToolStripMenuItem.Visible = false;
+            miscellaneousIssueHistoryToolStripMenuItem.Visible = false;
+            miscellaneousReceiptHistoryToolStripMenuItem.Visible = false;
+
+            //SETUP
+            toolStripMenuItem15.Visible = false;
+            toolStripMenuItem16.Visible = false;
+            toolStripMenuItem17.Visible = false;
+            toolStripMenuItem18.Visible = false;
+            toolStripMenuItem19.Visible = false;
+            toolStripMenuItem20.Visible = false;
+            prodictCategoryToolStripMenuItem.Visible = false;
+
+            //USER
+            toolStripMenuItem22.Visible = false;
+            toolStripMenuItem23.Visible = false;
+            toolStripMenuItem24.Visible = false;
         }
 
         private void UserAccess()
@@ -51,31 +92,194 @@ namespace Generic_Move_Order
                 string mod_name = row[2].ToString();
                 //MessageBox.Show("" + mod_name);
 
-                if (mod_name == "menuStrip1")
+                //if (mod_name == "menuStrip1")
+                //{
+                //    menuStrip1.Visible = true;
+                //}
+
+                //if (mod_name == "menuStrip2")
+                //{
+                //    menuStrip2.Visible = true;
+                //}
+
+                //if (mod_name == "menuStrip3")
+                //{
+                //    menuStrip3.Visible = true;
+                //}
+
+                //if (mod_name == "menuStrip4")
+                //{
+                //    menuStrip4.Visible = true;
+                //}
+                //if (mod_name == "menuStrip5")
+                //{
+                //    menuStrip5.Visible = true;
+                //}
+                //if (mod_name == "menuStrip6")
+                //{
+                //    menuStrip6.Visible = true;
+                //}
+
+                //if (mod_name == "menuStrip7")
+                //{
+                //    menuStrip7.Visible = true;
+                //}
+
+
+                //MISCELLANEOUS MODULE
+                if (mod_name == "miscellaneousIssueToolStripMenuItem1")
                 {
+                    miscellaneousIssueToolStripMenuItem1.Visible = true;
+                    menuStrip7.Visible = true;
+                }
+
+                if (mod_name == "miscellaeousReceiptToolStripMenuItem")
+                {
+                    miscellaeousReceiptToolStripMenuItem.Visible = true;
+                    menuStrip7.Visible = true;
+                }
+
+                if (mod_name == "miscellaneousIssueRecordToolStripMenuItem")
+                {
+                    miscellaneousIssueRecordToolStripMenuItem.Visible = true;
+                    menuStrip7.Visible = true;
+                }
+
+                if (mod_name == "micellaneousReceiptRecordToolStripMenuItem")
+                {
+                    micellaneousReceiptRecordToolStripMenuItem.Visible = true;
+                    menuStrip7.Visible = true;
+                }
+
+                //INVENTORY MODULE
+                if (mod_name == "toolStripMenuItem5")
+                {
+                    toolStripMenuItem5.Visible = true;
                     menuStrip1.Visible = true;
                 }
 
-                if (mod_name == "menuStrip2")
+                //RECEIVING
+                if (mod_name == "toolStripMenuItem7")
                 {
+                    toolStripMenuItem7.Visible = true;
                     menuStrip2.Visible = true;
                 }
 
-                if (mod_name == "menuStrip3")
+                if (mod_name == "receiveOrderRecordsToolStripMenuItem")
                 {
+                    receiveOrderRecordsToolStripMenuItem.Visible = true;
+                    menuStrip2.Visible = true;
+                }
+
+                //MOVE ORDER
+                if (mod_name == "toolStripMenuItem9")
+                {
+                    toolStripMenuItem9.Visible = true;
                     menuStrip3.Visible = true;
                 }
 
-                if (mod_name == "menuStrip4")
+                if (mod_name == "toolStripMenuItem10")
                 {
+                    toolStripMenuItem10.Visible = true;
+                    menuStrip3.Visible = true;
+                }
+
+                if (mod_name == "transactMoveOrderToolStripMenuItem")
+                {
+                    transactMoveOrderToolStripMenuItem.Visible = true;
+                    menuStrip3.Visible = true;
+                }
+
+                //REPORT
+                if (mod_name == "toolStripMenuItem12")
+                {
+                    toolStripMenuItem12.Visible = true;
                     menuStrip4.Visible = true;
                 }
-                if (mod_name == "menuStrip5")
+
+                if (mod_name == "toolStripMenuItem13")
                 {
+                    toolStripMenuItem13.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                if (mod_name == "transactedMoveOrderHistoryToolStripMenuItem")
+                {
+                    transactedMoveOrderHistoryToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                if (mod_name == "miscellaneousIssueHistoryToolStripMenuItem")
+                {
+                    miscellaneousIssueHistoryToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                if (mod_name == "miscellaneousReceiptHistoryToolStripMenuItem")
+                {
+                    miscellaneousReceiptHistoryToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                //SETUP
+                if (mod_name == "toolStripMenuItem15")
+                {
+                    toolStripMenuItem15.Visible = true;
                     menuStrip5.Visible = true;
                 }
-                if (mod_name == "menuStrip6")
+
+                if (mod_name == "toolStripMenuItem16")
                 {
+                    toolStripMenuItem16.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+
+                if (mod_name == "toolStripMenuItem17")
+                {
+                    toolStripMenuItem17.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+
+                if (mod_name == "toolStripMenuItem18")
+                {
+                    toolStripMenuItem18.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+
+                if (mod_name == "toolStripMenuItem19")
+                {
+                    toolStripMenuItem19.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+
+                if (mod_name == "toolStripMenuItem20")
+                {
+                    toolStripMenuItem20.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+
+                if (mod_name == "prodictCategoryToolStripMenuItem")
+                {
+                    prodictCategoryToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+
+                //USER
+                if (mod_name == "toolStripMenuItem22")
+                {
+                    toolStripMenuItem22.Visible = true;
+                    menuStrip6.Visible = true;
+                }
+
+                if (mod_name == "toolStripMenuItem23")
+                {
+                    toolStripMenuItem23.Visible = true;
+                    menuStrip6.Visible = true;
+                }
+
+                if (mod_name == "toolStripMenuItem24")
+                {
+                    toolStripMenuItem24.Visible = true;
                     menuStrip6.Visible = true;
                 }
             }
@@ -108,8 +312,10 @@ namespace Generic_Move_Order
         {
             DisableAccess();
             UserAccess();
-            label_user.Text = "Welcome, "+User.username;
+            label_user.Text = "Welcome, "+User.username +"!";
         }
+
+    
 
         private void label_user_Click(object sender, EventArgs e)
         {
@@ -758,6 +964,237 @@ namespace Generic_Move_Order
                 frm_in.Show();
                 frm_in.BringToFront();
             }
+        }
+
+        private void transactMoveOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //transact move order
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Available_Transact")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Move_Order.Frm_Available_Transact frm_in = new Frm_Move_Order.Frm_Available_Transact() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void prodictCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //product_category
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Product_Category")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Product_Category.Frm_Product_Category frm_in = new Frm_Product_Category.Frm_Product_Category() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void miscellaneousReceiptToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //miscellaneousReceiptToolStripMenuItem1.BackColor = Color.White;
+            //miscellaneousReceiptToolStripMenuItem1.ForeColor = Color.Black;
+        }
+
+        private void miscellaneousIssueToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //issue
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Issue")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Miscellaneous_Issue.Frm_Issue frm_in = new Frm_Miscellaneous_Issue.Frm_Issue() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void miscellaeousReceiptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //receipt
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Receipt")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Miscellaneous_Receipt.Frm_Receipt frm_in = new Frm_Miscellaneous_Receipt.Frm_Receipt() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void transactedMoveOrderHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //transact report
+            //receipt
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Transact_Move_Order_History")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Transact_Move_Order_History frm_in = new Frm_Report.Frm_Transact_Move_Order_History() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void miscellaneousIssueRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //issue record
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Issue_Record")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Miscellaneous_Issue.Frm_Issue_Record frm_in = new Frm_Miscellaneous_Issue.Frm_Issue_Record() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void micellaneousReceiptRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //receipt record
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Receipt_Record")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Miscellaneous_Receipt.Frm_Receipt_Record frm_in = new Frm_Miscellaneous_Receipt.Frm_Receipt_Record() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void miscellaneousIssueHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ISSUE REPORT
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Issue_History")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Issue_History frm_in = new Frm_Report.Frm_Issue_History() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void miscellaneousReceiptHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //receipt
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Issue_History")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Receipt_History frm_in = new Frm_Report.Frm_Receipt_History() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void miscellaneousReceiptToolStripMenuItem1_MouseHover(object sender, EventArgs e)
+        {
+            //miscellaneousReceiptToolStripMenuItem1.BackColor = Color.White;
+            //miscellaneousReceiptToolStripMenuItem1.ForeColor = Color.Black;
+        }
+
+        private void miscellaneousReceiptToolStripMenuItem1_MouseLeave(object sender, EventArgs e)
+        {
+            //miscellaneousReceiptToolStripMenuItem1.BackColor = WindowFrame;
+            //miscellaneousReceiptToolStripMenuItem1.ForeColor = Color.White;
         }
     }
 }

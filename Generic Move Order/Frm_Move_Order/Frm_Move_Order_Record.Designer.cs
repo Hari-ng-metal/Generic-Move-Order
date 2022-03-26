@@ -47,6 +47,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label4 = new System.Windows.Forms.Label();
             this.cb_status = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dp_start = new System.Windows.Forms.DateTimePicker();
+            this.dp_end = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.dt_move_order = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -106,7 +110,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_inactive
             // 
-            this.btn_inactive.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_inactive.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_inactive.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_inactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_inactive.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -120,7 +124,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_print
             // 
-            this.btn_print.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_print.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_print.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_print.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -134,7 +138,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // btn_view
             // 
-            this.btn_view.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_view.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_view.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_view.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -173,12 +177,12 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(165, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Raw Materials";
+            this.label1.Text = "MOVE ORDER RECORD";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -202,6 +206,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_status, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dp_start, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dp_end, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -238,9 +246,9 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 17);
+            this.label4.Size = new System.Drawing.Size(104, 26);
             this.label4.TabIndex = 2;
-            this.label4.Text = "LIST OF MODULE:";
+            this.label4.Text = "LIST OF MOVE ORDER:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cb_status
@@ -254,6 +262,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.cb_status.Size = new System.Drawing.Size(121, 24);
             this.cb_status.TabIndex = 3;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged_1);
+            this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
             // 
             // textBox1
             // 
@@ -261,6 +270,45 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 4;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // dp_start
+            // 
+            this.dp_start.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dp_start.Location = new System.Drawing.Point(580, 28);
+            this.dp_start.Name = "dp_start";
+            this.dp_start.Size = new System.Drawing.Size(121, 22);
+            this.dp_start.TabIndex = 6;
+            this.dp_start.ValueChanged += new System.EventHandler(this.dp_start_ValueChanged);
+            // 
+            // dp_end
+            // 
+            this.dp_end.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dp_end.Location = new System.Drawing.Point(580, 53);
+            this.dp_end.Name = "dp_end";
+            this.dp_end.Size = new System.Drawing.Size(121, 22);
+            this.dp_end.TabIndex = 7;
+            this.dp_end.ValueChanged += new System.EventHandler(this.dp_end_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(516, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "START:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(533, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 17);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "END:";
             // 
             // dt_move_order
             // 
@@ -272,7 +320,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_move_order.DefaultCellStyle = dataGridViewCellStyle1;
@@ -285,6 +333,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.dt_move_order.Size = new System.Drawing.Size(770, 311);
             this.dt_move_order.TabIndex = 28;
             this.dt_move_order.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_move_order_CellClick_1);
+            this.dt_move_order.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_move_order_DataBindingComplete);
             // 
             // Frm_Move_Order_Record
             // 
@@ -334,5 +383,9 @@ namespace Generic_Move_Order.Frm_Move_Order
         private System.Windows.Forms.ComboBox cb_status;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dt_move_order;
+        private System.Windows.Forms.DateTimePicker dp_start;
+        private System.Windows.Forms.DateTimePicker dp_end;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

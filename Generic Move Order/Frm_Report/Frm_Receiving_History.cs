@@ -37,6 +37,8 @@ namespace Generic_Move_Order.Frm_Report
             dt.Load(cmd.ExecuteReader());
             dt_report.DataSource = dt;
             connect.con.Close();
+
+            dt_report.ReadOnly = true;
         }
 
         private void dt_report_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -88,7 +90,7 @@ namespace Generic_Move_Order.Frm_Report
                             }
 
                             File.WriteAllLines(sfd.FileName, outputCsv, Encoding.UTF8);
-                            MessageBox.Show("Data Exported Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Data Exported Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
@@ -125,6 +127,27 @@ namespace Generic_Move_Order.Frm_Report
         private void Frm_Receiving_History_Load(object sender, EventArgs e)
         {
             GetHistory();
+            HeaderName();
+        }
+
+        private void HeaderName()
+        {
+            dt_report.Columns["id"].HeaderText = "Id";
+            dt_report.Columns["supplier_code"].HeaderText = "Supplier Code";
+            dt_report.Columns["supplier_name"].HeaderText = "Supplier Name";
+            dt_report.Columns["item_code"].HeaderText = "Item Code";
+            dt_report.Columns["item_description"].HeaderText = "Item Description";
+            dt_report.Columns["uom"].HeaderText = "UOM";
+            dt_report.Columns["quantity"].HeaderText = "Quantity";
+            dt_report.Columns["transaction_date"].HeaderText = "Transaction Date";
+
+            dt_report.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_report.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_report_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_report.ClearSelection();
         }
     }
 }

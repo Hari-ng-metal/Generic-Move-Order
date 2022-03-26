@@ -184,12 +184,12 @@ namespace Generic_Move_Order.Frm_Report
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 17);
+            this.label6.Size = new System.Drawing.Size(208, 17);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Customer";
+            this.label6.Text = "RECEIVING HISTORY REPORT";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -239,7 +239,7 @@ namespace Generic_Move_Order.Frm_Report
             // 
             // btn_export
             // 
-            this.btn_export.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_export.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_export.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_export.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -253,7 +253,7 @@ namespace Generic_Move_Order.Frm_Report
             // 
             // btn_generate
             // 
-            this.btn_generate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_generate.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_generate.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_generate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_generate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -275,7 +275,7 @@ namespace Generic_Move_Order.Frm_Report
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_report.DefaultCellStyle = dataGridViewCellStyle1;
@@ -287,6 +287,7 @@ namespace Generic_Move_Order.Frm_Report
             this.dt_report.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_report.Size = new System.Drawing.Size(770, 311);
             this.dt_report.TabIndex = 28;
+            this.dt_report.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_report_DataBindingComplete);
             this.dt_report.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dt_report_RowStateChanged);
             // 
             // Frm_Receiving_History

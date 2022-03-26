@@ -17,18 +17,47 @@ namespace Generic_Move_Order.Frm_RM
         string uom_id = "0";
         string category_id = "0";
         bool status;
-        public Frm_Add_RM()
+
+        Frm_RM frm;
+        public Frm_Add_RM(Frm_RM _frn)
         {
             InitializeComponent();
+            this.frm = _frn;
         }
 
         private void Frm_Add_RM_Load(object sender, EventArgs e)
         {
-            GetCtegory();
+            GetProductCategory();
             GetUOM();
             AddOrEdit();
 
            
+        }
+
+        public void GetProductCategory()
+        {
+
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetProductCategory", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_category.DataSource = dt;
+                connect.con.Close();
+
+                cb_category.ValueMember = "id";
+                cb_category.DisplayMember = "product_category";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_category.SelectedIndex = -1;
         }
 
         public void GetCtegory()
@@ -38,8 +67,9 @@ namespace Generic_Move_Order.Frm_RM
             {
                 connect.DatabaseConnection();
                 connect.con.Open();
-                SqlCommand cmd = new SqlCommand("SP_GetCategories", connect.con);
+                SqlCommand cmd = new SqlCommand("SP_GetCategory", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 cb_category.DataSource = dt;
@@ -65,6 +95,7 @@ namespace Generic_Move_Order.Frm_RM
                 connect.con.Open();
                 SqlCommand cmd = new SqlCommand("SP_GetUOM", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 cb_uom.DataSource = dt;
@@ -92,7 +123,7 @@ namespace Generic_Move_Order.Frm_RM
 
         private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_uom.SelectedIndex >= 0)
+            if (cb_category.SelectedIndex >= 0)
             {
                 category_id = cb_category.SelectedValue.ToString();
                 label_category.Text = category_id;
@@ -198,6 +229,8 @@ namespace Generic_Move_Order.Frm_RM
             {
                 //Some task…  
             }
+            frm.GetMasterlist();
+            frm.dt_rm.ClearSelection();
         }
 
         private void AddOrEdit()
@@ -226,6 +259,7 @@ namespace Generic_Move_Order.Frm_RM
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 
@@ -283,6 +317,11 @@ namespace Generic_Move_Order.Frm_RM
                 InsertItem();
                 this.Close();
             }
+        }
+
+        private void text_code_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

@@ -63,6 +63,27 @@ namespace Generic_Move_Order.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _0_02_06_2d73f0040f2acb35efadc49ff0d4874a2e461caf655ed4b43166e67d87fdbcbc_de80450da8c6108c {
+            get {
+                object obj = ResourceManager.GetObject("0-02-06-2d73f0040f2acb35efadc49ff0d4874a2e461caf655ed4b43166e67d87fdbcbc_de80450d" +
+                        "a8c6108c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2 {
+            get {
+                object obj = ResourceManager.GetObject("2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _215_2155928_mobile_ordering_apps_order_png {
             get {
                 object obj = ResourceManager.GetObject("215-2155928_mobile-ordering-apps-order-png", resourceCulture);
@@ -73,9 +94,29 @@ namespace Generic_Move_Order.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _22 {
+            get {
+                object obj = ResourceManager.GetObject("22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _230_2303322_order_png_background_image_online_food_ordering_icon {
             get {
                 object obj = ResourceManager.GetObject("230-2303322_order-png-background-image-online-food-ordering-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Asset_11_300x {
+            get {
+                object obj = ResourceManager.GetObject("Asset 11@300x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +147,16 @@ namespace Generic_Move_Order.Properties {
         internal static System.Drawing.Bitmap MO_300x {
             get {
                 object obj = ResourceManager.GetObject("MO@300x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Move {
+            get {
+                object obj = ResourceManager.GetObject("Move", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

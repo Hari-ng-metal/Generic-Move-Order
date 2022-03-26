@@ -78,7 +78,7 @@ namespace Generic_Move_Order.Frm_Module
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_module.DefaultCellStyle = dataGridViewCellStyle1;
@@ -91,6 +91,7 @@ namespace Generic_Move_Order.Frm_Module
             this.dt_module.Size = new System.Drawing.Size(788, 358);
             this.dt_module.TabIndex = 12;
             this.dt_module.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_module_CellClick);
+            this.dt_module.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_module_DataBindingComplete);
             // 
             // panel2
             // 
@@ -173,6 +174,7 @@ namespace Generic_Move_Order.Frm_Module
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 4;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label_role_counting
             // 
@@ -211,7 +213,7 @@ namespace Generic_Move_Order.Frm_Module
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -225,7 +227,7 @@ namespace Generic_Move_Order.Frm_Module
             // 
             // btn_new
             // 
-            this.btn_new.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_new.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_new.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -241,12 +243,12 @@ namespace Generic_Move_Order.Frm_Module
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(169, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Customer";
+            this.label1.Text = "MODULE MANAGEMENT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -314,7 +316,6 @@ namespace Generic_Move_Order.Frm_Module
 
         #endregion
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dt_module;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
@@ -331,5 +332,6 @@ namespace Generic_Move_Order.Frm_Module
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pb_exit;
+        public System.Windows.Forms.DataGridView dt_module;
     }
 }

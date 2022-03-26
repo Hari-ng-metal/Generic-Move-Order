@@ -31,6 +31,7 @@ namespace Generic_Move_Order.Frm_Role
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Tag_Role));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label_category = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@ namespace Generic_Move_Order.Frm_Role
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -93,6 +94,7 @@ namespace Generic_Move_Order.Frm_Role
             this.label_category.Size = new System.Drawing.Size(46, 17);
             this.label_category.TabIndex = 15;
             this.label_category.Text = "label8";
+            this.label_category.Visible = false;
             // 
             // panel2
             // 
@@ -130,7 +132,7 @@ namespace Generic_Move_Order.Frm_Role
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_untag.DefaultCellStyle = dataGridViewCellStyle1;
@@ -143,6 +145,7 @@ namespace Generic_Move_Order.Frm_Role
             this.dt_untag.Size = new System.Drawing.Size(388, 370);
             this.dt_untag.TabIndex = 15;
             this.dt_untag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_untag_CellClick);
+            this.dt_untag.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_untag_DataBindingComplete);
             // 
             // dt_tagged
             // 
@@ -154,7 +157,7 @@ namespace Generic_Move_Order.Frm_Role
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_tagged.DefaultCellStyle = dataGridViewCellStyle2;
@@ -167,6 +170,7 @@ namespace Generic_Move_Order.Frm_Role
             this.dt_tagged.Size = new System.Drawing.Size(388, 370);
             this.dt_tagged.TabIndex = 14;
             this.dt_tagged.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_tagged_CellClick);
+            this.dt_tagged.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_tagged_DataBindingComplete);
             // 
             // panel4
             // 
@@ -204,7 +208,7 @@ namespace Generic_Move_Order.Frm_Role
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -214,10 +218,11 @@ namespace Generic_Move_Order.Frm_Role
             this.btn_cancel.TabIndex = 8;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_tag
             // 
-            this.btn_tag.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_tag.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_tag.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_tag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_tag.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -239,7 +244,7 @@ namespace Generic_Move_Order.Frm_Role
             // 
             // btn_untag
             // 
-            this.btn_untag.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_untag.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_untag.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_untag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_untag.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -349,11 +354,12 @@ namespace Generic_Move_Order.Frm_Role
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Tag_Role";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Frm_Tag_Role";
+            this.Text = "Role";
             this.Load += new System.EventHandler(this.Frm_Tag_Role_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

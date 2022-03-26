@@ -83,12 +83,12 @@ namespace Generic_Move_Order.Frm_Inventory
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(131, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Customer";
+            this.label1.Text = "INVENTORY - MRP";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
@@ -207,6 +207,7 @@ namespace Generic_Move_Order.Frm_Inventory
             this.cb_status.Size = new System.Drawing.Size(121, 24);
             this.cb_status.TabIndex = 3;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
+            this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
             // 
             // textBox1
             // 
@@ -235,7 +236,7 @@ namespace Generic_Move_Order.Frm_Inventory
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_mrp.DefaultCellStyle = dataGridViewCellStyle1;
@@ -247,6 +248,7 @@ namespace Generic_Move_Order.Frm_Inventory
             this.dt_mrp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_mrp.Size = new System.Drawing.Size(788, 358);
             this.dt_mrp.TabIndex = 12;
+            this.dt_mrp.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_mrp_DataBindingComplete);
             // 
             // Frm_MRP
             // 

@@ -22,11 +22,45 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void Frm_Move_Order_Record_Load(object sender, EventArgs e)
         {
+            DisableAccess();
+            UserAccess();
             cb_status.SelectedIndex = 0;
             btn_print.Enabled = false;
             btn_inactive.Enabled = false;
             btn_view.Enabled = false;
+            HeaderName();
+            //GetMoveOrderRecordsBySearch();
         }
+
+        private void DisableAccess()
+        {
+            btn_inactive.Visible = false;
+        }
+
+        private void UserAccess()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetUserAccess", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@role", User.role_id);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_user_role.DataSource = dt;
+            connect.con.Close();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string mod_name = row[2].ToString();
+                //MessageBox.Show("" + mod_name);
+
+                if (mod_name == "move_btn_inactive")
+                {
+                    btn_inactive.Visible = true;
+                }
+            }
+        }
+
         public void GetMoveOrderRecords()
         {
             connect.DatabaseConnection();
@@ -34,6 +68,26 @@ namespace Generic_Move_Order.Frm_Move_Order
             SqlCommand cmd = new SqlCommand("SP_GetMoveOrderRecords", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@start", dp_start.Text);
+            cmd.Parameters.AddWithValue("@end", dp_end.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_move_order.DataSource = dt;
+            connect.con.Close();
+
+            dt_move_order.ReadOnly = true;
+        }
+
+        public void GetMoveOrderRecordsBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetMoveOrderRecordsBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
+            cmd.Parameters.AddWithValue("@start", dp_start.Text);
+            cmd.Parameters.AddWithValue("@end", dp_end.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             dt_move_order.DataSource = dt;
@@ -51,10 +105,12 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (cb_status.Text == "Active")
             {
                 status = bool.Parse(true.ToString());
+                btn_inactive.Enabled = true;
             }
             else
             {
                 status = bool.Parse(false.ToString());
+                btn_inactive.Enabled = false;
             }
             GetMoveOrderRecords();
             label_role_counting.Text = "TOTAL # OF MOVE ORDER/S: " + (dt_move_order.RowCount);
@@ -74,8 +130,11 @@ namespace Generic_Move_Order.Frm_Move_Order
                 view_move_order.transaction_date = DateTime.Parse(row.Cells["transaction_date"].Value.ToString());
 
                 btn_view.Enabled = true;
-                btn_inactive.Enabled = true;
                 btn_print.Enabled = true;
+                if(cb_status.Text == "Active")
+                {
+                    btn_inactive.Enabled = true;
+                }
 
             }
             else
@@ -105,6 +164,20 @@ namespace Generic_Move_Order.Frm_Move_Order
             frm.ShowDialog();
         }
 
+        private void InactiveMoveORder()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_UpdateMoveOrderStatusToInactive", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@id", view_move_order.id);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_move_order.DataSource = dt;
+            connect.con.Close();
+        }
+
         private void btn_inactive_Click(object sender, EventArgs e)
         {
             //GetSelected();
@@ -113,44 +186,62 @@ namespace Generic_Move_Order.Frm_Move_Order
             //GetSelected();
 
             //GetSelectedRecords();
+
+            DialogResult res = MessageBox.Show("Are you sure you want to cancel?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                InactiveMoveORder();
+                GetMoveOrderRecords();
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
         }
 
-        //private void GetSelected()
-        //{
-        //    string message = string.Empty;
-        //    foreach (DataGridViewRow row in dt_move_order.Rows)
-        //    {
-        //        bool isSelected = Convert.ToBoolean(row.Cells["select"].Value);
-        //        if (isSelected)
-        //        {
-        //            //message += Environment.NewLine;
-        //            //message = "0";
-        //            message += ",";
-        //            message += row.Cells["id"].Value.ToString();
-        //            //message += message.Remove(0, 1);
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetMoveOrderRecordsBySearch();
+            }
+        }
 
-        //            textBox1.Text = message;
+        private void cb_status_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
 
-        //            textBox1.Text = textBox1.Text.Remove(0, 1);
-        //        }
-        //    }
-        //    //Frm_Printing.printing.last_id = int.Parse(message.ToString());
-        //    //CallPrintOut();
+        private void HeaderName()
+        {
+            dt_move_order.Columns["id"].HeaderText = "Id";
+            dt_move_order.Columns["customer_code"].HeaderText = "Customer Code";
+            dt_move_order.Columns["customer_name"].HeaderText = "Customer Name";
+            dt_move_order.Columns["description"].HeaderText = "Description";
+            dt_move_order.Columns["transaction_date"].HeaderText = "Transaction Date";
 
-        //    MessageBox.Show("" + textBox1.Text);
-        //}
+            dt_move_order.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_move_order.EnableHeadersVisualStyles = false;
+        }
 
-        //public void GetSelectedRecords()
-        //{
-        //    connect.DatabaseConnection();
-        //    connect.con.Open();
-        //    SqlCommand cmd = new SqlCommand("SP_GetMoveOrderItemMultipleById", connect.con);
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Parameters.AddWithValue("@ID", textBox1.Text);
-        //    DataTable dt = new DataTable();
-        //    dt.Load(cmd.ExecuteReader());
-        //    dataGridView1.DataSource = dt;
-        //    connect.con.Close();
-        //}
+        private void dp_start_ValueChanged(object sender, EventArgs e)
+        {
+            GetMoveOrderRecords();
+        }
+
+        private void dp_end_ValueChanged(object sender, EventArgs e)
+        {
+            GetMoveOrderRecords();
+        }
+
+        private void dt_move_order_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_move_order.ClearSelection();
+            btn_view.Enabled = false;
+            btn_print.Enabled = false;
+            btn_inactive.Enabled = false;
+
+            label_role_counting.Text = "TOTAL # OF RECORD/S: " + (dt_move_order.RowCount);
+        }
     }
 }

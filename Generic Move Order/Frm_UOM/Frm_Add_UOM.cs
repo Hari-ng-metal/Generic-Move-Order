@@ -15,9 +15,12 @@ namespace Generic_Move_Order.Frm_UOM
     {
         Connection connect = new Connection();
         bool status;
-        public Frm_Add_UOM()
+
+        Frm_UOM frm;
+        public Frm_Add_UOM(Frm_UOM _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void Frm_Add_UOM_Load(object sender, EventArgs e)
@@ -33,6 +36,7 @@ namespace Generic_Move_Order.Frm_UOM
                 SqlCommand cmd = new SqlCommand("SP_InsertUOM", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@uom", text_uom.Text);
+                cmd.Parameters.AddWithValue("@uom_desc", text_uom_desc.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
@@ -60,6 +64,7 @@ namespace Generic_Move_Order.Frm_UOM
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", edit_uom.id);
                 cmd.Parameters.AddWithValue("@uom", text_uom.Text);
+                cmd.Parameters.AddWithValue("@uom_desc", text_uom_desc.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
@@ -82,6 +87,7 @@ namespace Generic_Move_Order.Frm_UOM
             if (edit_uom.id > 0)
             {
                 text_uom.Text = edit_uom.uom;
+                text_uom_desc.Text = edit_uom.uom_desc;
                 label_status.Text = edit_uom.status.ToString();
                 if (label_status.Text == true.ToString())
                 {
@@ -97,6 +103,7 @@ namespace Generic_Move_Order.Frm_UOM
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 
@@ -125,6 +132,8 @@ namespace Generic_Move_Order.Frm_UOM
             {
                 //Some task…  
             }
+            frm.GetUOM();
+            frm.dt_uom.ClearSelection();
         }
 
         private void cb_status_SelectedIndexChanged(object sender, EventArgs e)

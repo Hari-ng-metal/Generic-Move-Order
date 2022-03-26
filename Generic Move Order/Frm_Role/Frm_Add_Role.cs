@@ -15,9 +15,11 @@ namespace Generic_Move_Order.Frm_Role
     {
         Connection connect = new Connection();
         bool status;
-        public Frm_Add_Role()
+        Frm_Role frm;
+        public Frm_Add_Role(Frm_Role _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void InsertRole()
@@ -98,6 +100,8 @@ namespace Generic_Move_Order.Frm_Role
             {
                 //Some task…  
             }
+            frm.GetRole();
+            frm.dt_role.ClearSelection();
         }
 
         private void cb_status_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,6 +138,7 @@ namespace Generic_Move_Order.Frm_Role
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 

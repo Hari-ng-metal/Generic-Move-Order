@@ -25,6 +25,10 @@ namespace Generic_Move_Order.Frm_Receiving
         {
             GetMasterlist();
             EditItem();
+
+            cb_code.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_code.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_code.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
         private void EditItem()
         {
@@ -93,9 +97,42 @@ namespace Generic_Move_Order.Frm_Receiving
 
                 MessageBox.Show("" + ex.Message);
             }
+        }
 
+        public void GetUOMbyItemCode()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetMasterlistById", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@code", cb_code.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_module.DataSource = dt;
+            connect.con.Close();
 
+            try
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    //MessageBox.Show("" + dt.Rows[0]["item_description"]);
+                    label_id.Text = dt.Rows[0]["int"].ToString();
+                    text_desc.Text = dt.Rows[0]["item_description"].ToString();
+                    text_uom.Text = dt.Rows[0]["uom"].ToString();
+                }
+                else
+                {
+                    //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    text_desc.Clear();
+                    text_uom.Clear();
+                    label_id.Text = "0";
+                    cb_code.Focus();
+                }
+            }
+            catch (Exception)
+            {
 
+            }
         }
 
         private void text_qty_KeyPress(object sender, KeyPressEventArgs e)
@@ -132,7 +169,8 @@ namespace Generic_Move_Order.Frm_Receiving
            frm.dt_receiving.Rows[edit_receiving_item.index].Cells[0].Value = label_id.Text;
            frm.dt_receiving.Rows[edit_receiving_item.index].Cells[1].Value = cb_code.Text;
            frm.dt_receiving.Rows[edit_receiving_item.index].Cells[2].Value = text_desc.Text;
-           frm.dt_receiving.Rows[edit_receiving_item.index].Cells[3].Value = text_qty.Text;
+            frm.dt_receiving.Rows[edit_receiving_item.index].Cells[3].Value = text_uom.Text;
+            frm.dt_receiving.Rows[edit_receiving_item.index].Cells[4].Value = text_qty.Text;
 
             this.Close();
         }
@@ -151,6 +189,7 @@ namespace Generic_Move_Order.Frm_Receiving
                 if (int.Parse(label_id.Text.ToString()) > 0)
                 {
                     UpdateItem();
+                    frm.dt_receiving.ClearSelection();
                 }
                 else
                 {
@@ -162,6 +201,15 @@ namespace Generic_Move_Order.Frm_Receiving
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cb_code_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_code.SelectedIndex >= 0)
+            {
+                text_desc.Text = cb_code.SelectedValue.ToString();
+                GetUOMbyItemCode();
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Generic_Move_Order.Frm_Receiving
         {
             ShowReceiveDetails();
             label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_receiving.RowCount);
+            HeaderName();
         }
 
         private void ShowReceiveDetails()
@@ -66,6 +67,17 @@ namespace Generic_Move_Order.Frm_Receiving
 
             Frm_Printing.Frm_Printing frm = new Frm_Printing.Frm_Printing();
             frm.ShowDialog();
+        }
+
+        private void HeaderName()
+        {
+            dt_receiving.Columns["item_code"].HeaderText = "Item Code";
+            dt_receiving.Columns["item_description"].HeaderText = "Item Description";
+            dt_receiving.Columns["uom"].HeaderText = "UOM";
+            dt_receiving.Columns["quantity"].HeaderText = "Quantity";
+
+            dt_receiving.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_receiving.EnableHeadersVisualStyles = false;
         }
     }
 }

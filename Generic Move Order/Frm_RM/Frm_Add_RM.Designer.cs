@@ -29,6 +29,7 @@ namespace Generic_Move_Order.Frm_RM
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Add_RM));
             this.cb_status = new System.Windows.Forms.ComboBox();
             this.text_desc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,25 +58,26 @@ namespace Generic_Move_Order.Frm_RM
             this.cb_status.Items.AddRange(new object[] {
             "Active",
             "inActive"});
-            this.cb_status.Location = new System.Drawing.Point(522, 93);
+            this.cb_status.Location = new System.Drawing.Point(495, 93);
             this.cb_status.Name = "cb_status";
-            this.cb_status.Size = new System.Drawing.Size(167, 24);
+            this.cb_status.Size = new System.Drawing.Size(158, 24);
             this.cb_status.TabIndex = 12;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
             this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
             // 
             // text_desc
             // 
-            this.text_desc.Location = new System.Drawing.Point(522, 3);
+            this.text_desc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_desc.Location = new System.Drawing.Point(495, 3);
             this.text_desc.Name = "text_desc";
-            this.text_desc.Size = new System.Drawing.Size(167, 22);
+            this.text_desc.Size = new System.Drawing.Size(158, 22);
             this.text_desc.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(95, 0);
+            this.label1.Location = new System.Drawing.Point(86, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 45);
             this.label1.TabIndex = 0;
@@ -85,7 +87,7 @@ namespace Generic_Move_Order.Frm_RM
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(126, 45);
+            this.label2.Location = new System.Drawing.Point(117, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 45);
             this.label2.TabIndex = 1;
@@ -95,17 +97,17 @@ namespace Generic_Move_Order.Frm_RM
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(447, 45);
+            this.label5.Location = new System.Drawing.Point(367, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 45);
+            this.label5.Size = new System.Drawing.Size(122, 45);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Category:";
+            this.label5.Text = "Product Category:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(403, 0);
+            this.label4.Location = new System.Drawing.Point(376, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 45);
             this.label4.TabIndex = 3;
@@ -113,17 +115,19 @@ namespace Generic_Move_Order.Frm_RM
             // 
             // text_code
             // 
-            this.text_code.Location = new System.Drawing.Point(176, 3);
+            this.text_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_code.Location = new System.Drawing.Point(167, 3);
             this.text_code.Name = "text_code";
-            this.text_code.Size = new System.Drawing.Size(167, 22);
+            this.text_code.Size = new System.Drawing.Size(158, 22);
             this.text_code.TabIndex = 6;
+            this.text_code.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_code_KeyPress);
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cancel.Location = new System.Drawing.Point(522, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(495, 138);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
             this.btn_cancel.TabIndex = 6;
@@ -133,11 +137,11 @@ namespace Generic_Move_Order.Frm_RM
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save.Location = new System.Drawing.Point(411, 138);
+            this.btn_save.Location = new System.Drawing.Point(384, 138);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
             this.btn_save.TabIndex = 7;
@@ -149,7 +153,7 @@ namespace Generic_Move_Order.Frm_RM
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Location = new System.Drawing.Point(464, 90);
+            this.label6.Location = new System.Drawing.Point(437, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 45);
             this.label6.TabIndex = 11;
@@ -168,7 +172,7 @@ namespace Generic_Move_Order.Frm_RM
             // label_uom
             // 
             this.label_uom.AutoSize = true;
-            this.label_uom.Location = new System.Drawing.Point(176, 135);
+            this.label_uom.Location = new System.Drawing.Point(167, 135);
             this.label_uom.Name = "label_uom";
             this.label_uom.Size = new System.Drawing.Size(46, 17);
             this.label_uom.TabIndex = 14;
@@ -177,11 +181,12 @@ namespace Generic_Move_Order.Frm_RM
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel1.Controls.Add(this.text_desc, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cb_status, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -211,9 +216,9 @@ namespace Generic_Move_Order.Frm_RM
             // cb_category
             // 
             this.cb_category.FormattingEnabled = true;
-            this.cb_category.Location = new System.Drawing.Point(522, 48);
+            this.cb_category.Location = new System.Drawing.Point(495, 48);
             this.cb_category.Name = "cb_category";
-            this.cb_category.Size = new System.Drawing.Size(167, 24);
+            this.cb_category.Size = new System.Drawing.Size(158, 24);
             this.cb_category.TabIndex = 9;
             this.cb_category.SelectedIndexChanged += new System.EventHandler(this.cb_category_SelectedIndexChanged);
             this.cb_category.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_category_KeyPress);
@@ -221,9 +226,9 @@ namespace Generic_Move_Order.Frm_RM
             // cb_uom
             // 
             this.cb_uom.FormattingEnabled = true;
-            this.cb_uom.Location = new System.Drawing.Point(176, 48);
+            this.cb_uom.Location = new System.Drawing.Point(167, 48);
             this.cb_uom.Name = "cb_uom";
-            this.cb_uom.Size = new System.Drawing.Size(167, 24);
+            this.cb_uom.Size = new System.Drawing.Size(158, 24);
             this.cb_uom.TabIndex = 8;
             this.cb_uom.SelectedIndexChanged += new System.EventHandler(this.cb_uom_SelectedIndexChanged);
             this.cb_uom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_uom_KeyDown);
@@ -251,7 +256,7 @@ namespace Generic_Move_Order.Frm_RM
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -268,11 +273,12 @@ namespace Generic_Move_Order.Frm_RM
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Add_RM";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Frm_Add_RM";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "RM Form";
             this.Load += new System.EventHandler(this.Frm_Add_RM_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

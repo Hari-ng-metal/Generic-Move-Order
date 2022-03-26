@@ -25,13 +25,14 @@ namespace Generic_Move_Order.Frm_Category
         {
             cb_status.SelectedIndex = 0;
             btn_edit.Enabled = false;
+            HeaderName();
 
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
             edit_category.id = 0;
-            Frm_Add_Category frm = new Frm_Add_Category();
+            Frm_Add_Category frm = new Frm_Add_Category(this);
             frm.ShowDialog();
             btn_edit.Enabled = false;
         }
@@ -48,6 +49,22 @@ namespace Generic_Move_Order.Frm_Category
             SqlCommand cmd = new SqlCommand("SP_GetCategory", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_category.DataSource = dt;
+            connect.con.Close();
+
+            dt_category.ReadOnly = true;
+        }
+
+        public void GetCategoryBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetCategoryBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             dt_category.DataSource = dt;
@@ -90,7 +107,7 @@ namespace Generic_Move_Order.Frm_Category
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            Frm_Add_Category frm = new Frm_Add_Category();
+            Frm_Add_Category frm = new Frm_Add_Category(this);
             frm.ShowDialog();
         }
 
@@ -99,35 +116,34 @@ namespace Generic_Move_Order.Frm_Category
             e.Handled = true;
         }
 
-        //private void search()
-        //{
-        //    string searchValue = textBox1.Text;
-        //    try
-        //    {
-        //        var re = from row in dt.AsEnumerable()
-        //                 where row[1].ToString().Contains(searchValue)
-        //                 select row;
-        //        if (re.Count() == 0)
-        //        {
-        //            MessageBox.Show("No data found!", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //        }
-        //        else
-        //        {
-        //            dt_category.DataSource = re.CopyToDataTable();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 //search();
+                GetCategoryBySearch();
             }
+        }
+
+        private void HeaderName()
+        {
+            dt_category.Columns["id"].HeaderText = "Id";
+            dt_category.Columns["category"].HeaderText = "Category";
+            dt_category.Columns["status"].HeaderText = "Status";
+            dt_category.Columns["date_added"].HeaderText = "Date Added";
+
+            dt_category.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_category.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_category_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_category.ClearSelection();
+
+            btn_edit.Enabled = false;
+
+            label_role_counting.Text = "TOTAL # OF CATEGORY/S: " + (dt_category.RowCount);
         }
     }
 }

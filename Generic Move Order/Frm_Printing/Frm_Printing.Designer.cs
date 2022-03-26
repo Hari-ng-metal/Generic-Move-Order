@@ -42,6 +42,7 @@ namespace Generic_Move_Order.Frm_Printing
             this.crv_report.Name = "crv_report";
             this.crv_report.Size = new System.Drawing.Size(800, 450);
             this.crv_report.TabIndex = 0;
+            this.crv_report.KeyDown += new System.Windows.Forms.KeyEventHandler(this.crv_report_KeyDown);
             // 
             // Frm_Printing
             // 
@@ -56,6 +57,7 @@ namespace Generic_Move_Order.Frm_Printing
             this.Text = "Frm_Printing";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_Printing_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_Printing_KeyDown);
             this.ResumeLayout(false);
 
         }

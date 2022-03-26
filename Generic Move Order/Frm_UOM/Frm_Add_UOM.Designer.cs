@@ -29,6 +29,7 @@ namespace Generic_Move_Order.Frm_UOM
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Add_UOM));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label_category = new System.Windows.Forms.Label();
@@ -41,13 +42,15 @@ namespace Generic_Move_Order.Frm_UOM
             this.label_status = new System.Windows.Forms.Label();
             this.label_uom = new System.Windows.Forms.Label();
             this.cb_status = new System.Windows.Forms.ComboBox();
+            this.text_uom_desc = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -76,11 +79,12 @@ namespace Generic_Move_Order.Frm_UOM
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_uom, 1, 0);
@@ -89,6 +93,8 @@ namespace Generic_Move_Order.Frm_UOM
             this.tableLayoutPanel1.Controls.Add(this.label_status, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label_uom, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.cb_status, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.text_uom_desc, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -105,7 +111,7 @@ namespace Generic_Move_Order.Frm_UOM
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(126, 0);
+            this.label1.Location = new System.Drawing.Point(116, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 45);
             this.label1.TabIndex = 0;
@@ -115,7 +121,7 @@ namespace Generic_Move_Order.Frm_UOM
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(464, 0);
+            this.label4.Location = new System.Drawing.Point(434, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 45);
             this.label4.TabIndex = 3;
@@ -123,17 +129,18 @@ namespace Generic_Move_Order.Frm_UOM
             // 
             // text_uom
             // 
-            this.text_uom.Location = new System.Drawing.Point(176, 3);
+            this.text_uom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_uom.Location = new System.Drawing.Point(166, 3);
             this.text_uom.Name = "text_uom";
-            this.text_uom.Size = new System.Drawing.Size(167, 22);
+            this.text_uom.Size = new System.Drawing.Size(157, 22);
             this.text_uom.TabIndex = 6;
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cancel.Location = new System.Drawing.Point(522, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(492, 138);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
             this.btn_cancel.TabIndex = 6;
@@ -143,11 +150,11 @@ namespace Generic_Move_Order.Frm_UOM
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save.Location = new System.Drawing.Point(411, 138);
+            this.btn_save.Location = new System.Drawing.Point(381, 138);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
             this.btn_save.TabIndex = 7;
@@ -168,7 +175,7 @@ namespace Generic_Move_Order.Frm_UOM
             // label_uom
             // 
             this.label_uom.AutoSize = true;
-            this.label_uom.Location = new System.Drawing.Point(176, 135);
+            this.label_uom.Location = new System.Drawing.Point(166, 135);
             this.label_uom.Name = "label_uom";
             this.label_uom.Size = new System.Drawing.Size(46, 17);
             this.label_uom.TabIndex = 14;
@@ -181,12 +188,30 @@ namespace Generic_Move_Order.Frm_UOM
             this.cb_status.Items.AddRange(new object[] {
             "Active",
             "inActive"});
-            this.cb_status.Location = new System.Drawing.Point(522, 3);
+            this.cb_status.Location = new System.Drawing.Point(492, 3);
             this.cb_status.Name = "cb_status";
-            this.cb_status.Size = new System.Drawing.Size(167, 24);
+            this.cb_status.Size = new System.Drawing.Size(157, 24);
             this.cb_status.TabIndex = 12;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
             this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
+            // 
+            // text_uom_desc
+            // 
+            this.text_uom_desc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_uom_desc.Location = new System.Drawing.Point(166, 48);
+            this.text_uom_desc.Name = "text_uom_desc";
+            this.text_uom_desc.Size = new System.Drawing.Size(157, 22);
+            this.text_uom_desc.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Location = new System.Drawing.Point(77, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 45);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Description:";
             // 
             // Frm_Add_UOM
             // 
@@ -198,11 +223,12 @@ namespace Generic_Move_Order.Frm_UOM
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Add_UOM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Frm_Add_UOM";
+            this.Text = "UOM Form";
             this.Load += new System.EventHandler(this.Frm_Add_UOM_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -226,5 +252,7 @@ namespace Generic_Move_Order.Frm_UOM
         private System.Windows.Forms.Label label_status;
         private System.Windows.Forms.Label label_uom;
         private System.Windows.Forms.ComboBox cb_status;
+        private System.Windows.Forms.TextBox text_uom_desc;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -15,9 +15,11 @@ namespace Generic_Move_Order.Frm_Supplier
     {
         Connection connect = new Connection();
         bool status;
-        public Frm_Add_Supplier()
+        Frm_Supplier frm;
+        public Frm_Add_Supplier(Frm_Supplier _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void Frm_Add_Supplier_Load(object sender, EventArgs e)
@@ -117,6 +119,8 @@ namespace Generic_Move_Order.Frm_Supplier
                     CheckIfItemExist();
                 }
 
+                frm.GetSupplier();
+                frm.dt_supplier.ClearSelection();
 
             }
             if (res == DialogResult.No)
@@ -148,6 +152,7 @@ namespace Generic_Move_Order.Frm_Supplier
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 

@@ -25,13 +25,25 @@ namespace Generic_Move_Order.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\VCANDA\\Documents\\Report")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Report")]
         public string report {
             get {
                 return ((string)(this["report"]));
             }
             set {
                 this["report"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Report")]
+        public string reports {
+            get {
+                return ((string)(this["reports"]));
+            }
+            set {
+                this["reports"] = value;
             }
         }
     }

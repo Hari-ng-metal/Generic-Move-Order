@@ -3,7 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="report" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\VCANDA\Documents\Report</Value>
+      <Value Profile="(Default)">C:\Report</Value>
+    </Setting>
+    <Setting Name="reports" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Report</Value>
     </Setting>
   </Settings>
 </SettingsFile>

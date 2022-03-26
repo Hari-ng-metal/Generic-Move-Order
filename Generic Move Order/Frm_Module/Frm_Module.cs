@@ -23,7 +23,7 @@ namespace Generic_Move_Order.Frm_Module
         private void btn_new_Click(object sender, EventArgs e)
         {
             edit_module.id = 0;
-            Frm_Add_Module frm = new Frm_Add_Module();
+            Frm_Add_Module frm = new Frm_Add_Module(this);
             frm.ShowDialog();
             btn_edit.Enabled = false;
         }
@@ -44,8 +44,23 @@ namespace Generic_Move_Order.Frm_Module
             dt.Load(cmd.ExecuteReader());
             dt_module.DataSource = dt;
             connect.con.Close();
+
+            dt_module.ReadOnly = true;
         }
 
+        public void GetModuleBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetModuleBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_module.DataSource = dt;
+            connect.con.Close();
+        }
         private void cb_status_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_status.Text == "Active")
@@ -64,6 +79,7 @@ namespace Generic_Move_Order.Frm_Module
         {
             cb_status.SelectedIndex = 0;
             btn_edit.Enabled = false;
+            HeaderName();
         }
 
         private void dt_module_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,13 +105,41 @@ namespace Generic_Move_Order.Frm_Module
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            Frm_Add_Module frm = new Frm_Add_Module();
+            Frm_Add_Module frm = new Frm_Add_Module(this);
             frm.ShowDialog();
         }
 
         private void cb_status_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetModuleBySearch();
+            }
+        }
+        private void HeaderName()
+        {
+            dt_module.Columns["id"].HeaderText = "Id";
+            dt_module.Columns["module_name"].HeaderText = "Module Name";
+            dt_module.Columns["path_name"].HeaderText = "Module Path";
+            dt_module.Columns["status"].HeaderText = "Status";
+            dt_module.Columns["date_added"].HeaderText = "Date Added";
+
+            dt_module.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_module.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_module_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_module.ClearSelection();
+
+            btn_edit.Enabled = false;
+
+            label_role_counting.Text = "TOTAL # OF MODULE/S: " + (dt_module.RowCount);
         }
     }
 }

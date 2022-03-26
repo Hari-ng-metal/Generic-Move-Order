@@ -24,6 +24,7 @@ namespace Generic_Move_Order.Frm_Inventory
         private void Frm_MRP_Load(object sender, EventArgs e)
         {
             cb_status.SelectedIndex = 0;
+            DatagridHeader();
         }
         public void GetMRP()
         {
@@ -32,6 +33,23 @@ namespace Generic_Move_Order.Frm_Inventory
             SqlCommand cmd = new SqlCommand("SP_GetMRP", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_mrp.DataSource = dt;
+            connect.con.Close();
+
+            dt_mrp.Columns["status"].Visible = false;
+            dt_mrp.ReadOnly = true;
+        }
+
+        public void GetMRPByName()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetMRPbyName", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             dt_mrp.DataSource = dt;
@@ -63,8 +81,40 @@ namespace Generic_Move_Order.Frm_Inventory
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //search();
+                GetMRPByName();
             }
+        }
+
+        private void DatagridHeader()
+        {
+            dt_mrp.Columns["int"].HeaderText = "Id";
+            dt_mrp.Columns["item_code"].HeaderText = "Item Code";
+            dt_mrp.Columns["item_description"].HeaderText = "Item Description";
+            dt_mrp.Columns["uom"].HeaderText = "UOM";
+            dt_mrp.Columns["category"].HeaderText = "Category";
+            dt_mrp.Columns["status"].HeaderText = "Status";
+            dt_mrp.Columns["received"].HeaderText = "Received";
+            dt_mrp.Columns["move_order"].HeaderText = "Move Order";
+            dt_mrp.Columns["stock"].HeaderText = "Stock";
+            dt_mrp.Columns["product_category"].HeaderText = "Product Category";
+            dt_mrp.Columns["receipt"].HeaderText = "Receipt";
+            dt_mrp.Columns["issue"].HeaderText = "Issue";
+            dt_mrp.Columns["reserve"].HeaderText = "Reserve";
+            dt_mrp.Columns["transat_move_order"].HeaderText = "Transact Move Order";
+
+            dt_mrp.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_mrp.EnableHeadersVisualStyles = false;
+
+        }
+
+        private void cb_status_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void dt_mrp_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_mrp.ClearSelection();
         }
 
         //private void search()

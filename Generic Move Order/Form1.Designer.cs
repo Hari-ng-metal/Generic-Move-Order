@@ -29,6 +29,7 @@ namespace Generic_Move_Order
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Main));
             this.panel_side = new System.Windows.Forms.Panel();
             this.panel_menu = new System.Windows.Forms.Panel();
             this.menuStrip6 = new System.Windows.Forms.MenuStrip();
@@ -44,14 +45,19 @@ namespace Generic_Move_Order
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
+            this.prodictCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactedMoveOrderHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousIssueHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousReceiptHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactMoveOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,13 +65,19 @@ namespace Generic_Move_Order
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip7 = new System.Windows.Forms.MenuStrip();
+            this.miscellaneousReceiptToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousIssueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaeousReceiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miscellaneousIssueRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.micellaneousReceiptRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_logo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_top = new System.Windows.Forms.Panel();
             this.label_user = new System.Windows.Forms.Label();
+            this.pb_menu = new System.Windows.Forms.PictureBox();
             this.panel_bot = new System.Windows.Forms.Panel();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.pb_menu = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_side.SuspendLayout();
             this.panel_menu.SuspendLayout();
             this.menuStrip6.SuspendLayout();
@@ -74,10 +86,11 @@ namespace Generic_Move_Order
             this.menuStrip3.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.menuStrip7.SuspendLayout();
             this.panel_logo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_menu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_side
@@ -92,13 +105,14 @@ namespace Generic_Move_Order
             // 
             // panel_menu
             // 
-            this.panel_menu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_menu.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel_menu.Controls.Add(this.menuStrip6);
             this.panel_menu.Controls.Add(this.menuStrip5);
             this.panel_menu.Controls.Add(this.menuStrip4);
             this.panel_menu.Controls.Add(this.menuStrip3);
             this.panel_menu.Controls.Add(this.menuStrip2);
             this.panel_menu.Controls.Add(this.menuStrip1);
+            this.panel_menu.Controls.Add(this.menuStrip7);
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_menu.Location = new System.Drawing.Point(0, 122);
             this.panel_menu.Name = "panel_menu";
@@ -107,13 +121,13 @@ namespace Generic_Move_Order
             // 
             // menuStrip6
             // 
-            this.menuStrip6.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip6.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.menuStrip6.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem21});
-            this.menuStrip6.Location = new System.Drawing.Point(0, 150);
+            this.menuStrip6.Location = new System.Drawing.Point(0, 168);
             this.menuStrip6.Name = "menuStrip6";
-            this.menuStrip6.Size = new System.Drawing.Size(200, 30);
+            this.menuStrip6.Size = new System.Drawing.Size(200, 28);
             this.menuStrip6.TabIndex = 9;
             this.menuStrip6.Text = "menuStrip10";
             // 
@@ -123,12 +137,15 @@ namespace Generic_Move_Order
             this.toolStripMenuItem22,
             this.toolStripMenuItem23,
             this.toolStripMenuItem24});
+            this.toolStripMenuItem21.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(144, 26);
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(144, 24);
             this.toolStripMenuItem21.Text = "User Management";
             // 
             // toolStripMenuItem22
             // 
+            this.toolStripMenuItem22.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem22.Name = "toolStripMenuItem22";
             this.toolStripMenuItem22.Size = new System.Drawing.Size(179, 26);
             this.toolStripMenuItem22.Text = "User Account";
@@ -136,6 +153,8 @@ namespace Generic_Move_Order
             // 
             // toolStripMenuItem23
             // 
+            this.toolStripMenuItem23.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem23.Name = "toolStripMenuItem23";
             this.toolStripMenuItem23.Size = new System.Drawing.Size(179, 26);
             this.toolStripMenuItem23.Text = "User Role";
@@ -143,6 +162,8 @@ namespace Generic_Move_Order
             // 
             // toolStripMenuItem24
             // 
+            this.toolStripMenuItem24.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem24.Name = "toolStripMenuItem24";
             this.toolStripMenuItem24.Size = new System.Drawing.Size(179, 26);
             this.toolStripMenuItem24.Text = "Module";
@@ -150,13 +171,13 @@ namespace Generic_Move_Order
             // 
             // menuStrip5
             // 
-            this.menuStrip5.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.menuStrip5.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem14});
-            this.menuStrip5.Location = new System.Drawing.Point(0, 120);
+            this.menuStrip5.Location = new System.Drawing.Point(0, 140);
             this.menuStrip5.Name = "menuStrip5";
-            this.menuStrip5.Size = new System.Drawing.Size(200, 30);
+            this.menuStrip5.Size = new System.Drawing.Size(200, 28);
             this.menuStrip5.TabIndex = 8;
             this.menuStrip5.Text = "menuStrip9";
             // 
@@ -168,77 +189,105 @@ namespace Generic_Move_Order
             this.toolStripMenuItem17,
             this.toolStripMenuItem18,
             this.toolStripMenuItem19,
-            this.toolStripMenuItem20});
+            this.toolStripMenuItem20,
+            this.prodictCategoryToolStripMenuItem});
+            this.toolStripMenuItem14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(61, 26);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(61, 24);
             this.toolStripMenuItem14.Text = "Setup";
             // 
             // toolStripMenuItem15
             // 
+            this.toolStripMenuItem15.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(172, 26);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(207, 26);
             this.toolStripMenuItem15.Text = "Master Item";
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
             // toolStripMenuItem16
             // 
+            this.toolStripMenuItem16.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(172, 26);
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(207, 26);
             this.toolStripMenuItem16.Text = "Customer";
             this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
             // 
             // toolStripMenuItem17
             // 
+            this.toolStripMenuItem17.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(172, 26);
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(207, 26);
             this.toolStripMenuItem17.Text = "Supplier";
             this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
             // 
             // toolStripMenuItem18
             // 
+            this.toolStripMenuItem18.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(172, 26);
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(207, 26);
             this.toolStripMenuItem18.Text = "UOM";
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
             // toolStripMenuItem19
             // 
+            this.toolStripMenuItem19.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(172, 26);
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(207, 26);
             this.toolStripMenuItem19.Text = "Category";
             this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
             // 
             // toolStripMenuItem20
             // 
+            this.toolStripMenuItem20.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(172, 26);
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(207, 26);
             this.toolStripMenuItem20.Text = "Department";
             this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
             // 
+            // prodictCategoryToolStripMenuItem
+            // 
+            this.prodictCategoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.prodictCategoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.prodictCategoryToolStripMenuItem.Name = "prodictCategoryToolStripMenuItem";
+            this.prodictCategoryToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.prodictCategoryToolStripMenuItem.Text = "Product Category";
+            this.prodictCategoryToolStripMenuItem.Click += new System.EventHandler(this.prodictCategoryToolStripMenuItem_Click);
+            // 
             // menuStrip4
             // 
-            this.menuStrip4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.menuStrip4.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem11});
-            this.menuStrip4.Location = new System.Drawing.Point(0, 90);
+            this.menuStrip4.Location = new System.Drawing.Point(0, 112);
             this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(200, 30);
+            this.menuStrip4.Size = new System.Drawing.Size(200, 28);
             this.menuStrip4.TabIndex = 7;
             this.menuStrip4.Text = "menuStrip8";
             // 
             // toolStripMenuItem11
             // 
-            this.toolStripMenuItem11.BackColor = System.Drawing.SystemColors.ControlDark;
             this.toolStripMenuItem11.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem12,
-            this.toolStripMenuItem13});
+            this.toolStripMenuItem13,
+            this.transactedMoveOrderHistoryToolStripMenuItem,
+            this.miscellaneousIssueHistoryToolStripMenuItem,
+            this.miscellaneousReceiptHistoryToolStripMenuItem});
+            this.toolStripMenuItem11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(74, 26);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(74, 24);
             this.toolStripMenuItem11.Text = "Reports";
             // 
             // toolStripMenuItem12
             // 
+            this.toolStripMenuItem12.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             this.toolStripMenuItem12.Size = new System.Drawing.Size(301, 26);
             this.toolStripMenuItem12.Text = "Receiving Transaction History";
@@ -246,56 +295,99 @@ namespace Generic_Move_Order
             // 
             // toolStripMenuItem13
             // 
+            this.toolStripMenuItem13.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
             this.toolStripMenuItem13.Size = new System.Drawing.Size(301, 26);
             this.toolStripMenuItem13.Text = "Move Order Transaction History";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
+            // transactedMoveOrderHistoryToolStripMenuItem
+            // 
+            this.transactedMoveOrderHistoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.transactedMoveOrderHistoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.transactedMoveOrderHistoryToolStripMenuItem.Name = "transactedMoveOrderHistoryToolStripMenuItem";
+            this.transactedMoveOrderHistoryToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.transactedMoveOrderHistoryToolStripMenuItem.Text = "Transacted Move Order History";
+            this.transactedMoveOrderHistoryToolStripMenuItem.Click += new System.EventHandler(this.transactedMoveOrderHistoryToolStripMenuItem_Click);
+            // 
+            // miscellaneousIssueHistoryToolStripMenuItem
+            // 
+            this.miscellaneousIssueHistoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.miscellaneousIssueHistoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.miscellaneousIssueHistoryToolStripMenuItem.Name = "miscellaneousIssueHistoryToolStripMenuItem";
+            this.miscellaneousIssueHistoryToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.miscellaneousIssueHistoryToolStripMenuItem.Text = "Miscellaneous Issue History";
+            this.miscellaneousIssueHistoryToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousIssueHistoryToolStripMenuItem_Click);
+            // 
+            // miscellaneousReceiptHistoryToolStripMenuItem
+            // 
+            this.miscellaneousReceiptHistoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.miscellaneousReceiptHistoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.miscellaneousReceiptHistoryToolStripMenuItem.Name = "miscellaneousReceiptHistoryToolStripMenuItem";
+            this.miscellaneousReceiptHistoryToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.miscellaneousReceiptHistoryToolStripMenuItem.Text = "Miscellaneous Receipt History";
+            this.miscellaneousReceiptHistoryToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousReceiptHistoryToolStripMenuItem_Click);
+            // 
             // menuStrip3
             // 
-            this.menuStrip3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.menuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem8});
-            this.menuStrip3.Location = new System.Drawing.Point(0, 60);
+            this.menuStrip3.Location = new System.Drawing.Point(0, 84);
             this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(200, 30);
+            this.menuStrip3.Size = new System.Drawing.Size(200, 28);
             this.menuStrip3.TabIndex = 6;
             this.menuStrip3.Text = "menuStrip7";
             // 
             // toolStripMenuItem8
             // 
-            this.toolStripMenuItem8.BackColor = System.Drawing.SystemColors.ControlDark;
             this.toolStripMenuItem8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem9,
-            this.toolStripMenuItem10});
+            this.toolStripMenuItem10,
+            this.transactMoveOrderToolStripMenuItem});
+            this.toolStripMenuItem8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(108, 26);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(108, 24);
             this.toolStripMenuItem8.Text = "Move Orders";
             // 
             // toolStripMenuItem9
             // 
+            this.toolStripMenuItem9.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(228, 26);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(229, 26);
             this.toolStripMenuItem9.Text = "Move Order";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem10
             // 
+            this.toolStripMenuItem10.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(228, 26);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(229, 26);
             this.toolStripMenuItem10.Text = "Move Order Records";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
+            // transactMoveOrderToolStripMenuItem
+            // 
+            this.transactMoveOrderToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.transactMoveOrderToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.transactMoveOrderToolStripMenuItem.Name = "transactMoveOrderToolStripMenuItem";
+            this.transactMoveOrderToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.transactMoveOrderToolStripMenuItem.Text = "Transact Move Order";
+            this.transactMoveOrderToolStripMenuItem.Click += new System.EventHandler(this.transactMoveOrderToolStripMenuItem_Click);
+            // 
             // menuStrip2
             // 
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem6});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 30);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 56);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(200, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(200, 28);
             this.menuStrip2.TabIndex = 5;
             this.menuStrip2.Text = "menuStrip6";
             // 
@@ -304,12 +396,15 @@ namespace Generic_Move_Order
             this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem7,
             this.receiveOrderRecordsToolStripMenuItem});
+            this.toolStripMenuItem6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(87, 26);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(87, 24);
             this.toolStripMenuItem6.Text = "Receiving";
             // 
             // toolStripMenuItem7
             // 
+            this.toolStripMenuItem7.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(242, 26);
             this.toolStripMenuItem7.Text = "Receive Order";
@@ -317,6 +412,8 @@ namespace Generic_Move_Order
             // 
             // receiveOrderRecordsToolStripMenuItem
             // 
+            this.receiveOrderRecordsToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.receiveOrderRecordsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.receiveOrderRecordsToolStripMenuItem.Name = "receiveOrderRecordsToolStripMenuItem";
             this.receiveOrderRecordsToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.receiveOrderRecordsToolStripMenuItem.Text = "Receive Order Records";
@@ -324,13 +421,13 @@ namespace Generic_Move_Order
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 28);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(200, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(200, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip5";
             // 
@@ -338,16 +435,82 @@ namespace Generic_Move_Order
             // 
             this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5});
+            this.toolStripMenuItem4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(84, 26);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(84, 24);
             this.toolStripMenuItem4.Text = "Inventory";
             // 
             // toolStripMenuItem5
             // 
+            this.toolStripMenuItem5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(122, 26);
             this.toolStripMenuItem5.Text = "MRP";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // menuStrip7
+            // 
+            this.menuStrip7.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.menuStrip7.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip7.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miscellaneousReceiptToolStripMenuItem1});
+            this.menuStrip7.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip7.Name = "menuStrip7";
+            this.menuStrip7.Size = new System.Drawing.Size(200, 28);
+            this.menuStrip7.TabIndex = 10;
+            this.menuStrip7.Text = "menuStrip7";
+            // 
+            // miscellaneousReceiptToolStripMenuItem1
+            // 
+            this.miscellaneousReceiptToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miscellaneousIssueToolStripMenuItem1,
+            this.miscellaeousReceiptToolStripMenuItem,
+            this.miscellaneousIssueRecordToolStripMenuItem,
+            this.micellaneousReceiptRecordToolStripMenuItem});
+            this.miscellaneousReceiptToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.miscellaneousReceiptToolStripMenuItem1.Name = "miscellaneousReceiptToolStripMenuItem1";
+            this.miscellaneousReceiptToolStripMenuItem1.Size = new System.Drawing.Size(116, 24);
+            this.miscellaneousReceiptToolStripMenuItem1.Text = "Miscellaneous";
+            this.miscellaneousReceiptToolStripMenuItem1.Click += new System.EventHandler(this.miscellaneousReceiptToolStripMenuItem1_Click);
+            this.miscellaneousReceiptToolStripMenuItem1.MouseLeave += new System.EventHandler(this.miscellaneousReceiptToolStripMenuItem1_MouseLeave);
+            this.miscellaneousReceiptToolStripMenuItem1.MouseHover += new System.EventHandler(this.miscellaneousReceiptToolStripMenuItem1_MouseHover);
+            // 
+            // miscellaneousIssueToolStripMenuItem1
+            // 
+            this.miscellaneousIssueToolStripMenuItem1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.miscellaneousIssueToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.miscellaneousIssueToolStripMenuItem1.Name = "miscellaneousIssueToolStripMenuItem1";
+            this.miscellaneousIssueToolStripMenuItem1.Size = new System.Drawing.Size(284, 26);
+            this.miscellaneousIssueToolStripMenuItem1.Text = "Miscellaneous Issue";
+            this.miscellaneousIssueToolStripMenuItem1.Click += new System.EventHandler(this.miscellaneousIssueToolStripMenuItem1_Click);
+            // 
+            // miscellaeousReceiptToolStripMenuItem
+            // 
+            this.miscellaeousReceiptToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.miscellaeousReceiptToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.miscellaeousReceiptToolStripMenuItem.Name = "miscellaeousReceiptToolStripMenuItem";
+            this.miscellaeousReceiptToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
+            this.miscellaeousReceiptToolStripMenuItem.Text = "Miscellaeous Receipt";
+            this.miscellaeousReceiptToolStripMenuItem.Click += new System.EventHandler(this.miscellaeousReceiptToolStripMenuItem_Click);
+            // 
+            // miscellaneousIssueRecordToolStripMenuItem
+            // 
+            this.miscellaneousIssueRecordToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.miscellaneousIssueRecordToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.miscellaneousIssueRecordToolStripMenuItem.Name = "miscellaneousIssueRecordToolStripMenuItem";
+            this.miscellaneousIssueRecordToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
+            this.miscellaneousIssueRecordToolStripMenuItem.Text = "Miscellaneous Issue Record";
+            this.miscellaneousIssueRecordToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousIssueRecordToolStripMenuItem_Click);
+            // 
+            // micellaneousReceiptRecordToolStripMenuItem
+            // 
+            this.micellaneousReceiptRecordToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.micellaneousReceiptRecordToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.micellaneousReceiptRecordToolStripMenuItem.Name = "micellaneousReceiptRecordToolStripMenuItem";
+            this.micellaneousReceiptRecordToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
+            this.micellaneousReceiptRecordToolStripMenuItem.Text = "Micellaneous Receipt Record";
+            this.micellaneousReceiptRecordToolStripMenuItem.Click += new System.EventHandler(this.micellaneousReceiptRecordToolStripMenuItem_Click);
             // 
             // panel_logo
             // 
@@ -359,9 +522,21 @@ namespace Generic_Move_Order
             this.panel_logo.Size = new System.Drawing.Size(200, 122);
             this.panel_logo.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Generic_Move_Order.Properties.Resources._22;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 122);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel_top
             // 
-            this.panel_top.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_top.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel_top.Controls.Add(this.label_user);
             this.panel_top.Controls.Add(this.pb_menu);
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
@@ -374,16 +549,30 @@ namespace Generic_Move_Order
             // 
             this.label_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_user.AutoSize = true;
-            this.label_user.Location = new System.Drawing.Point(679, 22);
+            this.label_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_user.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label_user.Location = new System.Drawing.Point(648, 22);
             this.label_user.Name = "label_user";
-            this.label_user.Size = new System.Drawing.Size(74, 17);
+            this.label_user.Size = new System.Drawing.Size(83, 17);
             this.label_user.TabIndex = 26;
             this.label_user.Text = "Welcome, ";
             this.label_user.Click += new System.EventHandler(this.label_user_Click);
             // 
+            // pb_menu
+            // 
+            this.pb_menu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pb_menu.Image = global::Generic_Move_Order.Properties.Resources.menu_32px;
+            this.pb_menu.Location = new System.Drawing.Point(0, 0);
+            this.pb_menu.Name = "pb_menu";
+            this.pb_menu.Size = new System.Drawing.Size(56, 60);
+            this.pb_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_menu.TabIndex = 25;
+            this.pb_menu.TabStop = false;
+            this.pb_menu.Click += new System.EventHandler(this.pb_menu_Click);
+            // 
             // panel_bot
             // 
-            this.panel_bot.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_bot.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel_bot.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_bot.Location = new System.Drawing.Point(200, 681);
             this.panel_bot.Name = "panel_bot";
@@ -399,29 +588,6 @@ namespace Generic_Move_Order
             this.panel_body.Size = new System.Drawing.Size(806, 621);
             this.panel_body.TabIndex = 3;
             // 
-            // pb_menu
-            // 
-            this.pb_menu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pb_menu.Image = global::Generic_Move_Order.Properties.Resources.menu_32px;
-            this.pb_menu.Location = new System.Drawing.Point(0, 0);
-            this.pb_menu.Name = "pb_menu";
-            this.pb_menu.Size = new System.Drawing.Size(56, 60);
-            this.pb_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pb_menu.TabIndex = 25;
-            this.pb_menu.TabStop = false;
-            this.pb_menu.Click += new System.EventHandler(this.pb_menu_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Generic_Move_Order.Properties.Resources._230_2303322_order_png_background_image_online_food_ordering_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -432,9 +598,12 @@ namespace Generic_Move_Order
             this.Controls.Add(this.panel_bot);
             this.Controls.Add(this.panel_top);
             this.Controls.Add(this.panel_side);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip7;
             this.Name = "Frm_Main";
-            this.Text = "Form1";
+            this.Text = "Generic Move Order";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Main_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Main_Load);
             this.panel_side.ResumeLayout(false);
             this.panel_menu.ResumeLayout(false);
@@ -451,11 +620,13 @@ namespace Generic_Move_Order
             this.menuStrip2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.menuStrip7.ResumeLayout(false);
+            this.menuStrip7.PerformLayout();
             this.panel_logo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_menu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -499,6 +670,17 @@ namespace Generic_Move_Order
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem transactMoveOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prodictCategoryToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip7;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousReceiptToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousIssueToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem miscellaeousReceiptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transactedMoveOrderHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousIssueRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem micellaneousReceiptRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousIssueHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miscellaneousReceiptHistoryToolStripMenuItem;
     }
 }
 

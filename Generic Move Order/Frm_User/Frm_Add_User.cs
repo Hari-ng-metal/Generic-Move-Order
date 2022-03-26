@@ -17,9 +17,12 @@ namespace Generic_Move_Order.Frm_User
         string role_id = "0";
         string department_id = "0";
         bool status;
-        public Frm_Add_User()
+
+        Frm_User frm;
+        public Frm_Add_User(Frm_User _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -173,6 +176,8 @@ namespace Generic_Move_Order.Frm_User
             {
                 //Some task…  
             }
+            frm.GetUsers();
+            frm.dt_user.ClearSelection();
         }
 
         private void cb_status_SelectedIndexChanged(object sender, EventArgs e)
@@ -234,6 +239,7 @@ namespace Generic_Move_Order.Frm_User
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 

@@ -141,6 +141,7 @@ namespace Generic_Move_Order.Frm_Role
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 4;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // tableLayoutPanel2
             // 
@@ -190,7 +191,7 @@ namespace Generic_Move_Order.Frm_Role
             // 
             // btn_inactive
             // 
-            this.btn_inactive.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_inactive.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_inactive.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_inactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_inactive.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -204,7 +205,7 @@ namespace Generic_Move_Order.Frm_Role
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -218,7 +219,7 @@ namespace Generic_Move_Order.Frm_Role
             // 
             // btn_new
             // 
-            this.btn_new.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_new.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_new.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -234,12 +235,12 @@ namespace Generic_Move_Order.Frm_Role
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(148, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Raw Materials";
+            this.label1.Text = "ROLE MANAGEMENT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -284,7 +285,7 @@ namespace Generic_Move_Order.Frm_Role
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_role.DefaultCellStyle = dataGridViewCellStyle1;
@@ -297,6 +298,7 @@ namespace Generic_Move_Order.Frm_Role
             this.dt_role.Size = new System.Drawing.Size(788, 358);
             this.dt_role.TabIndex = 13;
             this.dt_role.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_role_CellClick);
+            this.dt_role.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_role_DataBindingComplete);
             // 
             // Frm_Role
             // 
@@ -348,6 +350,6 @@ namespace Generic_Move_Order.Frm_Role
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dt_role;
+        public System.Windows.Forms.DataGridView dt_role;
     }
 }

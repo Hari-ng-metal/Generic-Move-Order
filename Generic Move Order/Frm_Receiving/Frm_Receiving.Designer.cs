@@ -32,6 +32,7 @@ namespace Generic_Move_Order.Frm_Receiving
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_exit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,10 +63,11 @@ namespace Generic_Move_Order.Frm_Receiving
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pb_exit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,7 +77,6 @@ namespace Generic_Move_Order.Frm_Receiving
             this.tableLayoutPanel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dt_receiving)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -89,16 +90,28 @@ namespace Generic_Move_Order.Frm_Receiving
             this.panel1.Size = new System.Drawing.Size(788, 40);
             this.panel1.TabIndex = 9;
             // 
+            // pb_exit
+            // 
+            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
+            this.pb_exit.Location = new System.Drawing.Point(756, 0);
+            this.pb_exit.Name = "pb_exit";
+            this.pb_exit.Size = new System.Drawing.Size(32, 40);
+            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_exit.TabIndex = 7;
+            this.pb_exit.TabStop = false;
+            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Raw Materials";
+            this.label1.Text = "RECEIVING";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -224,7 +237,7 @@ namespace Generic_Move_Order.Frm_Receiving
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 343F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 369F));
             this.tableLayoutPanel2.Controls.Add(this.text_transaction_description, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
@@ -238,17 +251,19 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // text_transaction_description
             // 
+            this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_transaction_description.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_transaction_description.Location = new System.Drawing.Point(120, 3);
+            this.text_transaction_description.Location = new System.Drawing.Point(113, 3);
             this.text_transaction_description.Name = "text_transaction_description";
-            this.text_transaction_description.Size = new System.Drawing.Size(321, 22);
+            this.text_transaction_description.Size = new System.Drawing.Size(302, 22);
             this.text_transaction_description.TabIndex = 11;
+            this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 0);
+            this.label7.Location = new System.Drawing.Point(24, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 10;
@@ -257,7 +272,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(447, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(421, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -278,7 +293,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -292,7 +307,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -359,7 +374,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -373,7 +388,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_new
             // 
-            this.btn_new.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_new.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_new.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -395,13 +410,14 @@ namespace Generic_Move_Order.Frm_Receiving
             this.id,
             this.item_code,
             this.item_description,
+            this.uom,
             this.quantity,
             this.remove});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_receiving.DefaultCellStyle = dataGridViewCellStyle2;
@@ -419,24 +435,34 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // id
             // 
+            this.id.FillWeight = 111.631F;
             this.id.HeaderText = "id";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             // 
             // item_code
             // 
+            this.item_code.FillWeight = 111.631F;
             this.item_code.HeaderText = "item_code";
             this.item_code.MinimumWidth = 6;
             this.item_code.Name = "item_code";
             // 
             // item_description
             // 
+            this.item_description.FillWeight = 111.631F;
             this.item_description.HeaderText = "item_description";
             this.item_description.MinimumWidth = 6;
             this.item_description.Name = "item_description";
             // 
+            // uom
+            // 
+            this.uom.HeaderText = "uom";
+            this.uom.MinimumWidth = 6;
+            this.uom.Name = "uom";
+            // 
             // quantity
             // 
+            this.quantity.FillWeight = 111.631F;
             this.quantity.HeaderText = "quantity";
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
@@ -444,25 +470,15 @@ namespace Generic_Move_Order.Frm_Receiving
             // remove
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.remove.DefaultCellStyle = dataGridViewCellStyle1;
+            this.remove.FillWeight = 53.47594F;
             this.remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remove.HeaderText = "remove";
             this.remove.MinimumWidth = 6;
             this.remove.Name = "remove";
             this.remove.Text = "(-)";
-            // 
-            // pb_exit
-            // 
-            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
-            this.pb_exit.Location = new System.Drawing.Point(756, 0);
-            this.pb_exit.Name = "pb_exit";
-            this.pb_exit.Size = new System.Drawing.Size(32, 40);
-            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pb_exit.TabIndex = 7;
-            this.pb_exit.TabStop = false;
-            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
             // 
             // Frm_Receiving
             // 
@@ -482,6 +498,7 @@ namespace Generic_Move_Order.Frm_Receiving
             this.Load += new System.EventHandler(this.Frm_Receiving_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -494,7 +511,6 @@ namespace Generic_Move_Order.Frm_Receiving
             this.tableLayoutPanel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dt_receiving)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -533,6 +549,7 @@ namespace Generic_Move_Order.Frm_Receiving
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewButtonColumn remove;
     }

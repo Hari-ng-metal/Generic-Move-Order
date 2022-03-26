@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
 
 namespace Generic_Move_Order
 {
@@ -21,7 +23,23 @@ namespace Generic_Move_Order
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            Login();
+            //Login();
+            Ping();
+        }
+
+        private void Ping()
+        {
+            Ping ping = new Ping();
+            PingReply reply = ping.Send("10.10.2.6", 1000);
+            //MessageBox.Show(reply.Status.ToString(), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(reply.Status.ToString() == "Success")
+            {
+                Login();
+            }
+            else
+            {
+                MessageBox.Show(reply.Status.ToString()+"!", "Network Connection Failed!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void Login()
@@ -59,6 +77,7 @@ namespace Generic_Move_Order
             else
             {
                 MessageBox.Show("Incorrect username or password!", "Login Dialog!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                text_username.Focus();
             }
         }
 
@@ -70,6 +89,16 @@ namespace Generic_Move_Order
         private void pb_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void text_mypassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            //
+            if (e.KeyCode == Keys.Enter)
+            {
+                //Login();
+                Ping();
+            }
         }
     }
 }

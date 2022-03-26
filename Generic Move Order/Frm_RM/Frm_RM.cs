@@ -24,7 +24,7 @@ namespace Generic_Move_Order.Frm_RM
         private void btn_new_Click(object sender, EventArgs e)
         {
             edit_rm.id = 0;
-            Frm_Add_RM frm = new Frm_Add_RM();
+            Frm_Add_RM frm = new Frm_Add_RM(this);
             frm.ShowDialog();
         }
 
@@ -56,13 +56,32 @@ namespace Generic_Move_Order.Frm_RM
 
             dt_rm.Columns["uom_id"].Visible = false;
             dt_rm.Columns["category_id"].Visible = false;
+            dt_rm.ReadOnly = true;
         }
 
+
+        public void GetMasterlistBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetMasterlistBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_rm.DataSource = dt;
+            connect.con.Close();
+
+            dt_rm.Columns["uom_id"].Visible = false;
+            dt_rm.Columns["category_id"].Visible = false;
+        }
         private void Frm_RM_Load(object sender, EventArgs e)
         {
             //
             cb_status.SelectedIndex = 0;
             btn_edit.Enabled = false;
+            HeaderName();
         }
 
         private void pb_exit_Click(object sender, EventArgs e)
@@ -89,7 +108,7 @@ namespace Generic_Move_Order.Frm_RM
                 edit_rm.uom_id = int.Parse(row.Cells["uom_id"].Value.ToString());
                 edit_rm.uom = row.Cells["uom"].Value.ToString();
                 edit_rm.category_id = int.Parse(row.Cells["category_id"].Value.ToString());
-                edit_rm.category = row.Cells["category"].Value.ToString();
+                edit_rm.category = row.Cells["product_category"].Value.ToString();
                 edit_rm.status = bool.Parse(row.Cells["status"].Value.ToString());
 
                 btn_edit.Enabled = true;
@@ -103,7 +122,7 @@ namespace Generic_Move_Order.Frm_RM
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            Frm_Add_RM frm = new Frm_Add_RM();
+            Frm_Add_RM frm = new Frm_Add_RM(this);
             frm.Show();
         }
 
@@ -112,35 +131,39 @@ namespace Generic_Move_Order.Frm_RM
             //
             if (e.KeyCode == Keys.Enter)
             {
-                //search();
+                GetMasterlistBySearch();
             }
         }
 
-        //private void search()
-        //{
-        //    string searchValue = textBox1.Text;
-        //    try
-        //    {
-        //        var re = from row in dt.AsEnumerable()
-        //                 where row[1].ToString().Contains(searchValue)
-        //                 select row;
-        //        if (re.Count() == 0)
-        //        {
-        //            MessageBox.Show("No data found!","Information!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //        }
-        //        else
-        //        {
-        //            dt_rm.DataSource = re.CopyToDataTable();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void label_change_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void HeaderName()
+        {
+            dt_rm.Columns["int"].HeaderText = "Id";
+            dt_rm.Columns["item_code"].HeaderText = "Item Code";
+            dt_rm.Columns["item_description"].HeaderText = "Item Description";
+            dt_rm.Columns["uom"].HeaderText = "UOM";
+            dt_rm.Columns["category"].HeaderText = "Category";
+            dt_rm.Columns["product_category"].HeaderText = "Product Category";
+            dt_rm.Columns["status"].HeaderText = "Status";
+            dt_rm.Columns["date_added"].HeaderText = "Date Added";
+
+            dt_rm.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_rm.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_rm_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_rm.ClearSelection();
+
+            btn_edit.Enabled = false;
+            label_counting.Text = "TOTAL # OF MATERIAL/S:" + (dt_rm.RowCount);
         }
     }
 }

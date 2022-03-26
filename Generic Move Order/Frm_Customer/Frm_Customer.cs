@@ -25,6 +25,7 @@ namespace Generic_Move_Order.Frm_Customer
             //
             cb_status.SelectedIndex = 0;
             btn_edit.Enabled = false;
+            HeaderName();
         }
 
         public void GetCustomer()
@@ -34,6 +35,22 @@ namespace Generic_Move_Order.Frm_Customer
             SqlCommand cmd = new SqlCommand("SP_GetCustomer", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_customer.DataSource = dt;
+            connect.con.Close();
+
+            dt_customer.ReadOnly = true;
+        }
+
+        public void GetCustomerBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetCustomerBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             dt_customer.DataSource = dt;
@@ -58,7 +75,7 @@ namespace Generic_Move_Order.Frm_Customer
         private void btn_new_Click(object sender, EventArgs e)
         {
             edit_customer.id = 0;
-            Frm_Add_Customer frm = new Frm_Add_Customer();
+            Frm_Add_Customer frm = new Frm_Add_Customer(this);
             frm.ShowDialog();
         }
 
@@ -97,8 +114,39 @@ namespace Generic_Move_Order.Frm_Customer
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            Frm_Add_Customer frm = new Frm_Add_Customer();
+            Frm_Add_Customer frm = new Frm_Add_Customer(this);
             frm.ShowDialog();
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            //
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetCustomerBySearch();
+            }
+        }
+
+        private void HeaderName()
+        {
+            dt_customer.Columns["id"].HeaderText = "Id";
+            dt_customer.Columns["customer_code"].HeaderText = "Customer Code";
+            dt_customer.Columns["customer_name"].HeaderText = "Customer Name";
+            dt_customer.Columns["address"].HeaderText = "Address";
+            dt_customer.Columns["status"].HeaderText = "Status";
+            dt_customer.Columns["date_added"].HeaderText = "Date Added";
+
+            dt_customer.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_customer.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_customer_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_customer.ClearSelection();
+
+            btn_edit.Enabled = false;
+
+            label_role_counting.Text = "TOTAL # OF CUSTOMER/S: " + (dt_customer.RowCount);
         }
     }
 }

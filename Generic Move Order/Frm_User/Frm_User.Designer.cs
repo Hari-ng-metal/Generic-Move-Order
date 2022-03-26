@@ -84,12 +84,12 @@ namespace Generic_Move_Order.Frm_User
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 17);
+            this.label1.Size = new System.Drawing.Size(219, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "User Account";
+            this.label1.Text = "USER ACCOUNT MANAGEMENT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -173,6 +173,7 @@ namespace Generic_Move_Order.Frm_User
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 4;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // panel3
             // 
@@ -221,7 +222,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -235,7 +236,7 @@ namespace Generic_Move_Order.Frm_User
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -257,7 +258,7 @@ namespace Generic_Move_Order.Frm_User
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_user.DefaultCellStyle = dataGridViewCellStyle1;
@@ -270,6 +271,7 @@ namespace Generic_Move_Order.Frm_User
             this.dt_user.Size = new System.Drawing.Size(788, 358);
             this.dt_user.TabIndex = 6;
             this.dt_user.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_user_CellClick);
+            this.dt_user.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_user_DataBindingComplete);
             // 
             // Frm_User
             // 
@@ -317,7 +319,7 @@ namespace Generic_Move_Order.Frm_User
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.DataGridView dt_user;
         private System.Windows.Forms.PictureBox pb_exit;
+        public System.Windows.Forms.DataGridView dt_user;
     }
 }

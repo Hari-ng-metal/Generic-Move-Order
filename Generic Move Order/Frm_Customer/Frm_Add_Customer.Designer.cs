@@ -29,6 +29,7 @@ namespace Generic_Move_Order.Frm_Customer
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Add_Customer));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label_category = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -80,11 +81,12 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.Controls.Add(this.text_name, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -111,9 +113,10 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             // text_name
             // 
-            this.text_name.Location = new System.Drawing.Point(522, 3);
+            this.text_name.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_name.Location = new System.Drawing.Point(492, 3);
             this.text_name.Name = "text_name";
-            this.text_name.Size = new System.Drawing.Size(167, 22);
+            this.text_name.Size = new System.Drawing.Size(157, 22);
             this.text_name.TabIndex = 10;
             this.text_name.TextChanged += new System.EventHandler(this.text_desc_TextChanged);
             // 
@@ -121,7 +124,7 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(61, 0);
+            this.label1.Location = new System.Drawing.Point(51, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 45);
             this.label1.TabIndex = 0;
@@ -131,7 +134,7 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(106, 45);
+            this.label2.Location = new System.Drawing.Point(96, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 45);
             this.label2.TabIndex = 1;
@@ -141,7 +144,7 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(464, 45);
+            this.label5.Location = new System.Drawing.Point(434, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 45);
             this.label5.TabIndex = 4;
@@ -151,7 +154,7 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(403, 0);
+            this.label4.Location = new System.Drawing.Point(373, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 45);
             this.label4.TabIndex = 3;
@@ -159,30 +162,32 @@ namespace Generic_Move_Order.Frm_Customer
             // 
             // text_code
             // 
-            this.text_code.Location = new System.Drawing.Point(176, 3);
+            this.text_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_code.Location = new System.Drawing.Point(166, 3);
             this.text_code.Name = "text_code";
-            this.text_code.Size = new System.Drawing.Size(167, 22);
+            this.text_code.Size = new System.Drawing.Size(157, 22);
             this.text_code.TabIndex = 6;
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cancel.Location = new System.Drawing.Point(522, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(492, 138);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
             this.btn_cancel.TabIndex = 6;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save.Location = new System.Drawing.Point(411, 138);
+            this.btn_save.Location = new System.Drawing.Point(381, 138);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
             this.btn_save.TabIndex = 7;
@@ -203,7 +208,7 @@ namespace Generic_Move_Order.Frm_Customer
             // label_uom
             // 
             this.label_uom.AutoSize = true;
-            this.label_uom.Location = new System.Drawing.Point(176, 135);
+            this.label_uom.Location = new System.Drawing.Point(166, 135);
             this.label_uom.Name = "label_uom";
             this.label_uom.Size = new System.Drawing.Size(46, 17);
             this.label_uom.TabIndex = 14;
@@ -216,18 +221,19 @@ namespace Generic_Move_Order.Frm_Customer
             this.cb_status.Items.AddRange(new object[] {
             "Active",
             "inActive"});
-            this.cb_status.Location = new System.Drawing.Point(522, 48);
+            this.cb_status.Location = new System.Drawing.Point(492, 48);
             this.cb_status.Name = "cb_status";
-            this.cb_status.Size = new System.Drawing.Size(167, 24);
+            this.cb_status.Size = new System.Drawing.Size(157, 24);
             this.cb_status.TabIndex = 12;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
             this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
             // 
             // text_address
             // 
-            this.text_address.Location = new System.Drawing.Point(176, 48);
+            this.text_address.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_address.Location = new System.Drawing.Point(166, 48);
             this.text_address.Name = "text_address";
-            this.text_address.Size = new System.Drawing.Size(167, 22);
+            this.text_address.Size = new System.Drawing.Size(157, 22);
             this.text_address.TabIndex = 15;
             // 
             // Frm_Add_Customer
@@ -240,11 +246,12 @@ namespace Generic_Move_Order.Frm_Customer
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Add_Customer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Frm_Add_Customer";
+            this.Text = "Customer Form";
             this.Load += new System.EventHandler(this.Frm_Add_Customer_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

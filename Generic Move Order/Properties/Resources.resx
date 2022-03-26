@@ -118,11 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="menu_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="215-2155928_mobile-ordering-apps-order-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\215-2155928_mobile-ordering-apps-order-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Asset 11@300x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Asset 11@300x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ordering_25406" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ordering_25406.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,10 +127,28 @@
   <data name="230-2303322_order-png-background-image-online-food-ordering-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\230-2303322_order-png-background-image-online-food-ordering-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="215-2155928_mobile-ordering-apps-order-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\215-2155928_mobile-ordering-apps-order-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Move" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Move.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="0-02-06-2d73f0040f2acb35efadc49ff0d4874a2e461caf655ed4b43166e67d87fdbcbc_de80450da8c6108c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0-02-06-2d73f0040f2acb35efadc49ff0d4874a2e461caf655ed4b43166e67d87fdbcbc_de80450da8c6108c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="delete_sign_FLAT_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_sign_FLAT_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MO@300x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MO@300x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

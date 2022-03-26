@@ -29,6 +29,7 @@ namespace Generic_Move_Order.Frm_Receiving
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Edit_Receiving));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label_index = new System.Windows.Forms.Label();
@@ -43,13 +44,15 @@ namespace Generic_Move_Order.Frm_Receiving
             this.cb_code = new System.Windows.Forms.ComboBox();
             this.text_desc = new System.Windows.Forms.TextBox();
             this.text_qty = new System.Windows.Forms.TextBox();
+            this.text_uom = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -78,11 +81,12 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
@@ -93,6 +97,8 @@ namespace Generic_Move_Order.Frm_Receiving
             this.tableLayoutPanel1.Controls.Add(this.cb_code, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_desc, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_qty, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.text_uom, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -109,7 +115,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(105, 45);
+            this.label2.Location = new System.Drawing.Point(96, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 45);
             this.label2.TabIndex = 16;
@@ -119,7 +125,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(95, 0);
+            this.label1.Location = new System.Drawing.Point(86, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 45);
             this.label1.TabIndex = 0;
@@ -129,7 +135,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(403, 0);
+            this.label4.Location = new System.Drawing.Point(376, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 45);
             this.label4.TabIndex = 3;
@@ -137,10 +143,10 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cancel.Location = new System.Drawing.Point(522, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(495, 138);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
             this.btn_cancel.TabIndex = 6;
@@ -150,11 +156,11 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_save
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save.Location = new System.Drawing.Point(411, 138);
+            this.btn_save.Location = new System.Drawing.Point(384, 138);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
             this.btn_save.TabIndex = 7;
@@ -175,7 +181,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // label_uom
             // 
             this.label_uom.AutoSize = true;
-            this.label_uom.Location = new System.Drawing.Point(176, 135);
+            this.label_uom.Location = new System.Drawing.Point(167, 135);
             this.label_uom.Name = "label_uom";
             this.label_uom.Size = new System.Drawing.Size(46, 17);
             this.label_uom.TabIndex = 14;
@@ -185,27 +191,47 @@ namespace Generic_Move_Order.Frm_Receiving
             // cb_code
             // 
             this.cb_code.FormattingEnabled = true;
-            this.cb_code.Location = new System.Drawing.Point(176, 3);
+            this.cb_code.Location = new System.Drawing.Point(167, 3);
             this.cb_code.Name = "cb_code";
-            this.cb_code.Size = new System.Drawing.Size(167, 24);
+            this.cb_code.Size = new System.Drawing.Size(158, 24);
             this.cb_code.TabIndex = 17;
+            this.cb_code.SelectedIndexChanged += new System.EventHandler(this.cb_code_SelectedIndexChanged);
             this.cb_code.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_code_KeyDown);
             // 
             // text_desc
             // 
+            this.text_desc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_desc.Enabled = false;
-            this.text_desc.Location = new System.Drawing.Point(522, 3);
+            this.text_desc.Location = new System.Drawing.Point(495, 3);
             this.text_desc.Name = "text_desc";
-            this.text_desc.Size = new System.Drawing.Size(170, 22);
+            this.text_desc.Size = new System.Drawing.Size(158, 22);
             this.text_desc.TabIndex = 18;
             // 
             // text_qty
             // 
-            this.text_qty.Location = new System.Drawing.Point(176, 48);
+            this.text_qty.Location = new System.Drawing.Point(167, 48);
             this.text_qty.Name = "text_qty";
-            this.text_qty.Size = new System.Drawing.Size(167, 22);
+            this.text_qty.Size = new System.Drawing.Size(158, 22);
             this.text_qty.TabIndex = 19;
             this.text_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qty_KeyPress);
+            // 
+            // text_uom
+            // 
+            this.text_uom.Enabled = false;
+            this.text_uom.Location = new System.Drawing.Point(495, 48);
+            this.text_uom.Name = "text_uom";
+            this.text_uom.Size = new System.Drawing.Size(158, 22);
+            this.text_uom.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label3.Location = new System.Drawing.Point(445, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 45);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "UOM:";
             // 
             // Frm_Edit_Receiving
             // 
@@ -217,11 +243,12 @@ namespace Generic_Move_Order.Frm_Receiving
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Edit_Receiving";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Frm_Edit_Receiving";
+            this.Text = "Receiving Form";
             this.Load += new System.EventHandler(this.Frm_Edit_Receiving_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -247,5 +274,7 @@ namespace Generic_Move_Order.Frm_Receiving
         private System.Windows.Forms.ComboBox cb_code;
         private System.Windows.Forms.TextBox text_desc;
         private System.Windows.Forms.TextBox text_qty;
+        private System.Windows.Forms.TextBox text_uom;
+        private System.Windows.Forms.Label label3;
     }
 }

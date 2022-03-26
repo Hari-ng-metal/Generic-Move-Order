@@ -43,6 +43,7 @@ namespace Generic_Move_Order.Frm_RM
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_change = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,7 +60,7 @@ namespace Generic_Move_Order.Frm_RM
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -73,7 +74,7 @@ namespace Generic_Move_Order.Frm_RM
             // 
             // btn_new
             // 
-            this.btn_new.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_new.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_new.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -167,7 +168,7 @@ namespace Generic_Move_Order.Frm_RM
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_rm.DefaultCellStyle = dataGridViewCellStyle1;
@@ -180,6 +181,7 @@ namespace Generic_Move_Order.Frm_RM
             this.dt_rm.Size = new System.Drawing.Size(788, 358);
             this.dt_rm.TabIndex = 10;
             this.dt_rm.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_rm_CellClick);
+            this.dt_rm.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_rm_DataBindingComplete);
             // 
             // panel3
             // 
@@ -218,6 +220,7 @@ namespace Generic_Move_Order.Frm_RM
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_status, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label_change, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -227,6 +230,17 @@ namespace Generic_Move_Order.Frm_RM
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(788, 76);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label_change
+            // 
+            this.label_change.AutoSize = true;
+            this.label_change.Location = new System.Drawing.Point(593, 50);
+            this.label_change.Name = "label_change";
+            this.label_change.Size = new System.Drawing.Size(46, 17);
+            this.label_change.TabIndex = 5;
+            this.label_change.Text = "label5";
+            this.label_change.Visible = false;
+            this.label_change.TextChanged += new System.EventHandler(this.label_change_TextChanged);
             // 
             // panel2
             // 
@@ -241,12 +255,12 @@ namespace Generic_Move_Order.Frm_RM
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(214, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Raw Materials";
+            this.label1.Text = "RAW MATERIAL MANAGEMENT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -307,11 +321,9 @@ namespace Generic_Move_Order.Frm_RM
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cb_status;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label_counting;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dt_rm;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -319,5 +331,8 @@ namespace Generic_Move_Order.Frm_RM
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pb_exit;
+        public System.Windows.Forms.Label label_change;
+        public System.Windows.Forms.ComboBox cb_status;
+        public System.Windows.Forms.DataGridView dt_rm;
     }
 }

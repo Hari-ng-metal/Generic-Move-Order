@@ -30,10 +30,15 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             GetCustomer();
             text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            label_counting.Text = "TOTAL # OF MODULE/S: " + (dt_move.RowCount);
+            label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_move.RowCount);
             btn_save.Enabled = false;
             btn_edit.Enabled = false;
             cb_customer.Text = cb_customer.Text.ToUpper();
+            HeaderName();
+
+            cb_customer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_customer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_customer.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -206,6 +211,9 @@ namespace Generic_Move_Order.Frm_Move_Order
                 InsertMoveOrderItem();
                 CallPrintOut();
                 ClearRecord();
+                text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                cb_customer.Select();
+                cb_customer.Focus();
             }
             if (res == DialogResult.No)
             {
@@ -262,7 +270,8 @@ namespace Generic_Move_Order.Frm_Move_Order
                 edit_move_item.id = Convert.ToInt32(dt_move.SelectedRows[0].Cells[0].Value);
                 edit_move_item.item_code = dt_move.SelectedRows[0].Cells[1].Value.ToString();
                 edit_move_item.item_description = dt_move.SelectedRows[0].Cells[2].Value.ToString();
-                edit_move_item.quantity = Convert.ToDecimal(dt_move.SelectedRows[0].Cells[3].Value);
+                edit_move_item.uom = dt_move.SelectedRows[0].Cells[3].Value.ToString();
+                edit_move_item.quantity = Convert.ToDecimal(dt_move.SelectedRows[0].Cells[4].Value);
 
                 btn_edit.Enabled = true;
             }
@@ -274,9 +283,19 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void dt_move_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            dt_move.ReadOnly = true;
             if (dt_move.Columns[e.ColumnIndex].Name == "remove")
             {
-                dt_move.Rows.Remove(dt_move.Rows[e.RowIndex]);
+              
+                DialogResult res = MessageBox.Show("Are you sure you want to remove?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+                    dt_move.Rows.Remove(dt_move.Rows[e.RowIndex]);
+                }
+                if (res == DialogResult.No)
+                {
+                    //Some task…  
+                }
             }
         }
 
@@ -300,7 +319,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void cb_customer_KeyDown(object sender, KeyEventArgs e)
         {
             //
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 //
                 //text_item_desc_from.Text = cb_item_code_from.SelectedValue.ToString();
@@ -318,6 +337,82 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             Frm_Edit_Move_Order frm = new Frm_Edit_Move_Order(this);
             frm.ShowDialog();
+        }
+
+        private void cb_customer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frm_Move_Order_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Frm_Move_Order_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N)
+            {
+                Frm_Add_Move_Order frm = new Frm_Add_Move_Order(this);
+                frm.ShowDialog();
+            }
+        }
+
+        private void text_transaction_description_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
+            {
+                SP_GetCustomerById();
+                if (label_customer_id.Text == "0")
+                {
+                    //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cb_customer.Focus();
+                    text_name.Clear();
+                    label_customer_id.Text = "0";
+                }
+                else
+                {
+                    Frm_Add_Move_Order frm = new Frm_Add_Move_Order(this);
+                    frm.ShowDialog();
+                }
+                btn_edit.Enabled = false;
+            }
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                DialogResult res = MessageBox.Show("Are you sure you want to save?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+                    if (cb_customer.Text == string.Empty || text_transaction_description.Text == string.Empty || text_name.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please input the required field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    //Some task…
+                    SP_GetCustomerById();
+                    InsertMoveOrder();
+                    InsertMoveOrderItem();
+                    CallPrintOut();
+                    ClearRecord();
+                    text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                }
+                if (res == DialogResult.No)
+                {
+                    //Some task…  
+                }
+            }
+        }
+
+        private void HeaderName()
+        {
+            dt_move.Columns["id"].HeaderText = "Id";
+            dt_move.Columns["item_code"].HeaderText = "Item Code";
+            dt_move.Columns["item_description"].HeaderText = "Item Description";
+            dt_move.Columns["uom"].HeaderText = "UOM";
+            dt_move.Columns["quantity"].HeaderText = "Quantity";
+            dt_move.Columns["remove"].HeaderText = "Remove";
+
+            dt_move.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_move.EnableHeadersVisualStyles = false;
         }
     }
 }

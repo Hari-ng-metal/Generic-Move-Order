@@ -69,7 +69,7 @@ namespace Generic_Move_Order.Frm_Supplier
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_supplier.DefaultCellStyle = dataGridViewCellStyle1;
@@ -82,22 +82,23 @@ namespace Generic_Move_Order.Frm_Supplier
             this.dt_supplier.Size = new System.Drawing.Size(788, 358);
             this.dt_supplier.TabIndex = 13;
             this.dt_supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_supplier_CellClick);
+            this.dt_supplier.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_supplier_DataBindingComplete);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(177, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Raw Materials";
+            this.label1.Text = "SUPPLIER MANAGEMENT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_edit
             // 
-            this.btn_edit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_edit.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_edit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_edit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -111,7 +112,7 @@ namespace Generic_Move_Order.Frm_Supplier
             // 
             // btn_new
             // 
-            this.btn_new.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_new.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_new.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -224,6 +225,7 @@ namespace Generic_Move_Order.Frm_Supplier
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 4;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // tableLayoutPanel2
             // 
@@ -313,8 +315,6 @@ namespace Generic_Move_Order.Frm_Supplier
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dt_supplier;
         private System.Windows.Forms.PictureBox pb_exit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_edit;
@@ -332,5 +332,6 @@ namespace Generic_Move_Order.Frm_Supplier
         private System.Windows.Forms.Label label_role_counting;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.DataGridView dt_supplier;
     }
 }

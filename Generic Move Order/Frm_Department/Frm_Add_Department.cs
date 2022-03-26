@@ -15,9 +15,12 @@ namespace Generic_Move_Order.Frm_Department
     {
         Connection connect = new Connection();
         bool status;
-        public Frm_Add_Department()
+
+        Frm_Department frm;
+        public Frm_Add_Department(Frm_Department _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -47,6 +50,8 @@ namespace Generic_Move_Order.Frm_Department
             {
                 //Some task…  
             }
+            frm.GetDepartment();
+            frm.dt_department.ClearSelection();
         }
 
         private void Frm_Add_Department_Load(object sender, EventArgs e)
@@ -141,6 +146,7 @@ namespace Generic_Move_Order.Frm_Department
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 
@@ -178,6 +184,11 @@ namespace Generic_Move_Order.Frm_Department
                 InsertDepartment();
                 this.Close();
             }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

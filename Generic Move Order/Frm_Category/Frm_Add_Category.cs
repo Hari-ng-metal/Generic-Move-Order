@@ -15,9 +15,12 @@ namespace Generic_Move_Order.Frm_Category
     {
         Connection connect = new Connection();
         bool status;
-        public Frm_Add_Category()
+
+        Frm_Category frm;
+        public Frm_Add_Category(Frm_Category _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void Frm_Add_Category_Load(object sender, EventArgs e)
@@ -98,6 +101,7 @@ namespace Generic_Move_Order.Frm_Category
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 
@@ -126,6 +130,8 @@ namespace Generic_Move_Order.Frm_Category
             {
                 //Some task…  
             }
+            frm.GetCategory();
+            frm.dt_category.ClearSelection();
         }
 
         private void cb_status_SelectedIndexChanged(object sender, EventArgs e)

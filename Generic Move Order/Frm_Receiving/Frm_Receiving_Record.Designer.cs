@@ -85,12 +85,12 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(144, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Raw Materials";
+            this.label1.Text = "RECEIVING RECORD";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -166,6 +166,7 @@ namespace Generic_Move_Order.Frm_Receiving
             this.cb_status.Size = new System.Drawing.Size(121, 24);
             this.cb_status.TabIndex = 3;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
+            this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
             // 
             // textBox1
             // 
@@ -173,6 +174,7 @@ namespace Generic_Move_Order.Frm_Receiving
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 4;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // panel3
             // 
@@ -222,7 +224,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_inactive
             // 
-            this.btn_inactive.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_inactive.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_inactive.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_inactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_inactive.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -232,10 +234,11 @@ namespace Generic_Move_Order.Frm_Receiving
             this.btn_inactive.TabIndex = 8;
             this.btn_inactive.Text = "INACTIVE";
             this.btn_inactive.UseVisualStyleBackColor = false;
+            this.btn_inactive.Click += new System.EventHandler(this.btn_inactive_Click);
             // 
             // btn_print
             // 
-            this.btn_print.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_print.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_print.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_print.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -249,7 +252,7 @@ namespace Generic_Move_Order.Frm_Receiving
             // 
             // btn_view
             // 
-            this.btn_view.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_view.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btn_view.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_view.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -271,7 +274,7 @@ namespace Generic_Move_Order.Frm_Receiving
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_receiving.DefaultCellStyle = dataGridViewCellStyle1;
@@ -284,6 +287,7 @@ namespace Generic_Move_Order.Frm_Receiving
             this.dt_receiving.Size = new System.Drawing.Size(770, 311);
             this.dt_receiving.TabIndex = 30;
             this.dt_receiving.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_receiving_CellClick);
+            this.dt_receiving.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_receiving_DataBindingComplete);
             // 
             // Frm_Receiving_Record
             // 

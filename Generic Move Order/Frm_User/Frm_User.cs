@@ -35,13 +35,33 @@ namespace Generic_Move_Order.Frm_User
             dt_user.Columns["role_id"].Visible = false;
             dt_user.Columns["department_id"].Visible = false;
             dt_user.Columns["added_by"].Visible = false;
+            dt_user.ReadOnly = true;
+
+        }
+
+        public void GetUsersBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetUserBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_user.DataSource = dt;
+            connect.con.Close();
+
+            dt_user.Columns["role_id"].Visible = false;
+            dt_user.Columns["department_id"].Visible = false;
+            dt_user.Columns["added_by"].Visible = false;
 
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
             edit_user.id = 0;
-            Frm_Add_User frm = new Frm_Add_User();
+            Frm_Add_User frm = new Frm_Add_User(this);
             frm.ShowDialog();
 
             btn_edit.Enabled = false;
@@ -65,6 +85,7 @@ namespace Generic_Move_Order.Frm_User
         {
             cb_status.SelectedIndex = 0;
             btn_edit.Enabled = false;
+            HeaderName();
         }
 
         private void pb_exit_Click(object sender, EventArgs e)
@@ -99,13 +120,46 @@ namespace Generic_Move_Order.Frm_User
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            Frm_Add_User frm = new Frm_Add_User();
+            Frm_Add_User frm = new Frm_Add_User(this);
             frm.ShowDialog();
         }
 
         private void cb_status_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetUsersBySearch();
+            }
+        }
+
+        private void HeaderName()
+        {
+            dt_user.Columns["id"].HeaderText = "Id";
+            dt_user.Columns["name"].HeaderText = "Name";
+            dt_user.Columns["username"].HeaderText = "Username";
+            dt_user.Columns["password"].HeaderText = "Password";
+            dt_user.Columns["role_name"].HeaderText = "Role Name";
+            dt_user.Columns["department"].HeaderText = "Department";
+            dt_user.Columns["status"].HeaderText = "Status";
+            dt_user.Columns["added_by"].HeaderText = "Added By";
+            dt_user.Columns["date_added"].HeaderText = "Date Added";
+
+            dt_user.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_user.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_user_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_user.ClearSelection();
+
+            btn_edit.Enabled = false;
+
+            label_role_counting.Text = "TOTAL # OF USER/S: " + (dt_user.RowCount);
         }
     }
 }

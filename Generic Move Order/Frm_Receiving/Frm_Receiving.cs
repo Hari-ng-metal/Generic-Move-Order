@@ -48,10 +48,15 @@ namespace Generic_Move_Order.Frm_Receiving
         {
             GetSupplier();
             text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            label_counting.Text = "TOTAL # OF RM/S: " + (dt_receiving.RowCount);
+            label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_receiving.RowCount);
             btn_save.Enabled = false;
             btn_edit.Enabled = false;
             cb_supplier.Text = cb_supplier.Text.ToUpper();
+            HeaderName();
+
+            cb_supplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_supplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_supplier.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void GetSupplier()
@@ -203,6 +208,9 @@ namespace Generic_Move_Order.Frm_Receiving
                 InsertReceiveItem();
                 CallPrintOut();
                 ClearRecord();
+                text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                cb_supplier.Select();
+                cb_supplier.Focus();
             }
             if (res == DialogResult.No)
             {
@@ -255,7 +263,8 @@ namespace Generic_Move_Order.Frm_Receiving
                 edit_receiving_item.id = Convert.ToInt32(dt_receiving.SelectedRows[0].Cells[0].Value);
                 edit_receiving_item.item_code = dt_receiving.SelectedRows[0].Cells[1].Value.ToString();
                 edit_receiving_item.item_description = dt_receiving.SelectedRows[0].Cells[2].Value.ToString();
-                edit_receiving_item.quantity = Convert.ToDecimal(dt_receiving.SelectedRows[0].Cells[3].Value);
+                edit_receiving_item.uom = dt_receiving.SelectedRows[0].Cells[3].Value.ToString();
+                edit_receiving_item.quantity = Convert.ToDecimal(dt_receiving.SelectedRows[0].Cells[4].Value);
 
                 btn_edit.Enabled = true;
                 //MessageBox.Show("" + e.RowIndex);
@@ -270,9 +279,19 @@ namespace Generic_Move_Order.Frm_Receiving
 
         private void dt_receiving_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            dt_receiving.ReadOnly = true;
             if (dt_receiving.Columns[e.ColumnIndex].Name == "remove")
             {
-                dt_receiving.Rows.Remove(dt_receiving.Rows[e.RowIndex]);
+
+                DialogResult res = MessageBox.Show("Are you sure you want to remove?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+                    dt_receiving.Rows.Remove(dt_receiving.Rows[e.RowIndex]);
+                }
+                if (res == DialogResult.No)
+                {
+                    //Some task…  
+                }
             }
         }
 
@@ -310,6 +329,63 @@ namespace Generic_Move_Order.Frm_Receiving
                     MessageBox.Show("You enter invalid customer!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     text_name.Clear();
                     label_customer_id.Text = "0";
+                }
+            }
+        }
+
+        private void HeaderName()
+        {
+            dt_receiving.Columns["id"].HeaderText = "Id";
+            dt_receiving.Columns["item_code"].HeaderText = "Item Code";
+            dt_receiving.Columns["item_description"].HeaderText = "Item Description";
+            dt_receiving.Columns["uom"].HeaderText = "UOM";
+            dt_receiving.Columns["quantity"].HeaderText = "Quantity";
+            dt_receiving.Columns["remove"].HeaderText = "Remove";
+
+            dt_receiving.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_receiving.EnableHeadersVisualStyles = false;
+        }
+
+        private void text_transaction_description_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
+            {
+                SP_GetSupplierById();
+                if (label_customer_id.Text == "0")
+                {
+                    //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cb_supplier.Focus();
+                    text_name.Clear();
+                    label_customer_id.Text = "0";
+                }
+                else
+                {
+                    Frm_Add_Receiving frm = new Frm_Add_Receiving(this);
+                    frm.ShowDialog();
+                }
+                btn_edit.Enabled = false;
+            }
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                DialogResult res = MessageBox.Show("Are you sure you want to save?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+                    if (cb_supplier.Text == string.Empty || text_transaction_description.Text == string.Empty || text_name.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please input the required field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    //Some task…
+                    SP_GetSupplierById();
+                    InsertReceiving();
+                    InsertReceiveItem();
+                    CallPrintOut();
+                    ClearRecord();
+                    text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                }
+                if (res == DialogResult.No)
+                {
+                    //Some task…  
                 }
             }
         }

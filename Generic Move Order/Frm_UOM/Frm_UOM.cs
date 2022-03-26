@@ -24,12 +24,13 @@ namespace Generic_Move_Order.Frm_UOM
         {
             cb_status.SelectedIndex = 0;
             btn_edit.Enabled = false;
+            HeaderName();
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
             edit_uom.id = 0;
-            Frm_Add_UOM frm = new Frm_Add_UOM();
+            Frm_Add_UOM frm = new Frm_Add_UOM(this);
             frm.ShowDialog();
             btn_edit.Enabled = false;
         }
@@ -45,6 +46,22 @@ namespace Generic_Move_Order.Frm_UOM
             SqlCommand cmd = new SqlCommand("SP_GetUOM", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_uom.DataSource = dt;
+            connect.con.Close();
+
+            dt_uom.ReadOnly = true;
+        }
+
+        public void GetUOMBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetUOMBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             dt_uom.DataSource = dt;
@@ -74,6 +91,7 @@ namespace Generic_Move_Order.Frm_UOM
                 //populate the textbox from specific value of the coordinates of column and row.
                 edit_uom.id = int.Parse(row.Cells["id"].Value.ToString());
                 edit_uom.uom = row.Cells["uom"].Value.ToString();
+                edit_uom.uom_desc = row.Cells["uom_description"].Value.ToString();
                 edit_uom.status = bool.Parse(row.Cells["status"].Value.ToString());
 
                 btn_edit.Enabled = true;
@@ -87,13 +105,43 @@ namespace Generic_Move_Order.Frm_UOM
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            Frm_Add_UOM frm = new Frm_Add_UOM();
+            Frm_Add_UOM frm = new Frm_Add_UOM(this);
             frm.ShowDialog();
         }
 
         private void cb_status_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //search();
+                GetUOMBySearch();
+            }
+        }
+
+        private void HeaderName()
+        {
+            dt_uom.Columns["id"].HeaderText = "Id";
+            dt_uom.Columns["uom"].HeaderText = "UOM";
+            dt_uom.Columns["uom_description"].HeaderText = "Description";
+            dt_uom.Columns["status"].HeaderText = "Status";
+            dt_uom.Columns["date_added"].HeaderText = "Date Added";
+
+            dt_uom.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_uom.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_uom_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_uom.ClearSelection();
+
+            btn_edit.Enabled = false;
+
+            label_role_counting.Text = "TOTAL # OF UOM/S: " + (dt_uom.RowCount);
         }
     }
 }

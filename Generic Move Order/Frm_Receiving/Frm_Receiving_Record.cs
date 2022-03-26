@@ -22,10 +22,42 @@ namespace Generic_Move_Order.Frm_Receiving
 
         private void Frm_Receiving_Record_Load(object sender, EventArgs e)
         {
+            DisableAccess();
+            UserAccess();
             cb_status.SelectedIndex = 0;
             btn_print.Enabled = false;
             btn_inactive.Enabled = false;
             btn_view.Enabled = false;
+            HeaderName();
+        }
+
+        private void DisableAccess()
+        {
+            btn_inactive.Visible = false;
+        }
+
+        private void UserAccess()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetUserAccess", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@role", User.role_id);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_user_role.DataSource = dt;
+            connect.con.Close();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string mod_name = row[2].ToString();
+                //MessageBox.Show("" + mod_name);
+
+                if (mod_name == "receive_btn_inactive")
+                {
+                    btn_inactive.Visible = true;
+                }
+            }
         }
 
         public void GetReceivingRecords()
@@ -39,8 +71,23 @@ namespace Generic_Move_Order.Frm_Receiving
             dt.Load(cmd.ExecuteReader());
             dt_receiving.DataSource = dt;
             connect.con.Close();
+
+            dt_receiving.ReadOnly = true;
         }
 
+        public void GetReceivingRecordsBySearch()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetReceivingRecordsBySearch", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@search", textBox1.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            dt_receiving.DataSource = dt;
+            connect.con.Close();
+        }
         private void btn_view_Click(object sender, EventArgs e)
         {
             Frm_View_Receiving frm = new Frm_View_Receiving();
@@ -52,10 +99,12 @@ namespace Generic_Move_Order.Frm_Receiving
             if (cb_status.Text == "Active")
             {
                 status = bool.Parse(true.ToString());
+                btn_inactive.Enabled = true;
             }
             else
             {
                 status = bool.Parse(false.ToString());
+                btn_inactive.Enabled = false;
             }
             GetReceivingRecords();
             label_role_counting.Text = "TOTAL # OF RECORD/S: " + (dt_receiving.RowCount);
@@ -75,8 +124,12 @@ namespace Generic_Move_Order.Frm_Receiving
                 view_receiving.transaction_date = DateTime.Parse(row.Cells["transaction_date"].Value.ToString());
 
                 btn_view.Enabled = true;
-                btn_inactive.Enabled = true;
                 btn_print.Enabled = true;
+                if (cb_status.Text == "Active")
+                {
+                    btn_inactive.Enabled = true;
+                }
+
 
             }
             else
@@ -104,6 +157,70 @@ namespace Generic_Move_Order.Frm_Receiving
 
             Frm_Printing.Frm_Printing frm = new Frm_Printing.Frm_Printing();
             frm.ShowDialog();
+        }
+
+        private void InactiveReceiving()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_UpdateReceivingStatusToInactive", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@id", view_receiving.id);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_receiving.DataSource = dt;
+            connect.con.Close();
+        }
+
+        private void btn_inactive_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Are you sure you want to cancel?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                InactiveReceiving();
+                GetReceivingRecords();
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetReceivingRecordsBySearch();
+            }
+        }
+
+        private void cb_status_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void HeaderName()
+        {
+            dt_receiving.Columns["id"].HeaderText = "Id";
+            dt_receiving.Columns["supplier_code"].HeaderText = "Supplier Code";
+            dt_receiving.Columns["supplier_name"].HeaderText = "Supplier Name";
+            dt_receiving.Columns["description"].HeaderText = "Description";
+            dt_receiving.Columns["transaction_date"].HeaderText = "Transaction Date";
+
+            dt_receiving.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dt_receiving.EnableHeadersVisualStyles = false;
+        }
+
+        private void dt_receiving_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dt_receiving.ClearSelection();
+
+            btn_view.Enabled = false;
+            btn_print.Enabled = false;
+            btn_inactive.Enabled = false;
+
+            label_role_counting.Text = "TOTAL # OF RECORD/S: " + (dt_receiving.RowCount);
         }
     }
 }

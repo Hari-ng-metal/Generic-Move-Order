@@ -39,14 +39,16 @@ namespace Generic_Move_Order
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pb_exit = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,7 +96,7 @@ namespace Generic_Move_Order
             // 
             // text_mypassword
             // 
-            this.text_mypassword.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.text_mypassword.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.text_mypassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.text_mypassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.text_mypassword.Location = new System.Drawing.Point(110, 150);
@@ -103,10 +105,11 @@ namespace Generic_Move_Order
             this.text_mypassword.Size = new System.Drawing.Size(176, 15);
             this.text_mypassword.TabIndex = 12;
             this.text_mypassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.text_mypassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_mypassword_KeyDown);
             // 
             // text_username
             // 
-            this.text_username.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.text_username.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.text_username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.text_username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.text_username.Location = new System.Drawing.Point(109, 106);
@@ -145,6 +148,16 @@ namespace Generic_Move_Order
             this.pb_exit.TabStop = false;
             this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(0, 382);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Version: 1.00";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -163,22 +176,23 @@ namespace Generic_Move_Order
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // pictureBox3
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(0, 382);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Version: 1.00";
+            this.pictureBox3.Image = global::Generic_Move_Order.Properties.Resources._22;
+            this.pictureBox3.Location = new System.Drawing.Point(127, 251);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 76);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 19;
+            this.pictureBox3.TabStop = false;
             // 
             // Frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(350, 403);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
@@ -198,6 +212,7 @@ namespace Generic_Move_Order
             ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +232,6 @@ namespace Generic_Move_Order
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pb_exit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

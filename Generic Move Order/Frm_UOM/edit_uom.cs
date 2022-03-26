@@ -10,6 +10,7 @@ namespace Generic_Move_Order.Frm_UOM
     {
         public static int id { get; set; }
         public static string uom { get; set; }
+        public static string uom_desc { get; set; }
         public static bool status { get; set; }
     }
 }

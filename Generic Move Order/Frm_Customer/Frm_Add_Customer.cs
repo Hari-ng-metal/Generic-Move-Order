@@ -15,9 +15,12 @@ namespace Generic_Move_Order.Frm_Customer
     {
         Connection connect = new Connection();
         bool status;
-        public Frm_Add_Customer()
+
+        Frm_Customer frm;
+        public Frm_Add_Customer(Frm_Customer _frm)
         {
             InitializeComponent();
+            this.frm = _frm;
         }
 
         private void text_desc_TextChanged(object sender, EventArgs e)
@@ -123,6 +126,8 @@ namespace Generic_Move_Order.Frm_Customer
             {
                 //Some task…  
             }
+            frm.GetCustomer();
+            frm.dt_customer.ClearSelection();
         }
 
         private void AddOrEdit()
@@ -148,6 +153,7 @@ namespace Generic_Move_Order.Frm_Customer
             else
             {
                 btn_save.Text = "SAVE";
+                cb_status.SelectedIndex = 0;
             }
         }
 
@@ -192,6 +198,11 @@ namespace Generic_Move_Order.Frm_Customer
                 InsertCustomer();
                 this.Close();
             }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
