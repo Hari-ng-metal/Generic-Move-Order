@@ -29,21 +29,25 @@ namespace Generic_Move_Order.Frm_Move_Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_exit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.text_sales_id = new System.Windows.Forms.TextBox();
-            this.cb_customer = new System.Windows.Forms.ComboBox();
-            this.text_name = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.text_date = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cb_customer = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.text_name = new System.Windows.Forms.TextBox();
+            this.cb_reason = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.text_area = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.text_transaction_description = new System.Windows.Forms.TextBox();
@@ -65,6 +69,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
@@ -131,13 +136,17 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.3401F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.2335F));
             this.tableLayoutPanel1.Controls.Add(this.text_sales_id, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cb_customer, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.text_name, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_date, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cb_customer, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.text_name, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cb_reason, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.text_area, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -155,46 +164,6 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_sales_id.Name = "text_sales_id";
             this.text_sales_id.Size = new System.Drawing.Size(236, 22);
             this.text_sales_id.TabIndex = 40;
-            // 
-            // cb_customer
-            // 
-            this.cb_customer.FormattingEnabled = true;
-            this.cb_customer.Location = new System.Drawing.Point(172, 29);
-            this.cb_customer.Name = "cb_customer";
-            this.cb_customer.Size = new System.Drawing.Size(236, 24);
-            this.cb_customer.TabIndex = 19;
-            this.cb_customer.SelectedIndexChanged += new System.EventHandler(this.cb_customer_SelectedIndexChanged);
-            this.cb_customer.TextChanged += new System.EventHandler(this.cb_customer_TextChanged);
-            this.cb_customer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_customer_KeyDown);
-            this.cb_customer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_customer_KeyPress);
-            // 
-            // text_name
-            // 
-            this.text_name.Enabled = false;
-            this.text_name.Location = new System.Drawing.Point(524, 29);
-            this.text_name.Name = "text_name";
-            this.text_name.Size = new System.Drawing.Size(243, 22);
-            this.text_name.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(446, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 26);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Customer Name:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Customer Code:";
             // 
             // label6
             // 
@@ -224,6 +193,86 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_date.Size = new System.Drawing.Size(243, 22);
             this.text_date.TabIndex = 43;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(57, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Customer Code:";
+            // 
+            // cb_customer
+            // 
+            this.cb_customer.FormattingEnabled = true;
+            this.cb_customer.Location = new System.Drawing.Point(172, 55);
+            this.cb_customer.Name = "cb_customer";
+            this.cb_customer.Size = new System.Drawing.Size(236, 24);
+            this.cb_customer.TabIndex = 1;
+            this.cb_customer.SelectedIndexChanged += new System.EventHandler(this.cb_customer_SelectedIndexChanged);
+            this.cb_customer.TextChanged += new System.EventHandler(this.cb_customer_TextChanged);
+            this.cb_customer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_customer_KeyDown);
+            this.cb_customer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_customer_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Location = new System.Drawing.Point(61, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 26);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Business Type:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(446, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 28);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Customer Name:";
+            // 
+            // text_name
+            // 
+            this.text_name.Enabled = false;
+            this.text_name.Location = new System.Drawing.Point(524, 55);
+            this.text_name.Name = "text_name";
+            this.text_name.Size = new System.Drawing.Size(243, 22);
+            this.text_name.TabIndex = 6;
+            // 
+            // cb_reason
+            // 
+            this.cb_reason.FormattingEnabled = true;
+            this.cb_reason.Items.AddRange(new object[] {
+            "PICK-UP",
+            "DELIVERY"});
+            this.cb_reason.Location = new System.Drawing.Point(524, 29);
+            this.cb_reason.Name = "cb_reason";
+            this.cb_reason.Size = new System.Drawing.Size(243, 24);
+            this.cb_reason.TabIndex = 2;
+            this.cb_reason.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_reason_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label4.Location = new System.Drawing.Point(457, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 26);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Reason:";
+            // 
+            // text_area
+            // 
+            this.text_area.Enabled = false;
+            this.text_area.Location = new System.Drawing.Point(172, 29);
+            this.text_area.Name = "text_area";
+            this.text_area.Size = new System.Drawing.Size(236, 22);
+            this.text_area.TabIndex = 48;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel2);
@@ -238,7 +287,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 371F));
             this.tableLayoutPanel2.Controls.Add(this.text_transaction_description, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
@@ -254,17 +303,17 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_transaction_description.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_transaction_description.Location = new System.Drawing.Point(109, 3);
+            this.text_transaction_description.Location = new System.Drawing.Point(108, 3);
             this.text_transaction_description.Name = "text_transaction_description";
-            this.text_transaction_description.Size = new System.Drawing.Size(290, 22);
-            this.text_transaction_description.TabIndex = 11;
+            this.text_transaction_description.Size = new System.Drawing.Size(287, 22);
+            this.text_transaction_description.TabIndex = 3;
             this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 0);
+            this.label7.Location = new System.Drawing.Point(19, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 10;
@@ -273,7 +322,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(405, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(401, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -301,7 +350,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.btn_save.Location = new System.Drawing.Point(481, 0);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
-            this.btn_save.TabIndex = 10;
+            this.btn_save.TabIndex = 6;
             this.btn_save.Text = "SAVE";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
@@ -315,7 +364,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.btn_cancel.Location = new System.Drawing.Point(586, 0);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
-            this.btn_cancel.TabIndex = 9;
+            this.btn_cancel.TabIndex = 7;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -396,7 +445,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.btn_new.Location = new System.Drawing.Point(0, 0);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(105, 41);
-            this.btn_new.TabIndex = 8;
+            this.btn_new.TabIndex = 4;
             this.btn_new.Text = "NEW";
             this.btn_new.UseVisualStyleBackColor = false;
             this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
@@ -413,15 +462,16 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.item_description,
             this.UOM,
             this.quantity,
+            this.slab,
             this.remove});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dt_move.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dt_move.DefaultCellStyle = dataGridViewCellStyle8;
             this.dt_move.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dt_move.Location = new System.Drawing.Point(0, 193);
             this.dt_move.Name = "dt_move";
@@ -468,12 +518,19 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
             // 
+            // slab
+            // 
+            this.slab.HeaderText = "slab";
+            this.slab.MinimumWidth = 6;
+            this.slab.Name = "slab";
+            this.slab.ReadOnly = true;
+            // 
             // remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.remove.DefaultCellStyle = dataGridViewCellStyle7;
             this.remove.FillWeight = 53.47594F;
             this.remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remove.HeaderText = "remove";
@@ -554,6 +611,11 @@ namespace Generic_Move_Order.Frm_Move_Order
         private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
         private System.Windows.Forms.DataGridViewTextBoxColumn UOM;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slab;
         private System.Windows.Forms.DataGridViewButtonColumn remove;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cb_reason;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox text_area;
     }
 }

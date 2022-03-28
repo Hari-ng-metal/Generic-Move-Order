@@ -15,6 +15,7 @@ namespace Generic_Move_Order.Frm_Customer
     {
         Connection connect = new Connection();
         bool status;
+        string area_id = "0";
 
         Frm_Customer frm;
         public Frm_Add_Customer(Frm_Customer _frm)
@@ -54,6 +55,7 @@ namespace Generic_Move_Order.Frm_Customer
                 cmd.Parameters.AddWithValue("@code", text_code.Text);
                 cmd.Parameters.AddWithValue("@name", text_name.Text);
                 cmd.Parameters.AddWithValue("@address", text_address.Text);
+                cmd.Parameters.AddWithValue("@area", area_id);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
@@ -83,6 +85,7 @@ namespace Generic_Move_Order.Frm_Customer
                 cmd.Parameters.AddWithValue("@code", text_code.Text);
                 cmd.Parameters.AddWithValue("@name", text_name.Text);
                 cmd.Parameters.AddWithValue("@address", text_address.Text);
+                cmd.Parameters.AddWithValue("@area", area_id);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
@@ -137,6 +140,8 @@ namespace Generic_Move_Order.Frm_Customer
                 text_code.Text = edit_customer.customer_code;
                 text_name.Text = edit_customer.customer_name;
                 text_address.Text = edit_customer.address;
+                area_id = edit_customer.area_id.ToString();
+                cb_area.Text = edit_customer.area;
                 label_status.Text = edit_customer.status.ToString();
                 if (label_status.Text == true.ToString())
                 {
@@ -160,7 +165,7 @@ namespace Generic_Move_Order.Frm_Customer
 
         private void Frm_Add_Customer_Load(object sender, EventArgs e)
         {
-
+            GetArea();
             AddOrEdit();
         }
 
@@ -203,6 +208,41 @@ namespace Generic_Move_Order.Frm_Customer
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void GetArea()
+        {
+
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetArea", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_area.DataSource = dt;
+                connect.con.Close();
+
+                cb_area.ValueMember = "id";
+                cb_area.DisplayMember = "area";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_area.SelectedIndex = -1;
+        }
+
+        private void cb_area_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_area.SelectedIndex >= 0)
+            {
+                area_id = cb_area.SelectedValue.ToString();
+                label_area_id.Text = area_id;
+            }
         }
     }
 }

@@ -78,6 +78,7 @@ namespace Generic_Move_Order
             this.pb_menu = new System.Windows.Forms.PictureBox();
             this.panel_bot = new System.Windows.Forms.Panel();
             this.panel_body = new System.Windows.Forms.Panel();
+            this.areaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_side.SuspendLayout();
             this.panel_menu.SuspendLayout();
             this.menuStrip6.SuspendLayout();
@@ -190,7 +191,8 @@ namespace Generic_Move_Order
             this.toolStripMenuItem18,
             this.toolStripMenuItem19,
             this.toolStripMenuItem20,
-            this.prodictCategoryToolStripMenuItem});
+            this.prodictCategoryToolStripMenuItem,
+            this.areaToolStripMenuItem});
             this.toolStripMenuItem14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
             this.toolStripMenuItem14.Size = new System.Drawing.Size(61, 24);
@@ -201,7 +203,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem15.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(207, 26);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem15.Text = "Master Item";
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
@@ -210,7 +212,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem16.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(207, 26);
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem16.Text = "Customer";
             this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
             // 
@@ -219,7 +221,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem17.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(207, 26);
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem17.Text = "Supplier";
             this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
             // 
@@ -228,7 +230,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem18.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(207, 26);
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem18.Text = "UOM";
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
@@ -237,7 +239,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem19.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem19.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(207, 26);
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem19.Text = "Category";
             this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
             // 
@@ -246,7 +248,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem20.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(207, 26);
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem20.Text = "Department";
             this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
             // 
@@ -255,7 +257,7 @@ namespace Generic_Move_Order
             this.prodictCategoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.prodictCategoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.prodictCategoryToolStripMenuItem.Name = "prodictCategoryToolStripMenuItem";
-            this.prodictCategoryToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.prodictCategoryToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.prodictCategoryToolStripMenuItem.Text = "Product Category";
             this.prodictCategoryToolStripMenuItem.Click += new System.EventHandler(this.prodictCategoryToolStripMenuItem_Click);
             // 
@@ -588,6 +590,15 @@ namespace Generic_Move_Order
             this.panel_body.Size = new System.Drawing.Size(806, 621);
             this.panel_body.TabIndex = 3;
             // 
+            // areaToolStripMenuItem
+            // 
+            this.areaToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.areaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.areaToolStripMenuItem.Name = "areaToolStripMenuItem";
+            this.areaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.areaToolStripMenuItem.Text = "Area";
+            this.areaToolStripMenuItem.Click += new System.EventHandler(this.areaToolStripMenuItem_Click);
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -681,6 +692,7 @@ namespace Generic_Move_Order
         private System.Windows.Forms.ToolStripMenuItem micellaneousReceiptRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousIssueHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousReceiptHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem areaToolStripMenuItem;
     }
 }
 

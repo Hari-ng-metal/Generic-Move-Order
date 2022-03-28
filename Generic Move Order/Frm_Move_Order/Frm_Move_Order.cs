@@ -29,6 +29,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void Frm_Move_Order_Load(object sender, EventArgs e)
         {
             GetCustomer();
+            GetReason();
             text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_move.RowCount);
             btn_save.Enabled = false;
@@ -84,6 +85,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             }
             cb_customer.SelectedIndex = -1;
             text_name.Clear();
+            text_area.Clear();
         }
 
         public void SP_GetCustomerById()
@@ -104,6 +106,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 customer_id = int.Parse(dt.Rows[0]["id"].ToString());
                 label_customer_id.Text = customer_id.ToString();
                 text_name.Text = dt.Rows[0]["customer_name"].ToString();
+                text_area.Text = dt.Rows[0]["area"].ToString();
             }
             else
             {
@@ -125,6 +128,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 cmd.Parameters.AddWithValue("@customer_id", customer_id);
                 cmd.Parameters.AddWithValue("@description", text_transaction_description.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
+                cmd.Parameters.AddWithValue("@reason", cb_reason.Text);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;
@@ -146,6 +150,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             int p_id = 0;
             double pqty = 0;
+            double pslab = 0;
 
             foreach (DataGridViewRow row in dt_move.Rows)
             {
@@ -158,6 +163,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 {
                     p_id = int.Parse(row.Cells["id"].Value.ToString());
                     pqty = float.Parse(row.Cells["quantity"].Value.ToString());
+                    pslab = float.Parse(row.Cells["slab"].Value.ToString());
                     //MessageBox.Show("" + p_id);
                 }
 
@@ -169,6 +175,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                     cmd.Parameters.AddWithValue("@move_id", move_id);
                     cmd.Parameters.AddWithValue("@item_id", int.Parse(p_id.ToString()));
                     cmd.Parameters.AddWithValue("@quantity", pqty);
+                    cmd.Parameters.AddWithValue("@slab", pslab);
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
                     //dt_report.DataSource = dt;
@@ -185,6 +192,60 @@ namespace Generic_Move_Order.Frm_Move_Order
             MessageBox.Show("Successfully Save!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public void SP_GetCustomerDetailsBy()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_GetCustomerById", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@code", cb_customer.Text);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_module.DataSource = dt;
+            connect.con.Close();
+
+            if (dt.Rows.Count > 0)
+            {
+                //MessageBox.Show("" + dt.Rows[0]["item_description"]);
+                customer_id = int.Parse(dt.Rows[0]["id"].ToString());
+                label_customer_id.Text = customer_id.ToString();
+                text_name.Text = dt.Rows[0]["customer_name"].ToString();
+                text_area.Text = dt.Rows[0]["area"].ToString();
+            }
+            else
+            {
+                text_name.Clear();
+                label_customer_id.Text = "0";
+            }
+
+        }
+
+        public void GetReason()
+        {
+
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetReason", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_reason.DataSource = dt;
+                connect.con.Close();
+
+                cb_reason.ValueMember = "id";
+                cb_reason.DisplayMember = "reason";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_reason.SelectedIndex = -1;
+        }
+
 
         private void cb_customer_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -192,6 +253,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (cb_customer.SelectedIndex >= 0)
             {
                 text_name.Text = cb_customer.SelectedValue.ToString();
+                SP_GetCustomerDetailsBy();
             }
         }
 
@@ -209,7 +271,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 SP_GetCustomerById();
                 InsertMoveOrder();
                 InsertMoveOrderItem();
-                CallPrintOut();
+                //CallPrintOut();
                 ClearRecord();
                 text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 cb_customer.Select();
@@ -272,6 +334,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 edit_move_item.item_description = dt_move.SelectedRows[0].Cells[2].Value.ToString();
                 edit_move_item.uom = dt_move.SelectedRows[0].Cells[3].Value.ToString();
                 edit_move_item.quantity = Convert.ToDecimal(dt_move.SelectedRows[0].Cells[4].Value);
+                edit_move_item.slab = Convert.ToDecimal(dt_move.SelectedRows[0].Cells[5].Value);
 
                 btn_edit.Enabled = true;
             }
@@ -305,6 +368,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             text_name.Clear();
             text_transaction_description.Clear();
             label_customer_id.Text = "0";
+            cb_reason.Text = "";
 
             dt_move.Rows.Clear();
         }
@@ -409,10 +473,16 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move.Columns["item_description"].HeaderText = "Item Description";
             dt_move.Columns["uom"].HeaderText = "UOM";
             dt_move.Columns["quantity"].HeaderText = "Quantity";
+            dt_move.Columns["slab"].HeaderText = "Slab/Bag";
             dt_move.Columns["remove"].HeaderText = "Remove";
 
             dt_move.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_move.EnableHeadersVisualStyles = false;
+        }
+
+        private void cb_reason_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -46,6 +46,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_qty = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.text_uom = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.text_slab = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +101,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel1.Controls.Add(this.text_qty, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.text_uom, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.text_slab, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -239,6 +243,25 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_uom.Size = new System.Drawing.Size(157, 22);
             this.text_uom.TabIndex = 21;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label5.Location = new System.Drawing.Point(91, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 45);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Slab/Bag:";
+            // 
+            // text_slab
+            // 
+            this.text_slab.Location = new System.Drawing.Point(166, 93);
+            this.text_slab.Name = "text_slab";
+            this.text_slab.Size = new System.Drawing.Size(157, 22);
+            this.text_slab.TabIndex = 23;
+            this.text_slab.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_slab_KeyDown);
+            this.text_slab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // Frm_Add_Move_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -282,5 +305,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private System.Windows.Forms.TextBox text_qty;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox text_uom;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox text_slab;
     }
 }

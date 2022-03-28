@@ -29,7 +29,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void ShowMoeOrderDetails()
         {
             text_sales_id.Text = view_move_order.id.ToString();
-            text_date.Text = view_move_order.transaction_date.ToString();
+            text_date.Text = view_move_order.transaction_date.ToString("yyyy-MM-dd");
             text_name.Text = view_move_order.customer_name;
             text_code.Text = view_move_order.customer_code;
             text_transaction_description.Text = view_move_order.description;
@@ -77,6 +77,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move.Columns["item_description"].HeaderText = "Item Description";
             dt_move.Columns["uom"].HeaderText = "UOM";
             dt_move.Columns["quantity"].HeaderText = "Quantity";
+            dt_move.Columns["slab"].HeaderText = "Slab/Bag";
             //dt_move.Columns["actual_quantity"].HeaderText = "Actual Quantity";
 
             dt_move.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;

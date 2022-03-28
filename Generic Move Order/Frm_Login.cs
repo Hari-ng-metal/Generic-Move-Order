@@ -23,8 +23,8 @@ namespace Generic_Move_Order
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            //Login();
-            Ping();
+            Login();
+            //Ping();
         }
 
         private void Ping()

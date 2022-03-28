@@ -40,6 +40,7 @@ namespace Generic_Move_Order.Frm_Customer
             dt_customer.DataSource = dt;
             connect.con.Close();
 
+            dt_customer.Columns["area_id"].Visible = false;
             dt_customer.ReadOnly = true;
         }
 
@@ -130,6 +131,7 @@ namespace Generic_Move_Order.Frm_Customer
         private void HeaderName()
         {
             dt_customer.Columns["id"].HeaderText = "Id";
+            dt_customer.Columns["area"].HeaderText = "Area";
             dt_customer.Columns["customer_code"].HeaderText = "Customer Code";
             dt_customer.Columns["customer_name"].HeaderText = "Customer Name";
             dt_customer.Columns["address"].HeaderText = "Address";

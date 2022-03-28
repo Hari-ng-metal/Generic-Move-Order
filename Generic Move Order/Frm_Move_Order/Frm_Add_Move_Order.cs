@@ -39,7 +39,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             try
             {
-                frm.dt_move.Rows.Add(label_id.Text, cb_code.Text, text_desc.Text, text_uom.Text, text_qty.Text);
+                frm.dt_move.Rows.Add(label_id.Text, cb_code.Text, text_desc.Text, text_uom.Text, text_qty.Text, text_slab.Text);
             }
             catch (Exception ex)
             {
@@ -54,7 +54,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             //
             GetMaserlistByCode();
-            if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text))
+            if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text))
             {
                 //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cb_code.Focus();
@@ -236,10 +236,55 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void text_qty_KeyDown(object sender, KeyEventArgs e)
         {
             //
+            //if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            //{
+            //    GetMaserlistByCode();
+            //    if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text))
+            //    {
+            //        //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        cb_code.Focus();
+            //    }
+            //    else
+            //    {
+            //        GetMaserlistByCode();
+            //        if (int.Parse(label_id.Text.ToString()) > 0)
+            //        {
+            //            AddItem();
+            //        }
+            //        else
+            //        {
+            //            cb_code.Focus();
+            //        }
+            //    }
+            //    frm.dt_move.ClearSelection();
+            //}
+        }
+
+        private void cb_code_SelectedValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+              (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void text_slab_KeyDown(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 GetMaserlistByCode();
-                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text))
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text))
                 {
                     //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cb_code.Focus();
@@ -258,10 +303,6 @@ namespace Generic_Move_Order.Frm_Move_Order
                 }
                 frm.dt_move.ClearSelection();
             }
-        }
-
-        private void cb_code_SelectedValueChanged(object sender, EventArgs e)
-        {
         }
     }
 }

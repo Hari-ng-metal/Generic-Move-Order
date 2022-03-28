@@ -1196,5 +1196,28 @@ namespace Generic_Move_Order
             //miscellaneousReceiptToolStripMenuItem1.BackColor = WindowFrame;
             //miscellaneousReceiptToolStripMenuItem1.ForeColor = Color.White;
         }
+
+        private void areaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //area
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Area")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Area.Frm_Area frm_in = new Frm_Area.Frm_Area() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
     }
 }

@@ -114,6 +114,7 @@ namespace Generic_Move_Order.Frm_Report
             {
                 MessageBox.Show("No Record To Export!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void btn_export_Click(object sender, EventArgs e)
@@ -140,6 +141,8 @@ namespace Generic_Move_Order.Frm_Report
             dt_report.Columns["uom"].HeaderText = "UOM";
             dt_report.Columns["quantity"].HeaderText = "Quantity";
             dt_report.Columns["transaction_date"].HeaderText = "Transaction Date";
+            dt_report.Columns["reason"].HeaderText = "Reason";
+            dt_report.Columns["area"].HeaderText = "Business Type";
 
             dt_report.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_report.EnableHeadersVisualStyles = false;

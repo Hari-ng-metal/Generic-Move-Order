@@ -38,6 +38,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             text_desc.Text = edit_move_item.item_description;
             text_uom.Text = edit_move_item.uom.ToString();
             text_qty.Text = edit_move_item.quantity.ToString();
+            text_slab.Text = edit_move_item.slab.ToString();
             label_index.Text = edit_move_item.index.ToString();
         }
 
@@ -173,6 +174,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             frm.dt_move.Rows[edit_move_item.index].Cells[2].Value = text_desc.Text;
             frm.dt_move.Rows[edit_move_item.index].Cells[3].Value = text_uom.Text;
             frm.dt_move.Rows[edit_move_item.index].Cells[4].Value = text_qty.Text;
+            frm.dt_move.Rows[edit_move_item.index].Cells[5].Value = text_slab.Text;
 
             this.Close();
         }
@@ -211,6 +213,47 @@ namespace Generic_Move_Order.Frm_Move_Order
             {
                 text_desc.Text = cb_code.SelectedValue.ToString();
                 GetUOMbyItemCode();
+            }
+        }
+
+        private void text_slab_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+              (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void text_slab_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                GetMaserlistByCode();
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text))
+                {
+                    //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_code.Focus();
+                }
+                else
+                {
+                    GetMaserlistByCode();
+                    if (int.Parse(label_id.Text.ToString()) > 0)
+                    {
+                        UpdateItem();
+                        frm.dt_move.ClearSelection();
+                    }
+                    else
+                    {
+                        cb_code.Focus();
+                    }
+                }
             }
         }
     }

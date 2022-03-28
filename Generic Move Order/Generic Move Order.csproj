@@ -109,6 +109,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Area\edit_area.cs" />
+    <Compile Include="Frm_Area\Frm_Add_Area.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Area\Frm_Add_Area.Designer.cs">
+      <DependentUpon>Frm_Add_Area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Area\Frm_Area.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Area\Frm_Area.Designer.cs">
+      <DependentUpon>Frm_Area.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Category\edit_category.cs" />
     <Compile Include="Frm_Category\Frm_Add_Category.cs">
       <SubType>Form</SubType>
@@ -446,6 +459,12 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Area\Frm_Add_Area.resx">
+      <DependentUpon>Frm_Add_Area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Area\Frm_Area.resx">
+      <DependentUpon>Frm_Area.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Category\Frm_Add_Category.resx">
       <DependentUpon>Frm_Add_Category.cs</DependentUpon>

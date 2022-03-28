@@ -13,8 +13,8 @@ namespace Generic_Move_Order
 
         public void DatabaseConnection()
         {
-            //con = new SqlConnection("Data Source=.;Initial Catalog=MoveOrder;Integrated Security=True");
-            con = new SqlConnection("Server=10.10.2.6,1433;Database=MoveOrder;User Id=sa;Password=ULtR@MaVD3p0t2o22;");
+            con = new SqlConnection("Data Source=.;Initial Catalog=MoveOrder;Integrated Security=True");
+            //con = new SqlConnection("Server=10.10.2.6,1433;Database=MoveOrder;User Id=sa;Password=ULtR@MaVD3p0t2o22;");
         }
     }
 }

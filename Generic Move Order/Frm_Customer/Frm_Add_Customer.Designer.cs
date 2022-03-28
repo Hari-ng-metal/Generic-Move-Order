@@ -43,9 +43,11 @@ namespace Generic_Move_Order.Frm_Customer
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.label_status = new System.Windows.Forms.Label();
-            this.label_uom = new System.Windows.Forms.Label();
+            this.label_area_id = new System.Windows.Forms.Label();
             this.cb_status = new System.Windows.Forms.ComboBox();
             this.text_address = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_area = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -96,9 +98,11 @@ namespace Generic_Move_Order.Frm_Customer
             this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.btn_save, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label_status, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label_uom, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label_area_id, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.cb_status, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.text_address, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cb_area, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -117,7 +121,7 @@ namespace Generic_Move_Order.Frm_Customer
             this.text_name.Location = new System.Drawing.Point(492, 3);
             this.text_name.Name = "text_name";
             this.text_name.Size = new System.Drawing.Size(157, 22);
-            this.text_name.TabIndex = 10;
+            this.text_name.TabIndex = 1;
             this.text_name.TextChanged += new System.EventHandler(this.text_desc_TextChanged);
             // 
             // label1
@@ -166,7 +170,7 @@ namespace Generic_Move_Order.Frm_Customer
             this.text_code.Location = new System.Drawing.Point(166, 3);
             this.text_code.Name = "text_code";
             this.text_code.Size = new System.Drawing.Size(157, 22);
-            this.text_code.TabIndex = 6;
+            this.text_code.TabIndex = 0;
             // 
             // btn_cancel
             // 
@@ -190,7 +194,7 @@ namespace Generic_Move_Order.Frm_Customer
             this.btn_save.Location = new System.Drawing.Point(381, 138);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
-            this.btn_save.TabIndex = 7;
+            this.btn_save.TabIndex = 5;
             this.btn_save.Text = "SAVE";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
@@ -205,15 +209,15 @@ namespace Generic_Move_Order.Frm_Customer
             this.label_status.Text = "label7";
             this.label_status.Visible = false;
             // 
-            // label_uom
+            // label_area_id
             // 
-            this.label_uom.AutoSize = true;
-            this.label_uom.Location = new System.Drawing.Point(166, 135);
-            this.label_uom.Name = "label_uom";
-            this.label_uom.Size = new System.Drawing.Size(46, 17);
-            this.label_uom.TabIndex = 14;
-            this.label_uom.Text = "label8";
-            this.label_uom.Visible = false;
+            this.label_area_id.AutoSize = true;
+            this.label_area_id.Location = new System.Drawing.Point(166, 135);
+            this.label_area_id.Name = "label_area_id";
+            this.label_area_id.Size = new System.Drawing.Size(46, 17);
+            this.label_area_id.TabIndex = 14;
+            this.label_area_id.Text = "label8";
+            this.label_area_id.Visible = false;
             // 
             // cb_status
             // 
@@ -224,7 +228,7 @@ namespace Generic_Move_Order.Frm_Customer
             this.cb_status.Location = new System.Drawing.Point(492, 48);
             this.cb_status.Name = "cb_status";
             this.cb_status.Size = new System.Drawing.Size(157, 24);
-            this.cb_status.TabIndex = 12;
+            this.cb_status.TabIndex = 4;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
             this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
             // 
@@ -234,7 +238,26 @@ namespace Generic_Move_Order.Frm_Customer
             this.text_address.Location = new System.Drawing.Point(166, 48);
             this.text_address.Name = "text_address";
             this.text_address.Size = new System.Drawing.Size(157, 22);
-            this.text_address.TabIndex = 15;
+            this.text_address.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label3.Location = new System.Drawing.Point(118, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 45);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Area:";
+            // 
+            // cb_area
+            // 
+            this.cb_area.FormattingEnabled = true;
+            this.cb_area.Location = new System.Drawing.Point(166, 93);
+            this.cb_area.Name = "cb_area";
+            this.cb_area.Size = new System.Drawing.Size(157, 24);
+            this.cb_area.TabIndex = 3;
+            this.cb_area.SelectedIndexChanged += new System.EventHandler(this.cb_area_SelectedIndexChanged);
             // 
             // Frm_Add_Customer
             // 
@@ -276,8 +299,10 @@ namespace Generic_Move_Order.Frm_Customer
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Label label_status;
-        private System.Windows.Forms.Label label_uom;
+        private System.Windows.Forms.Label label_area_id;
         private System.Windows.Forms.ComboBox cb_status;
         private System.Windows.Forms.TextBox text_address;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cb_area;
     }
 }
