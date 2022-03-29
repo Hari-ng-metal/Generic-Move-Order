@@ -103,6 +103,9 @@ namespace Generic_Move_Order.Frm_Customer
                 edit_customer.customer_name = row.Cells["customer_name"].Value.ToString();
                 edit_customer.address = row.Cells["address"].Value.ToString();
                 edit_customer.status = bool.Parse(row.Cells["status"].Value.ToString());
+                edit_customer.area = row.Cells["area"].Value.ToString();
+                edit_customer.area_id = int.Parse(row.Cells["area_id"].Value.ToString());
+
 
                 btn_edit.Enabled = true;
 

@@ -85,7 +85,7 @@ namespace Generic_Move_Order.Frm_Customer
                 cmd.Parameters.AddWithValue("@code", text_code.Text);
                 cmd.Parameters.AddWithValue("@name", text_name.Text);
                 cmd.Parameters.AddWithValue("@address", text_address.Text);
-                cmd.Parameters.AddWithValue("@area", area_id);
+                cmd.Parameters.AddWithValue("@area", label_area_id.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();

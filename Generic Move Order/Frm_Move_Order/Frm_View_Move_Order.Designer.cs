@@ -352,6 +352,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.dt_move.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_move.Size = new System.Drawing.Size(770, 234);
             this.dt_move.TabIndex = 17;
+            this.dt_move.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_move_DataBindingComplete);
             // 
             // Frm_View_Move_Order
             // 

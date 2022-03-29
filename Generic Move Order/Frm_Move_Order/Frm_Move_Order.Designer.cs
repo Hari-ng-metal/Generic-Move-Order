@@ -29,8 +29,8 @@ namespace Generic_Move_Order.Frm_Move_Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_exit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -287,7 +287,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 371F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 373F));
             this.tableLayoutPanel2.Controls.Add(this.text_transaction_description, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
@@ -303,9 +303,9 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_transaction_description.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_transaction_description.Location = new System.Drawing.Point(108, 3);
+            this.text_transaction_description.Location = new System.Drawing.Point(107, 3);
             this.text_transaction_description.Name = "text_transaction_description";
-            this.text_transaction_description.Size = new System.Drawing.Size(287, 22);
+            this.text_transaction_description.Size = new System.Drawing.Size(286, 22);
             this.text_transaction_description.TabIndex = 3;
             this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
             // 
@@ -313,7 +313,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 0);
+            this.label7.Location = new System.Drawing.Point(18, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 10;
@@ -322,7 +322,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(401, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(399, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -464,14 +464,14 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.quantity,
             this.slab,
             this.remove});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dt_move.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dt_move.DefaultCellStyle = dataGridViewCellStyle2;
             this.dt_move.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dt_move.Location = new System.Drawing.Point(0, 193);
             this.dt_move.Name = "dt_move";
@@ -527,10 +527,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // remove
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.remove.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.remove.FillWeight = 53.47594F;
             this.remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remove.HeaderText = "remove";

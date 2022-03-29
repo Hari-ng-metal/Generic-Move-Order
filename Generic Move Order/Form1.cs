@@ -1219,5 +1219,51 @@ namespace Generic_Move_Order
                 frm_in.BringToFront();
             }
         }
+
+        private void printMoveOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //print move order
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Area")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Move_Order.Frm_Print_Move_Order frm_in = new Frm_Move_Order.Frm_Print_Move_Order() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void businessCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //business category
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Business_Category")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Business_Category.Frm_Business_Category frm_in = new Frm_Business_Category.Frm_Business_Category() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
     }
 }

@@ -122,6 +122,19 @@
     <Compile Include="Frm_Area\Frm_Area.Designer.cs">
       <DependentUpon>Frm_Area.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Business_Category\edit_business_category.cs" />
+    <Compile Include="Frm_Business_Category\Frm_Add_Business_Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Business_Category\Frm_Add_Business_Category.Designer.cs">
+      <DependentUpon>Frm_Add_Business_Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Business_Category\Frm_Business_Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Business_Category\Frm_Business_Category.Designer.cs">
+      <DependentUpon>Frm_Business_Category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Category\edit_category.cs" />
     <Compile Include="Frm_Category\Frm_Add_Category.cs">
       <SubType>Form</SubType>
@@ -280,6 +293,12 @@
     </Compile>
     <Compile Include="Frm_Move_Order\Frm_Move_Order_Record.Designer.cs">
       <DependentUpon>Frm_Move_Order_Record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Move_Order\Frm_Print_Move_Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Move_Order\Frm_Print_Move_Order.Designer.cs">
+      <DependentUpon>Frm_Print_Move_Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Move_Order\Frm_Transact_Move_Order.cs">
       <SubType>Form</SubType>
@@ -466,6 +485,12 @@
     <EmbeddedResource Include="Frm_Area\Frm_Area.resx">
       <DependentUpon>Frm_Area.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Business_Category\Frm_Add_Business_Category.resx">
+      <DependentUpon>Frm_Add_Business_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Business_Category\Frm_Business_Category.resx">
+      <DependentUpon>Frm_Business_Category.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Category\Frm_Add_Category.resx">
       <DependentUpon>Frm_Add_Category.cs</DependentUpon>
     </EmbeddedResource>
@@ -540,6 +565,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Move_Order\Frm_Move_Order_Record.resx">
       <DependentUpon>Frm_Move_Order_Record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Move_Order\Frm_Print_Move_Order.resx">
+      <DependentUpon>Frm_Print_Move_Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Move_Order\Frm_Transact_Move_Order.resx">
       <DependentUpon>Frm_Transact_Move_Order.cs</DependentUpon>

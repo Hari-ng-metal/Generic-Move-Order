@@ -83,5 +83,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_move.EnableHeadersVisualStyles = false;
         }
+
+        private void dt_move_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_move.RowCount);
+        }
     }
 }

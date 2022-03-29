@@ -45,7 +45,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void btn_new_Click(object sender, EventArgs e)
         {
             SP_GetCustomerById();
-            if(label_customer_id.Text == "0")
+            if(label_customer_id.Text == "0" || string.IsNullOrEmpty(cb_reason.Text))
             {
                 //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cb_customer.Focus();
@@ -271,7 +271,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 SP_GetCustomerById();
                 InsertMoveOrder();
                 InsertMoveOrderItem();
-                //CallPrintOut();
+                CallPrintOut();
                 ClearRecord();
                 text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 cb_customer.Select();

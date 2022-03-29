@@ -48,15 +48,15 @@ namespace Generic_Move_Order.Frm_Printing
             crv_report.Refresh();
             rpt.PrintOptions.PrinterName = dialog.PrinterSettings.PrinterName;
 
-            //DialogResult res = MessageBox.Show("Are you sure you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            //if (res == DialogResult.Yes)
-            //{
-            //    rpt.PrintToPrinter(copy, false, 0, 0);
-            //}
-            //if (res == DialogResult.No)
-            //{
-            //    //Some task…  
-            //}
+            DialogResult res = MessageBox.Show("Do you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                rpt.PrintToPrinter(copy, false, 0, 0);
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
         }
 
         private void ReceivingReport()
@@ -76,15 +76,15 @@ namespace Generic_Move_Order.Frm_Printing
             crv_report.Refresh();
             rpt.PrintOptions.PrinterName = dialog.PrinterSettings.PrinterName;
 
-            //DialogResult res = MessageBox.Show("Are you sure you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            //if (res == DialogResult.Yes)
-            //{
-            //    rpt.PrintToPrinter(copy, false, 0, 0);
-            //}
-            //if (res == DialogResult.No)
-            //{
-            //    //Some task…  
-            //}
+            DialogResult res = MessageBox.Show("Do you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                rpt.PrintToPrinter(copy, false, 0, 0);
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
         }
 
         private void IssueReport()
@@ -104,15 +104,15 @@ namespace Generic_Move_Order.Frm_Printing
             crv_report.Refresh();
             rpt.PrintOptions.PrinterName = dialog.PrinterSettings.PrinterName;
 
-            //DialogResult res = MessageBox.Show("Are you sure you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            //if (res == DialogResult.Yes)
-            //{
-            //    rpt.PrintToPrinter(copy, false, 0, 0);
-            //}
-            //if (res == DialogResult.No)
-            //{
-            //    //Some task…  
-            //}
+            DialogResult res = MessageBox.Show("Do you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                rpt.PrintToPrinter(copy, false, 0, 0);
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
         }
 
 
@@ -133,15 +133,15 @@ namespace Generic_Move_Order.Frm_Printing
             crv_report.Refresh();
             rpt.PrintOptions.PrinterName = dialog.PrinterSettings.PrinterName;
 
-            //DialogResult res = MessageBox.Show("Are you sure you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            //if (res == DialogResult.Yes)
-            //{
-            //    rpt.PrintToPrinter(copy, false, 0, 0);
-            //}
-            //if (res == DialogResult.No)
-            //{
-            //    //Some task…  
-            //}
+            DialogResult res = MessageBox.Show("Do you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                rpt.PrintToPrinter(copy, false, 0, 0);
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
         }
 
         private void CheckPrint()
