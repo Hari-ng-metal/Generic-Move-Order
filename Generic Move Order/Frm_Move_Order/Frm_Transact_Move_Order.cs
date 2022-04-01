@@ -23,9 +23,11 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void Frm_Transact_Move_Order_Load(object sender, EventArgs e)
         {
+            CustomDatePicker();
             ShowMoeOrderDetails();
             label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_move.RowCount);
             dt_move.Columns["actual_quantity"].ReadOnly = false;
+            dt_move.Columns["reason"].ReadOnly = false;
             dt_move.Columns["item_code"].ReadOnly = true;
             dt_move.Columns["item_description"].ReadOnly = true;
             dt_move.Columns["uom"].ReadOnly = true;
@@ -33,6 +35,13 @@ namespace Generic_Move_Order.Frm_Move_Order
 
             HeaderName();
             FIllQuantityReceived();
+        }
+
+        private void CustomDatePicker()
+        {
+            dp_delivery_date.CustomFormat = "MM/dd/yyyy";
+            dp_delivery_date.MinDate = DateTime.Now.Date.AddDays(-60);
+            dp_delivery_date.MaxDate = DateTime.Now.Date;
         }
 
         private void FIllQuantityReceived()
@@ -47,10 +56,11 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void ShowMoeOrderDetails()
         {
             text_sales_id.Text = view_move_order.id.ToString();
-            text_date.Text = view_move_order.transaction_date.ToString();
+            text_date.Text = view_move_order.transaction_date.ToString("MM/dd/yyyy");
             text_name.Text = view_move_order.customer_name;
             text_code.Text = view_move_order.customer_code;
             text_transaction_description.Text = view_move_order.description;
+            dp_delivery_date.Text = view_move_order.delivery_date.ToString("MM/dd/yyyy");
 
             GetMoveOrderItemById();
         }
@@ -95,6 +105,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             int p_id = 0;
             float pqty = 0;
+            string reason = "";
             foreach (DataGridViewRow row in dt_move.Rows)
             {
                 //More code here
@@ -106,6 +117,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 {
                     p_id = int.Parse(row.Cells["id"].Value.ToString());
                     pqty = float.Parse(row.Cells["actual_quantity"].Value.ToString());
+                    reason = row.Cells["reason"].Value.ToString();
                     //MessageBox.Show("" +"id= "+ p_id +" " +"acual: " +pqty);
                 }
 
@@ -116,6 +128,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id", p_id);
                     cmd.Parameters.AddWithValue("@actual", pqty);
+                    cmd.Parameters.AddWithValue("@reason", reason);
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
                     //dt_report.DataSource = dt;
@@ -139,6 +152,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             SqlCommand cmd = new SqlCommand("SP_UpdateTransactMoveOrderById", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", text_sales_id.Text);
+            cmd.Parameters.AddWithValue("@del_date", dp_delivery_date.Text);
             cmd.Parameters.AddWithValue("@user", User.id);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
@@ -202,6 +216,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move.Columns["uom"].HeaderText = "UOM";
             dt_move.Columns["quantity"].HeaderText = "Quantity";
             dt_move.Columns["actual_quantity"].HeaderText = "Actual Quantity";
+            dt_move.Columns["reason"].HeaderText = "Reason";
 
             dt_move.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_move.EnableHeadersVisualStyles = false;
@@ -216,18 +231,41 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             try
             {
-                e.Control.KeyPress += new KeyPressEventHandler(Control_KeyPress);
+                //e.Control.KeyPress += new KeyPressEventHandler(Control_KeyPress);
+
+                //NEW COLUMN ACTUAL - NUMERIC ONLY
+                e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
+                if (dt_move.CurrentCell.ColumnIndex == 5) //Desired Column
+                {
+                    TextBox tb = e.Control as TextBox;
+                    if (tb != null)
+                    {
+                        tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
+                    }
+                }
+
+                //NEW COLUMN ACTUAL - NUMERIC ONLY
+                e.Control.KeyPress -= new KeyPressEventHandler(Column2_KeyPress);
+                if (dt_move.CurrentCell.ColumnIndex == 6) //Desired Column
+                {
+                    TextBox tb = e.Control as TextBox;
+                    if (tb != null)
+                    {
+                        tb.KeyPress += new KeyPressEventHandler(Column2_KeyPress);
+                    }
+                }
             }
             catch (Exception)
             {
 
                 throw;
             }
+
+          
         }
 
-        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.'))
             {
@@ -239,6 +277,38 @@ namespace Generic_Move_Order.Frm_Move_Order
             {
                 e.Handled = true;
             }
+        }
+
+        private void Column2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        //private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+
+        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        //        (e.KeyChar != '.'))
+        //    {
+        //        e.Handled = true;
+        //    }
+
+        //    // only allow one decimal point
+        //    if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
+
+        private void dp_delivery_date_ValueChanged(object sender, EventArgs e)
+        {
+            btn_transact.Enabled = true;
+        }
+
+        private void dp_delivery_date_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -148,6 +148,58 @@
     <Compile Include="Frm_Category\Frm_Category.Designer.cs">
       <DependentUpon>Frm_Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Coa_Account\edit_coa_account.cs" />
+    <Compile Include="Frm_Coa_Account\Frm_Add_Coa_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Account\Frm_Add_Coa_Account.Designer.cs">
+      <DependentUpon>Frm_Add_Coa_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Coa_Account\Frm_Coa_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Account\Frm_Coa_Account.Designer.cs">
+      <DependentUpon>Frm_Coa_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Coa_Company\edit_coa_company.cs" />
+    <Compile Include="Frm_Coa_Company\Frm_Add_Coa_Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Company\Frm_Add_Coa_Company.Designer.cs">
+      <DependentUpon>Frm_Add_Coa_Company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Coa_Company\Frm_Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Company\Frm_Company.Designer.cs">
+      <DependentUpon>Frm_Company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Coa_Department\edit_coa_department.cs" />
+    <Compile Include="Frm_Coa_Department\Frm_Add_Coa_Department.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Department\Frm_Add_Coa_Department.Designer.cs">
+      <DependentUpon>Frm_Add_Coa_Department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Coa_Department\Frm_Coa_Department.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Department\Frm_Coa_Department.Designer.cs">
+      <DependentUpon>Frm_Coa_Department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Coa_Location\edit_coa_location.cs" />
+    <Compile Include="Frm_Coa_Location\Frm_Add_Coa_Location.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Location\Frm_Add_Coa_Location.Designer.cs">
+      <DependentUpon>Frm_Add_Coa_Location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Coa_Location\Frm_Coa_Location.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Coa_Location\Frm_Coa_Location.Designer.cs">
+      <DependentUpon>Frm_Coa_Location.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Customer\edit_customer.cs" />
     <Compile Include="Frm_Customer\Frm_Add_Customer.cs">
       <SubType>Form</SubType>
@@ -263,7 +315,14 @@
     <Compile Include="Frm_Module\Frm_Module.Designer.cs">
       <DependentUpon>Frm_Module.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Move_Order\account_title.cs" />
     <Compile Include="Frm_Move_Order\edit_move_item.cs" />
+    <Compile Include="Frm_Move_Order\Frm_Add_Account_Title.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Move_Order\Frm_Add_Account_Title.Designer.cs">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Move_Order\Frm_Add_Move_Order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,6 +556,30 @@
     <EmbeddedResource Include="Frm_Category\Frm_Category.resx">
       <DependentUpon>Frm_Category.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Account\Frm_Add_Coa_Account.resx">
+      <DependentUpon>Frm_Add_Coa_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Account\Frm_Coa_Account.resx">
+      <DependentUpon>Frm_Coa_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Company\Frm_Add_Coa_Company.resx">
+      <DependentUpon>Frm_Add_Coa_Company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Company\Frm_Company.resx">
+      <DependentUpon>Frm_Company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Department\Frm_Add_Coa_Department.resx">
+      <DependentUpon>Frm_Add_Coa_Department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Department\Frm_Coa_Department.resx">
+      <DependentUpon>Frm_Coa_Department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Location\Frm_Add_Coa_Location.resx">
+      <DependentUpon>Frm_Add_Coa_Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Coa_Location\Frm_Coa_Location.resx">
+      <DependentUpon>Frm_Coa_Location.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Customer\Frm_Add_Customer.resx">
       <DependentUpon>Frm_Add_Customer.cs</DependentUpon>
     </EmbeddedResource>
@@ -550,6 +633,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Module\Frm_Module.resx">
       <DependentUpon>Frm_Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Move_Order\Frm_Add_Account_Title.resx">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Move_Order\Frm_Add_Move_Order.resx">
       <DependentUpon>Frm_Add_Move_Order.cs</DependentUpon>

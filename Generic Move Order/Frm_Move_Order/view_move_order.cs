@@ -13,5 +13,6 @@ namespace Generic_Move_Order.Frm_Move_Order
         public static string customer_name { get; set; }
         public static string description { get; set; }
         public static DateTime transaction_date { get; set; }
+        public static DateTime delivery_date { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
-namespace Generic_Move_Order.Frm_Category
+namespace Generic_Move_Order.Frm_Coa_Account
 {
-    partial class Frm_Category
+    partial class Frm_Coa_Account
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,15 @@ namespace Generic_Move_Order.Frm_Category
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.pb_exit = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label_role_counting = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,40 +45,31 @@ namespace Generic_Move_Order.Frm_Category
             this.label4 = new System.Windows.Forms.Label();
             this.cb_status = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dt_category = new System.Windows.Forms.DataGridView();
-            this.pb_exit = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dt_account = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dt_category)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_account)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pb_exit
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.pb_exit);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 40);
-            this.panel1.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CATEGORY MANAGEMENT";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
+            this.pb_exit.Location = new System.Drawing.Point(738, 0);
+            this.pb_exit.Name = "pb_exit";
+            this.pb_exit.Size = new System.Drawing.Size(32, 40);
+            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_exit.TabIndex = 7;
+            this.pb_exit.TabStop = false;
+            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
             // 
             // panel3
             // 
@@ -88,7 +79,7 @@ namespace Generic_Move_Order.Frm_Category
             this.panel3.Location = new System.Drawing.Point(0, 427);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(770, 100);
-            this.panel3.TabIndex = 22;
+            this.panel3.TabIndex = 33;
             // 
             // tableLayoutPanel2
             // 
@@ -110,9 +101,9 @@ namespace Generic_Move_Order.Frm_Category
             this.label_role_counting.AutoSize = true;
             this.label_role_counting.Location = new System.Drawing.Point(3, 0);
             this.label_role_counting.Name = "label_role_counting";
-            this.label_role_counting.Size = new System.Drawing.Size(102, 29);
+            this.label_role_counting.Size = new System.Drawing.Size(93, 29);
             this.label_role_counting.TabIndex = 0;
-            this.label_role_counting.Text = "TOTAL # OF CATEGORY/S:";
+            this.label_role_counting.Text = "TOTAL # OF ACCOUNT/S:";
             // 
             // panel5
             // 
@@ -153,6 +144,18 @@ namespace Generic_Move_Order.Frm_Category
             this.btn_new.UseVisualStyleBackColor = false;
             this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(177, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ACCOUNT MANAGEMENT";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.tableLayoutPanel1);
@@ -160,7 +163,7 @@ namespace Generic_Move_Order.Frm_Category
             this.panel2.Location = new System.Drawing.Point(0, 40);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(770, 76);
-            this.panel2.TabIndex = 23;
+            this.panel2.TabIndex = 32;
             // 
             // tableLayoutPanel1
             // 
@@ -210,9 +213,9 @@ namespace Generic_Move_Order.Frm_Category
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 17);
+            this.label4.Size = new System.Drawing.Size(135, 17);
             this.label4.TabIndex = 2;
-            this.label4.Text = "LIST OF CATEGORY:";
+            this.label4.Text = "LIST OF ACCOUNT:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cb_status
@@ -226,69 +229,77 @@ namespace Generic_Move_Order.Frm_Category
             this.cb_status.Size = new System.Drawing.Size(121, 24);
             this.cb_status.TabIndex = 3;
             this.cb_status.SelectedIndexChanged += new System.EventHandler(this.cb_status_SelectedIndexChanged);
-            this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress);
+            this.cb_status.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_status_KeyPress_1);
             // 
             // textBox1
             // 
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox1.Location = new System.Drawing.Point(157, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 22);
             this.textBox1.TabIndex = 4;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown_1);
             // 
-            // dt_category
+            // panel1
             // 
-            this.dt_category.AllowUserToAddRows = false;
-            this.dt_category.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dt_category.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dt_category.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dt_category.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dt_category.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dt_category.Location = new System.Drawing.Point(0, 116);
-            this.dt_category.Name = "dt_category";
-            this.dt_category.RowHeadersWidth = 51;
-            this.dt_category.RowTemplate.Height = 24;
-            this.dt_category.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dt_category.Size = new System.Drawing.Size(770, 311);
-            this.dt_category.TabIndex = 24;
-            this.dt_category.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_category_CellClick);
-            this.dt_category.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_category_DataBindingComplete);
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.pb_exit);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(770, 40);
+            this.panel1.TabIndex = 31;
             // 
-            // pb_exit
+            // dt_account
             // 
-            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
-            this.pb_exit.Location = new System.Drawing.Point(738, 0);
-            this.pb_exit.Name = "pb_exit";
-            this.pb_exit.Size = new System.Drawing.Size(32, 40);
-            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pb_exit.TabIndex = 7;
-            this.pb_exit.TabStop = false;
-            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
+            this.dt_account.AllowUserToAddRows = false;
+            this.dt_account.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dt_account.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dt_account.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dt_account.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dt_account.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dt_account.Location = new System.Drawing.Point(0, 0);
+            this.dt_account.Name = "dt_account";
+            this.dt_account.RowHeadersWidth = 51;
+            this.dt_account.RowTemplate.Height = 24;
+            this.dt_account.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dt_account.Size = new System.Drawing.Size(770, 311);
+            this.dt_account.TabIndex = 34;
+            this.dt_account.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_account_CellClick);
+            this.dt_account.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_account_DataBindingComplete_1);
             // 
-            // Frm_Category
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dt_account);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 116);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(770, 311);
+            this.panel4.TabIndex = 34;
+            // 
+            // Frm_Coa_Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(770, 527);
-            this.Controls.Add(this.dt_category);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_Category";
-            this.Text = "Frm_Category";
-            this.Load += new System.EventHandler(this.Frm_Category_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Name = "Frm_Coa_Account";
+            this.Text = "Frm_Coa_Account";
+            this.Load += new System.EventHandler(this.Frm_Coa_Account_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -296,23 +307,24 @@ namespace Generic_Move_Order.Frm_Category
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dt_category)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_account)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pb_exit;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label_role_counting;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_new;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
@@ -320,6 +332,8 @@ namespace Generic_Move_Order.Frm_Category
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cb_status;
         private System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.DataGridView dt_category;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.DataGridView dt_account;
+        private System.Windows.Forms.Panel panel4;
     }
 }

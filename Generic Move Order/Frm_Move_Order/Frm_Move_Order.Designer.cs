@@ -36,10 +36,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.text_transaction_description = new System.Windows.Forms.TextBox();
             this.text_sales_id = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.text_date = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cb_customer = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,12 +47,17 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_name = new System.Windows.Forms.TextBox();
             this.cb_reason = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.text_area = new System.Windows.Forms.TextBox();
+            this.cb_bcategory = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.text_reference = new System.Windows.Forms.TextBox();
+            this.dp_delivery_date = new System.Windows.Forms.DateTimePicker();
+            this.text_date = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.text_transaction_description = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label_customer_id = new System.Windows.Forms.Label();
+            this.text_account = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
@@ -60,6 +65,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label_counting = new System.Windows.Forms.Label();
+            this.label_bcategory_id = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
@@ -125,20 +131,20 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(770, 80);
+            this.panel2.Size = new System.Drawing.Size(770, 120);
             this.panel2.TabIndex = 9;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.59899F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.3401F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.2335F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.9621F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.54455F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.31539F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.17796F));
+            this.tableLayoutPanel1.Controls.Add(this.text_transaction_description, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.text_sales_id, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.text_date, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_customer, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -146,16 +152,30 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel1.Controls.Add(this.text_name, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_reason, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.text_area, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cb_bcategory, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.text_reference, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.dp_delivery_date, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(770, 80);
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(770, 132);
             this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // text_transaction_description
+            // 
+            this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_transaction_description.Location = new System.Drawing.Point(172, 95);
+            this.text_transaction_description.Name = "text_transaction_description";
+            this.text_transaction_description.Size = new System.Drawing.Size(236, 22);
+            this.text_transaction_description.TabIndex = 4;
+            this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
             // 
             // text_sales_id
             // 
@@ -171,7 +191,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
             this.label6.Location = new System.Drawing.Point(102, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 26);
+            this.label6.Size = new System.Drawing.Size(64, 28);
             this.label6.TabIndex = 41;
             this.label6.Text = "Order Id:";
             // 
@@ -179,25 +199,17 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label8.Location = new System.Drawing.Point(476, 0);
+            this.label8.Location = new System.Drawing.Point(421, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 26);
+            this.label8.Size = new System.Drawing.Size(97, 28);
             this.label8.TabIndex = 42;
-            this.label8.Text = "Date:";
-            // 
-            // text_date
-            // 
-            this.text_date.Enabled = false;
-            this.text_date.Location = new System.Drawing.Point(524, 3);
-            this.text_date.Name = "text_date";
-            this.text_date.Size = new System.Drawing.Size(243, 22);
-            this.text_date.TabIndex = 43;
+            this.label8.Text = "Delivery Date:";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 52);
+            this.label5.Location = new System.Drawing.Point(57, 58);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 17);
             this.label5.TabIndex = 8;
@@ -206,39 +218,40 @@ namespace Generic_Move_Order.Frm_Move_Order
             // cb_customer
             // 
             this.cb_customer.FormattingEnabled = true;
-            this.cb_customer.Location = new System.Drawing.Point(172, 55);
+            this.cb_customer.Location = new System.Drawing.Point(172, 61);
             this.cb_customer.Name = "cb_customer";
             this.cb_customer.Size = new System.Drawing.Size(236, 24);
-            this.cb_customer.TabIndex = 1;
+            this.cb_customer.TabIndex = 2;
             this.cb_customer.SelectedIndexChanged += new System.EventHandler(this.cb_customer_SelectedIndexChanged);
             this.cb_customer.TextChanged += new System.EventHandler(this.cb_customer_TextChanged);
             this.cb_customer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_customer_KeyDown);
             this.cb_customer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_customer_KeyPress);
+            this.cb_customer.Leave += new System.EventHandler(this.cb_customer_Leave);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(61, 26);
+            this.label2.Location = new System.Drawing.Point(36, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 26);
+            this.label2.Size = new System.Drawing.Size(130, 30);
             this.label2.TabIndex = 44;
-            this.label2.Text = "Business Type:";
+            this.label2.Text = "Business Category:";
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(446, 52);
+            this.label3.Location = new System.Drawing.Point(446, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 28);
+            this.label3.Size = new System.Drawing.Size(72, 34);
             this.label3.TabIndex = 10;
             this.label3.Text = "Customer Name:";
             // 
             // text_name
             // 
             this.text_name.Enabled = false;
-            this.text_name.Location = new System.Drawing.Point(524, 55);
+            this.text_name.Location = new System.Drawing.Point(524, 61);
             this.text_name.Name = "text_name";
             this.text_name.Size = new System.Drawing.Size(243, 22);
             this.text_name.TabIndex = 6;
@@ -249,35 +262,84 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.cb_reason.Items.AddRange(new object[] {
             "PICK-UP",
             "DELIVERY"});
-            this.cb_reason.Location = new System.Drawing.Point(524, 29);
+            this.cb_reason.Location = new System.Drawing.Point(524, 31);
             this.cb_reason.Name = "cb_reason";
             this.cb_reason.Size = new System.Drawing.Size(243, 24);
-            this.cb_reason.TabIndex = 2;
+            this.cb_reason.TabIndex = 3;
             this.cb_reason.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_reason_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(457, 26);
+            this.label4.Location = new System.Drawing.Point(457, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 26);
+            this.label4.Size = new System.Drawing.Size(61, 30);
             this.label4.TabIndex = 47;
             this.label4.Text = "Reason:";
             // 
-            // text_area
+            // cb_bcategory
             // 
-            this.text_area.Enabled = false;
-            this.text_area.Location = new System.Drawing.Point(172, 29);
-            this.text_area.Name = "text_area";
-            this.text_area.Size = new System.Drawing.Size(236, 22);
-            this.text_area.TabIndex = 48;
+            this.cb_bcategory.FormattingEnabled = true;
+            this.cb_bcategory.Location = new System.Drawing.Point(172, 31);
+            this.cb_bcategory.Name = "cb_bcategory";
+            this.cb_bcategory.Size = new System.Drawing.Size(236, 24);
+            this.cb_bcategory.TabIndex = 1;
+            this.cb_bcategory.SelectedIndexChanged += new System.EventHandler(this.cb_bcategory_SelectedIndexChanged);
+            this.cb_bcategory.SelectionChangeCommitted += new System.EventHandler(this.cb_bcategory_SelectionChangeCommitted);
+            this.cb_bcategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_bcategory_KeyDown);
+            this.cb_bcategory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_bcategory_KeyPress);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label9.Location = new System.Drawing.Point(83, 92);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 40);
+            this.label9.TabIndex = 49;
+            this.label9.Text = "Description:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label10.Location = new System.Drawing.Point(440, 92);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 40);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "Reference:";
+            // 
+            // text_reference
+            // 
+            this.text_reference.Location = new System.Drawing.Point(524, 95);
+            this.text_reference.Name = "text_reference";
+            this.text_reference.Size = new System.Drawing.Size(243, 22);
+            this.text_reference.TabIndex = 5;
+            // 
+            // dp_delivery_date
+            // 
+            this.dp_delivery_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dp_delivery_date.Location = new System.Drawing.Point(524, 3);
+            this.dp_delivery_date.Name = "dp_delivery_date";
+            this.dp_delivery_date.Size = new System.Drawing.Size(243, 22);
+            this.dp_delivery_date.TabIndex = 0;
+            this.dp_delivery_date.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dp_delivery_date_KeyPress);
+            // 
+            // text_date
+            // 
+            this.text_date.Enabled = false;
+            this.text_date.Location = new System.Drawing.Point(156, 32);
+            this.text_date.Name = "text_date";
+            this.text_date.Size = new System.Drawing.Size(243, 22);
+            this.text_date.TabIndex = 43;
+            this.text_date.Visible = false;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 120);
+            this.panel3.Location = new System.Drawing.Point(0, 160);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(770, 32);
             this.panel3.TabIndex = 10;
@@ -287,10 +349,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 373F));
-            this.tableLayoutPanel2.Controls.Add(this.text_transaction_description, 0, 0);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -299,35 +361,37 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel2.Size = new System.Drawing.Size(770, 32);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
-            // text_transaction_description
-            // 
-            this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.text_transaction_description.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_transaction_description.Location = new System.Drawing.Point(107, 3);
-            this.text_transaction_description.Name = "text_transaction_description";
-            this.text_transaction_description.Size = new System.Drawing.Size(286, 22);
-            this.text_transaction_description.TabIndex = 3;
-            this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
-            // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 0);
+            this.label7.Location = new System.Drawing.Point(4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 17);
+            this.label7.Size = new System.Drawing.Size(94, 17);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Description:";
+            this.label7.Text = "Account Title:";
             // 
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(399, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(388, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
             this.label_customer_id.Text = "0";
-            this.label_customer_id.Visible = false;
+            // 
+            // text_account
+            // 
+            this.text_account.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.text_account.Location = new System.Drawing.Point(104, 3);
+            this.text_account.Name = "text_account";
+            this.text_account.Size = new System.Drawing.Size(278, 22);
+            this.text_account.TabIndex = 6;
+            this.text_account.TextChanged += new System.EventHandler(this.text_account_TextChanged);
+            this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
+            this.text_account.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_account_KeyDown);
+            this.text_account.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_account_KeyPress);
             // 
             // panel5
             // 
@@ -336,7 +400,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.panel5.Controls.Add(this.btn_cancel);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 152);
+            this.panel5.Location = new System.Drawing.Point(0, 192);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(770, 41);
             this.panel5.TabIndex = 11;
@@ -393,6 +457,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.875F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.125F));
             this.tableLayoutPanel3.Controls.Add(this.label_counting, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label_bcategory_id, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.text_date, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -410,6 +476,15 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label_counting.Size = new System.Drawing.Size(142, 17);
             this.label_counting.TabIndex = 0;
             this.label_counting.Text = "TOTAL # OF ITEM/S:";
+            // 
+            // label_bcategory_id
+            // 
+            this.label_bcategory_id.AutoSize = true;
+            this.label_bcategory_id.Location = new System.Drawing.Point(156, 0);
+            this.label_bcategory_id.Name = "label_bcategory_id";
+            this.label_bcategory_id.Size = new System.Drawing.Size(16, 17);
+            this.label_bcategory_id.TabIndex = 1;
+            this.label_bcategory_id.Text = "0";
             // 
             // panel6
             // 
@@ -473,12 +548,12 @@ namespace Generic_Move_Order.Frm_Move_Order
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dt_move.DefaultCellStyle = dataGridViewCellStyle2;
             this.dt_move.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dt_move.Location = new System.Drawing.Point(0, 193);
+            this.dt_move.Location = new System.Drawing.Point(0, 233);
             this.dt_move.Name = "dt_move";
             this.dt_move.RowHeadersWidth = 51;
             this.dt_move.RowTemplate.Height = 24;
             this.dt_move.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dt_move.Size = new System.Drawing.Size(770, 234);
+            this.dt_move.Size = new System.Drawing.Size(770, 194);
             this.dt_move.TabIndex = 13;
             this.dt_move.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_move_CellClick);
             this.dt_move.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_move_CellContentClick);
@@ -616,6 +691,12 @@ namespace Generic_Move_Order.Frm_Move_Order
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cb_reason;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox text_area;
+        private System.Windows.Forms.ComboBox cb_bcategory;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox text_reference;
+        private System.Windows.Forms.Label label_bcategory_id;
+        public System.Windows.Forms.TextBox text_account;
+        private System.Windows.Forms.DateTimePicker dp_delivery_date;
     }
 }

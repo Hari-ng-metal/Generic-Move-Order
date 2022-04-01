@@ -16,5 +16,8 @@ namespace Generic_Move_Order.Frm_Customer
 
         public static int area_id { get; set; }
         public static string area { get; set; }
+
+        public static int bcategory_id { get; set; }
+        public static string bcategory { get; set; }
     }
 }

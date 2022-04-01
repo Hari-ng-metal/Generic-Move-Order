@@ -35,12 +35,14 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void ShowMoeOrderDetails()
         {
             text_sales_id.Text = view_move_order.id.ToString();
-            text_date.Text = view_move_order.transaction_date.ToString();
+            text_date.Text = view_move_order.transaction_date.ToString("MM/dd/yyyy");
             text_name.Text = view_move_order.customer_name;
             text_code.Text = view_move_order.customer_code;
             text_transaction_description.Text = view_move_order.description;
+            text_delivery.Text = view_move_order.delivery_date.ToString("MM/dd/yyyy");
 
             GetMoveOrderItemById();
+            dt_move.ClearSelection();
         }
 
         public void GetMoveOrderItemById()
@@ -64,6 +66,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move.Columns["uom"].HeaderText = "UOM";
             dt_move.Columns["quantity"].HeaderText = "Quantity";
             dt_move.Columns["actual_quantity"].HeaderText = "Actual Quantity";
+            dt_move.Columns["variance"].HeaderText = "Variance";
+            dt_move.Columns["percent_var"].HeaderText = "% Variance";
 
             dt_move.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_move.EnableHeadersVisualStyles = false;
@@ -72,6 +76,21 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dt_move_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow Myrow in dt_move.Rows)
+            {            //Here 2 cell is target value and 1 cell is Volume
+                if (Convert.ToInt32(Myrow.Cells["percent_var"].Value) > 0.05 )// Or your condition 
+                {
+                    Myrow.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

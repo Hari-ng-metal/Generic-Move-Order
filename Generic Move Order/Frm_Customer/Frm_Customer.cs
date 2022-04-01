@@ -41,6 +41,7 @@ namespace Generic_Move_Order.Frm_Customer
             connect.con.Close();
 
             dt_customer.Columns["area_id"].Visible = false;
+            dt_customer.Columns["business_category_id"].Visible = false;
             dt_customer.ReadOnly = true;
         }
 
@@ -105,6 +106,8 @@ namespace Generic_Move_Order.Frm_Customer
                 edit_customer.status = bool.Parse(row.Cells["status"].Value.ToString());
                 edit_customer.area = row.Cells["area"].Value.ToString();
                 edit_customer.area_id = int.Parse(row.Cells["area_id"].Value.ToString());
+                edit_customer.bcategory = row.Cells["business_category"].Value.ToString();
+                edit_customer.bcategory_id = int.Parse(row.Cells["business_category_id"].Value.ToString());
 
 
                 btn_edit.Enabled = true;
@@ -135,6 +138,7 @@ namespace Generic_Move_Order.Frm_Customer
         {
             dt_customer.Columns["id"].HeaderText = "Id";
             dt_customer.Columns["area"].HeaderText = "Area";
+            dt_customer.Columns["business_category"].HeaderText = "Business Category";
             dt_customer.Columns["customer_code"].HeaderText = "Customer Code";
             dt_customer.Columns["customer_name"].HeaderText = "Customer Name";
             dt_customer.Columns["address"].HeaderText = "Address";

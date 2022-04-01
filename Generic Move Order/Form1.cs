@@ -66,7 +66,7 @@ namespace Generic_Move_Order
             toolStripMenuItem17.Visible = false;
             toolStripMenuItem18.Visible = false;
             toolStripMenuItem19.Visible = false;
-            toolStripMenuItem20.Visible = false;
+            toolStripMenuItem2020.Visible = false;
             prodictCategoryToolStripMenuItem.Visible = false;
 
             //USER
@@ -252,11 +252,11 @@ namespace Generic_Move_Order
                     menuStrip5.Visible = true;
                 }
 
-                if (mod_name == "toolStripMenuItem20")
-                {
-                    toolStripMenuItem20.Visible = true;
-                    menuStrip5.Visible = true;
-                }
+                //if (mod_name == "toolStripMenuItem20")
+                //{
+                //    toolStripMenuItem2020.Visible = true;
+                //    menuStrip5.Visible = true;
+                //}
 
                 if (mod_name == "prodictCategoryToolStripMenuItem")
                 {
@@ -281,6 +281,11 @@ namespace Generic_Move_Order
                 {
                     toolStripMenuItem24.Visible = true;
                     menuStrip6.Visible = true;
+                }
+                if (mod_name == "toolStripMenuItem20")
+                {
+                    toolStripMenuItem20.Visible = true;
+                    menuStrip5.Visible = true;
                 }
             }
         }
@@ -1260,6 +1265,121 @@ namespace Generic_Move_Order
             if (IsOpen == false)
             {
                 Frm_Business_Category.Frm_Business_Category frm_in = new Frm_Business_Category.Frm_Business_Category() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void cOAAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //account
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Coa_Account")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Coa_Account.Frm_Coa_Account frm_in = new Frm_Coa_Account.Frm_Coa_Account() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void cOACompanyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //company
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Coa_Company")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Coa_Company.Frm_Company frm_in = new Frm_Coa_Company.Frm_Company() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void cOADepartmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //coa_department
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Coa_Department")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Coa_Department.Frm_Coa_Department frm_in = new Frm_Coa_Department.Frm_Coa_Department() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void cOALocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //location
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Coa_Location")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Coa_Location.Frm_Coa_Location frm_in = new Frm_Coa_Location.Frm_Coa_Location() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void departmentToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            //department
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Department")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Department.Frm_Department frm_in = new Frm_Department.Frm_Department() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 this.panel_body.Controls.Add(frm_in);
                 frm_in.Show();
                 frm_in.BringToFront();

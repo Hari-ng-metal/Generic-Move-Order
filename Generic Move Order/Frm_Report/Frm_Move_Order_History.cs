@@ -142,7 +142,7 @@ namespace Generic_Move_Order.Frm_Report
             dt_report.Columns["quantity"].HeaderText = "Quantity";
             dt_report.Columns["transaction_date"].HeaderText = "Transaction Date";
             dt_report.Columns["reason"].HeaderText = "Reason";
-            dt_report.Columns["area"].HeaderText = "Business Type";
+            dt_report.Columns["area"].HeaderText = "Area";
 
             dt_report.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_report.EnableHeadersVisualStyles = false;

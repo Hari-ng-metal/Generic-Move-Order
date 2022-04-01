@@ -16,6 +16,7 @@ namespace Generic_Move_Order.Frm_Customer
         Connection connect = new Connection();
         bool status;
         string area_id = "0";
+        string bcategory_id = "0";
 
         Frm_Customer frm;
         public Frm_Add_Customer(Frm_Customer _frm)
@@ -58,6 +59,7 @@ namespace Generic_Move_Order.Frm_Customer
                 cmd.Parameters.AddWithValue("@area", area_id);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
+                cmd.Parameters.AddWithValue("@b_category_id", label_bcategory_id.Text);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;
@@ -86,6 +88,7 @@ namespace Generic_Move_Order.Frm_Customer
                 cmd.Parameters.AddWithValue("@name", text_name.Text);
                 cmd.Parameters.AddWithValue("@address", text_address.Text);
                 cmd.Parameters.AddWithValue("@area", label_area_id.Text);
+                cmd.Parameters.AddWithValue("@b_category_id", label_bcategory_id.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
@@ -107,7 +110,7 @@ namespace Generic_Move_Order.Frm_Customer
             DialogResult res = MessageBox.Show("Are you sure you want to save?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
-                if (text_code.Text == string.Empty || cb_status.Text == string.Empty || text_name.Text == string.Empty || text_address.Text == string.Empty)
+                if (text_code.Text == string.Empty || cb_status.Text == string.Empty || text_name.Text == string.Empty || text_address.Text == string.Empty || cb_area.Text == string.Empty || cb_bcategory.Text == string.Empty)
                 {
                     MessageBox.Show("Please input the required field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -142,6 +145,8 @@ namespace Generic_Move_Order.Frm_Customer
                 text_address.Text = edit_customer.address;
                 area_id = edit_customer.area_id.ToString();
                 cb_area.Text = edit_customer.area;
+                bcategory_id = edit_customer.bcategory_id.ToString();
+                cb_bcategory.Text = edit_customer.bcategory;
                 label_status.Text = edit_customer.status.ToString();
                 if (label_status.Text == true.ToString())
                 {
@@ -166,6 +171,7 @@ namespace Generic_Move_Order.Frm_Customer
         private void Frm_Add_Customer_Load(object sender, EventArgs e)
         {
             GetArea();
+            GetBCategory();
             AddOrEdit();
         }
 
@@ -236,12 +242,49 @@ namespace Generic_Move_Order.Frm_Customer
             cb_area.SelectedIndex = -1;
         }
 
+
+        public void GetBCategory()
+        {
+
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetBCategory", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_bcategory.DataSource = dt;
+                connect.con.Close();
+
+                cb_bcategory.ValueMember = "id";
+                cb_bcategory.DisplayMember = "business_category";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_bcategory.SelectedIndex = -1;
+        }
+
+
         private void cb_area_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_area.SelectedIndex >= 0)
             {
                 area_id = cb_area.SelectedValue.ToString();
                 label_area_id.Text = area_id;
+            }
+        }
+
+        private void cb_bcategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_bcategory.SelectedIndex >= 0)
+            {
+                bcategory_id = cb_bcategory.SelectedValue.ToString();
+                label_bcategory_id.Text = bcategory_id;
             }
         }
     }

@@ -40,6 +40,7 @@ namespace Generic_Move_Order.Frm_Move_Order
                 view_move_order.customer_name = row.Cells["customer_name"].Value.ToString();
                 view_move_order.description = row.Cells["description"].Value.ToString();
                 view_move_order.transaction_date = DateTime.Parse(row.Cells["transaction_date"].Value.ToString());
+                view_move_order.delivery_date = DateTime.Parse(row.Cells["delivery_date"].Value.ToString());
 
                 btn_transact.Enabled = true;
 
@@ -64,6 +65,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             connect.con.Close();
 
             dt_move_order.ReadOnly = true;
+            dt_move_order.Columns["delivery_date"].Visible = false;
         }
 
         public void GetTransactMoveOrderAvailableBySearch()
@@ -92,6 +94,9 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt.Load(cmd.ExecuteReader());
             dt_move_order.DataSource = dt;
             connect.con.Close();
+
+            dt_move_order.ReadOnly = true;
+            dt_move_order.Columns["delivery_date"].Visible = false;
         }
 
         public void GetTransactMoveOrderAlreadyBySearch()

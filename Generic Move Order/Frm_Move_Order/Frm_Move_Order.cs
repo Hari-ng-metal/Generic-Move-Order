@@ -16,6 +16,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         Connection connect = new Connection();
         int customer_id = 0;
         int move_id = 0;
+        int b_category = 0;
         public Frm_Move_Order()
         {
             InitializeComponent();
@@ -28,7 +29,10 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void Frm_Move_Order_Load(object sender, EventArgs e)
         {
-            GetCustomer();
+            CustomDatePicker();
+            GetBCategory();
+            text_name.Clear();
+            //GetCustomer();
             GetReason();
             text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_move.RowCount);
@@ -36,21 +40,29 @@ namespace Generic_Move_Order.Frm_Move_Order
             btn_edit.Enabled = false;
             cb_customer.Text = cb_customer.Text.ToUpper();
             HeaderName();
+        }
 
-            cb_customer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            cb_customer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cb_customer.AutoCompleteSource = AutoCompleteSource.ListItems;
+        private void CustomDatePicker()
+        {
+            dp_delivery_date.CustomFormat = "MM/dd/yyyy";
+            dp_delivery_date.MinDate = DateTime.Now.Date.AddDays(-1);
+            dp_delivery_date.MaxDate = DateTime.Now.AddDays(30).Date;
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
-            SP_GetCustomerById();
-            if(label_customer_id.Text == "0" || string.IsNullOrEmpty(cb_reason.Text))
+            //SP_GetCustomerById(); old
+            SP_GetCustomerDetailsBy();
+            if (label_customer_id.Text == "0" || string.IsNullOrEmpty(cb_reason.Text))
             {
                 //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cb_customer.Focus();
                 text_name.Clear();
                 label_customer_id.Text = "0";
+            }
+            else if(string.IsNullOrEmpty(text_account.Text))
+            {
+                text_account.Focus();
             }
             else
             {
@@ -61,15 +73,44 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         }
 
-        public void GetCustomer()
+        //old code
+        //public void GetCustomer()
+        //{
+        //    try
+        //    {
+        //        connect.DatabaseConnection();
+        //        connect.con.Open();
+        //        SqlCommand cmd = new SqlCommand("SP_GetCustomer", connect.con);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.Parameters.AddWithValue("@status", true);
+        //        DataTable dt = new DataTable();
+        //        dt.Load(cmd.ExecuteReader());
+        //        cb_customer.DataSource = dt;
+        //        connect.con.Close();
+
+        //        cb_customer.ValueMember = "customer_name";
+        //        cb_customer.DisplayMember = "customer_code";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        throw;
+        //    }
+        //    cb_customer.SelectedIndex = -1;
+        //    text_name.Clear();
+        //}
+
+        //get customer list where business category id = selected id
+        public void GetCustomerByBCategory()
         {
             try
             {
                 connect.DatabaseConnection();
                 connect.con.Open();
-                SqlCommand cmd = new SqlCommand("SP_GetCustomer", connect.con);
+                SqlCommand cmd = new SqlCommand("SP_GetCustomerByBCategory", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@status", true);
+                cmd.Parameters.AddWithValue("@bcategory_id", b_category);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 cb_customer.DataSource = dt;
@@ -77,6 +118,10 @@ namespace Generic_Move_Order.Frm_Move_Order
 
                 cb_customer.ValueMember = "customer_name";
                 cb_customer.DisplayMember = "customer_code";
+
+                cb_customer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+                cb_customer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cb_customer.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
             catch (Exception ex)
             {
@@ -84,39 +129,97 @@ namespace Generic_Move_Order.Frm_Move_Order
                 throw;
             }
             cb_customer.SelectedIndex = -1;
+            cb_customer.Text = "";
             text_name.Clear();
-            text_area.Clear();
         }
 
-        public void SP_GetCustomerById()
-        {
-            connect.DatabaseConnection();
-            connect.con.Open();
-            SqlCommand cmd = new SqlCommand("SP_GetCustomerById", connect.con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@code", cb_customer.Text);
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            //dt_module.DataSource = dt;
-            connect.con.Close();
+        //old code
+        //public void SP_GetCustomerById()
+        //{
+        //    connect.DatabaseConnection();
+        //    connect.con.Open();
+        //    SqlCommand cmd = new SqlCommand("SP_GetCustomerById", connect.con);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.AddWithValue("@code", cb_customer.Text);
+        //    DataTable dt = new DataTable();
+        //    dt.Load(cmd.ExecuteReader());
+        //    //dt_module.DataSource = dt;
+        //    connect.con.Close();
             
-            if(dt.Rows.Count > 0)
-            {
-                //MessageBox.Show("" + dt.Rows[0]["item_description"]);
-                customer_id = int.Parse(dt.Rows[0]["id"].ToString());
-                label_customer_id.Text = customer_id.ToString();
-                text_name.Text = dt.Rows[0]["customer_name"].ToString();
-                text_area.Text = dt.Rows[0]["area"].ToString();
-            }
-            else
-            {
-                MessageBox.Show("You enter invalid customer!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                text_name.Clear();
-                label_customer_id.Text = "0";
-            }
+        //    if(dt.Rows.Count > 0)
+        //    {
+        //        //MessageBox.Show("" + dt.Rows[0]["item_description"]);
+        //        customer_id = int.Parse(dt.Rows[0]["id"].ToString());
+        //        label_customer_id.Text = customer_id.ToString();
+        //        text_name.Text = dt.Rows[0]["customer_name"].ToString();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("You enter invalid customer!"+dt.Rows.Count, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        text_name.Clear();
+        //        label_customer_id.Text = "0";
+        //    }
+        //}
 
-        }
 
+        //validate if enter to get the id
+        //public void SP_GetCustomerByIdandBCategory()
+        //{
+        //    connect.DatabaseConnection();
+        //    connect.con.Open();
+        //    SqlCommand cmd = new SqlCommand("SP_GetCustomerByIdandBCategory", connect.con);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.AddWithValue("@code", cb_customer.Text.Trim());
+        //    cmd.Parameters.AddWithValue("@bcategory_id", label_bcategory_id.Text);
+        //    DataTable dt = new DataTable();
+        //    dt.Load(cmd.ExecuteReader());
+        //    //dt_module.DataSource = dt;
+        //    connect.con.Close();
+
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        //MessageBox.Show("" + dt.Rows[0]["item_description"]);
+        //        customer_id = int.Parse(dt.Rows[0]["id"].ToString());
+        //        label_customer_id.Text = customer_id.ToString();
+        //        text_name.Text = dt.Rows[0]["customer_name"].ToString();
+        //        label_customer_id.Text = customer_id.ToString();
+        //    }
+        //    //if(string.IsNullOrEmpty(text_name.Text))
+        //    //{
+        //    //    //MessageBox.Show("You enter invalid customer!"+dt.Rows.Count, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    //    text_name.Clear();
+        //    //    label_customer_id.Text = "0";
+        //    //    cb_customer.SelectedIndex = -1;
+        //    //    cb_customer.Text = "";
+        //    //}
+        //}
+
+        //combo box key.enter - validate if b category is exist
+        //public void SP_GetBCategoryByCode()
+        //{
+        //    connect.DatabaseConnection();
+        //    connect.con.Open();
+        //    SqlCommand cmd = new SqlCommand("SP_GetBCategoryByCode", connect.con);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.AddWithValue("@status", true);
+        //    cmd.Parameters.AddWithValue("@bcategory", cb_bcategory.Text);
+        //    DataTable dt = new DataTable();
+        //    dt.Load(cmd.ExecuteReader());
+        //    //dt_module.DataSource = dt;
+        //    connect.con.Close();
+
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        //MessageBox.Show("" + dt.Rows[0]["item_description"]);
+        //        b_category = int.Parse(dt.Rows[0]["id"].ToString());
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("You enter invalid business category!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        cb_bcategory.SelectedIndex = -1;
+        //        cb_bcategory.Text = "";
+        //    }
+        //}
         private void InsertMoveOrder()
         {
             try
@@ -129,6 +232,9 @@ namespace Generic_Move_Order.Frm_Move_Order
                 cmd.Parameters.AddWithValue("@description", text_transaction_description.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 cmd.Parameters.AddWithValue("@reason", cb_reason.Text);
+                cmd.Parameters.AddWithValue("@reference", text_reference.Text);
+                cmd.Parameters.AddWithValue("@account", text_account.Text);
+                cmd.Parameters.AddWithValue("@date", dp_delivery_date.Text);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;
@@ -192,6 +298,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             MessageBox.Show("Successfully Save!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        //selected index
         public void SP_GetCustomerDetailsBy()
         {
             connect.DatabaseConnection();
@@ -199,6 +306,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             SqlCommand cmd = new SqlCommand("SP_GetCustomerById", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@code", cb_customer.Text);
+            cmd.Parameters.AddWithValue("@b_category", cb_bcategory.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             //dt_module.DataSource = dt;
@@ -210,7 +318,6 @@ namespace Generic_Move_Order.Frm_Move_Order
                 customer_id = int.Parse(dt.Rows[0]["id"].ToString());
                 label_customer_id.Text = customer_id.ToString();
                 text_name.Text = dt.Rows[0]["customer_name"].ToString();
-                text_area.Text = dt.Rows[0]["area"].ToString();
             }
             else
             {
@@ -222,7 +329,6 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         public void GetReason()
         {
-
             try
             {
                 connect.DatabaseConnection();
@@ -246,12 +352,43 @@ namespace Generic_Move_Order.Frm_Move_Order
             cb_reason.SelectedIndex = -1;
         }
 
+        public void GetBCategory()
+        {
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetBCategory", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_bcategory.DataSource = dt;
+                connect.con.Close();
+
+                cb_bcategory.ValueMember = "id";
+                cb_bcategory.DisplayMember = "business_category";
+
+                cb_bcategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+                cb_bcategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cb_bcategory.AutoCompleteSource = AutoCompleteSource.ListItems;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_bcategory.SelectedIndex = -1;
+            b_category = 0;
+            label_bcategory_id.Text = "0";
+        }
+
 
         private void cb_customer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //
             if (cb_customer.SelectedIndex >= 0)
             {
+                text_name.Clear();
                 text_name.Text = cb_customer.SelectedValue.ToString();
                 SP_GetCustomerDetailsBy();
             }
@@ -268,7 +405,9 @@ namespace Generic_Move_Order.Frm_Move_Order
                     return;
                 }
                 //Some task…
-                SP_GetCustomerById();
+                //SP_GetCustomerById();
+                //GetCustomerByBCategory();
+                SP_GetCustomerDetailsBy();
                 InsertMoveOrder();
                 InsertMoveOrderItem();
                 CallPrintOut();
@@ -281,8 +420,6 @@ namespace Generic_Move_Order.Frm_Move_Order
             {
                 //Some task…  
             }
-
-           
         }
 
         private void CallPrintOut()
@@ -369,7 +506,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             text_transaction_description.Clear();
             label_customer_id.Text = "0";
             cb_reason.Text = "";
-
+            cb_bcategory.Text = "";
+            cb_bcategory.SelectedIndex = -1;
+            text_reference.Clear();
+            text_account.Clear();
             dt_move.Rows.Clear();
         }
 
@@ -382,17 +522,15 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void cb_customer_KeyDown(object sender, KeyEventArgs e)
         {
-            //
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
-                //
-                //text_item_desc_from.Text = cb_item_code_from.SelectedValue.ToString();
-                SP_GetCustomerById();
-                if (string.IsNullOrEmpty(label_customer_id.Text))
+                text_name.Clear();
+                cb_customer_SelectedIndexChanged(sender, e);
+                SP_GetCustomerDetailsBy();
+
+                if (string.IsNullOrEmpty(text_name.Text))
                 {
                     MessageBox.Show("You enter invalid customer!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    text_name.Clear();
-                    label_customer_id.Text = "0";
                 }
             }
         }
@@ -424,9 +562,10 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void text_transaction_description_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
+            if (e.Control && e.KeyCode == Keys.N)
             {
-                SP_GetCustomerById();
+                //SP_GetCustomerById();
+                //GetCustomerByBCategory();
                 if (label_customer_id.Text == "0")
                 {
                     //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -452,7 +591,8 @@ namespace Generic_Move_Order.Frm_Move_Order
                         return;
                     }
                     //Some task…
-                    SP_GetCustomerById();
+                    //SP_GetCustomerById();
+                    //GetCustomerByBCategory();
                     InsertMoveOrder();
                     InsertMoveOrderItem();
                     CallPrintOut();
@@ -481,6 +621,128 @@ namespace Generic_Move_Order.Frm_Move_Order
         }
 
         private void cb_reason_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cb_bcategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_bcategory_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        private void cb_bcategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                //cb_bcategory_SelectedIndexChanged(sender, e);
+                cb_bcategory_SelectionChangeCommitted(sender, e);
+
+                if (label_bcategory_id.Text == "0")
+                {
+                        MessageBox.Show("You enter invalid business category!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cb_customer.SelectedIndex = -1;
+                    text_name.Clear();
+                }
+            }
+        }
+
+        private void text_account_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
+            {
+                //SP_GetCustomerById(); old
+                if (label_customer_id.Text == "0")
+                {
+                    //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cb_customer.Focus();
+                    text_name.Clear();
+                    label_customer_id.Text = "0";
+                }
+                else
+                {
+                    Frm_Add_Move_Order frm = new Frm_Add_Move_Order(this);
+                    frm.ShowDialog();
+                }
+                btn_edit.Enabled = false;
+            }
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                DialogResult res = MessageBox.Show("Are you sure you want to save?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+                    if (cb_customer.Text == string.Empty || text_transaction_description.Text == string.Empty || text_name.Text == string.Empty)
+                    {
+                        MessageBox.Show("Please input the required field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    //Some task…
+                    //SP_GetCustomerById();
+                    InsertMoveOrder();
+                    InsertMoveOrderItem();
+                    CallPrintOut();
+                    ClearRecord();
+                    text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                }
+                if (res == DialogResult.No)
+                {
+                    //Some task…  
+                }
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                Frm_Add_Account_Title frm = new Frm_Add_Account_Title(this);
+                frm.ShowDialog();
+            }
+            }
+
+        private void text_account_TextChanged(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void text_account_DoubleClick(object sender, EventArgs e)
+        {
+            Frm_Add_Account_Title frm = new Frm_Add_Account_Title(this);
+            frm.ShowDialog();
+        }
+
+        private void text_account_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cb_bcategory_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //
+            label_bcategory_id.Text = "0";
+            try
+            {
+                if (cb_bcategory.SelectedIndex >= 0)
+                {
+                    b_category = int.Parse(cb_bcategory.SelectedValue.ToString());
+                    label_bcategory_id.Text = b_category.ToString();
+                    GetCustomerByBCategory();
+                    //MessageBox.Show("" + b_category);
+                }
+            }
+            catch (Exception)
+            {
+                //Whatever you want to do when it is not an int
+            }
+        }
+
+        private void cb_customer_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dp_delivery_date_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }

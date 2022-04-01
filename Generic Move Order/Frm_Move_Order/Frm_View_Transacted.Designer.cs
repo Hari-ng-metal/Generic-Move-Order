@@ -41,13 +41,15 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.text_sales_id = new System.Windows.Forms.TextBox();
-            this.text_name = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.text_date = new System.Windows.Forms.TextBox();
             this.text_code = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.text_name = new System.Windows.Forms.TextBox();
+            this.text_date = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.text_delivery = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.text_transaction_description = new System.Windows.Forms.TextBox();
@@ -164,13 +166,15 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.3401F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.2335F));
             this.tableLayoutPanel1.Controls.Add(this.text_sales_id, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.text_name, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.text_date, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_code, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.text_name, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.text_date, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.text_delivery, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -188,24 +192,6 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_sales_id.Name = "text_sales_id";
             this.text_sales_id.Size = new System.Drawing.Size(236, 22);
             this.text_sales_id.TabIndex = 40;
-            // 
-            // text_name
-            // 
-            this.text_name.Enabled = false;
-            this.text_name.Location = new System.Drawing.Point(536, 29);
-            this.text_name.Name = "text_name";
-            this.text_name.Size = new System.Drawing.Size(243, 22);
-            this.text_name.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(458, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 26);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Customer Name:";
             // 
             // label5
             // 
@@ -231,19 +217,11 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label8.Location = new System.Drawing.Point(488, 0);
+            this.label8.Location = new System.Drawing.Point(433, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 26);
+            this.label8.Size = new System.Drawing.Size(97, 26);
             this.label8.TabIndex = 42;
-            this.label8.Text = "Date:";
-            // 
-            // text_date
-            // 
-            this.text_date.Enabled = false;
-            this.text_date.Location = new System.Drawing.Point(536, 3);
-            this.text_date.Name = "text_date";
-            this.text_date.Size = new System.Drawing.Size(243, 22);
-            this.text_date.TabIndex = 43;
+            this.label8.Text = "Delivery Date:";
             // 
             // text_code
             // 
@@ -252,6 +230,50 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_code.Name = "text_code";
             this.text_code.Size = new System.Drawing.Size(236, 22);
             this.text_code.TabIndex = 44;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(57, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Customer Name:";
+            // 
+            // text_name
+            // 
+            this.text_name.Enabled = false;
+            this.text_name.Location = new System.Drawing.Point(176, 55);
+            this.text_name.Name = "text_name";
+            this.text_name.Size = new System.Drawing.Size(242, 22);
+            this.text_name.TabIndex = 6;
+            // 
+            // text_date
+            // 
+            this.text_date.Enabled = false;
+            this.text_date.Location = new System.Drawing.Point(536, 29);
+            this.text_date.Name = "text_date";
+            this.text_date.Size = new System.Drawing.Size(243, 22);
+            this.text_date.TabIndex = 43;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Location = new System.Drawing.Point(443, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 26);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Move Order Date:";
+            // 
+            // text_delivery
+            // 
+            this.text_delivery.Enabled = false;
+            this.text_delivery.Location = new System.Drawing.Point(536, 3);
+            this.text_delivery.Name = "text_delivery";
+            this.text_delivery.Size = new System.Drawing.Size(243, 22);
+            this.text_delivery.TabIndex = 46;
             // 
             // panel3
             // 
@@ -336,6 +358,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.dt_move.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_move.Size = new System.Drawing.Size(788, 281);
             this.dt_move.TabIndex = 23;
+            this.dt_move.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_move_DataBindingComplete);
             // 
             // Frm_View_Transacted
             // 
@@ -400,5 +423,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         public System.Windows.Forms.DataGridView dt_move;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox text_delivery;
     }
 }
