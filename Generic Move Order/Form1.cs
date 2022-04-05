@@ -66,13 +66,19 @@ namespace Generic_Move_Order
             toolStripMenuItem17.Visible = false;
             toolStripMenuItem18.Visible = false;
             toolStripMenuItem19.Visible = false;
-            toolStripMenuItem2020.Visible = false;
             prodictCategoryToolStripMenuItem.Visible = false;
+            areaToolStripMenuItem.Visible = false;
+            businessCategoryToolStripMenuItem.Visible = false;
+            cOACompanyToolStripMenuItem.Visible = false;
+            cOADepartmentToolStripMenuItem.Visible = false;
+            cOALocationToolStripMenuItem.Visible = false;
+            cOAAccountToolStripMenuItem.Visible = false;
 
             //USER
             toolStripMenuItem22.Visible = false;
             toolStripMenuItem23.Visible = false;
             toolStripMenuItem24.Visible = false;
+            toolStripMenuItem20.Visible = false;
         }
 
         private void UserAccess()
@@ -263,6 +269,42 @@ namespace Generic_Move_Order
                     prodictCategoryToolStripMenuItem.Visible = true;
                     menuStrip5.Visible = true;
                 }
+                //area
+                if (mod_name == "areaToolStripMenuItem")
+                {
+                    areaToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                //business category
+                if (mod_name == "businessCategoryToolStripMenuItem")
+                {
+                    businessCategoryToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                //coa company
+                if (mod_name == "cOACompanyToolStripMenuItem")
+                {
+                    cOACompanyToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                //coa department
+                if (mod_name == "cOADepartmentToolStripMenuItem")
+                {
+                    cOADepartmentToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                //coa location
+                if (mod_name == "cOALocationToolStripMenuItem")
+                {
+                    cOALocationToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                //coa account
+                if (mod_name == "cOAAccountToolStripMenuItem")
+                {
+                    cOAAccountToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
 
                 //USER
                 if (mod_name == "toolStripMenuItem22")
@@ -285,7 +327,7 @@ namespace Generic_Move_Order
                 if (mod_name == "toolStripMenuItem20")
                 {
                     toolStripMenuItem20.Visible = true;
-                    menuStrip5.Visible = true;
+                    menuStrip6.Visible = true;
                 }
             }
         }
@@ -789,24 +831,24 @@ namespace Generic_Move_Order
         private void toolStripMenuItem20_Click(object sender, EventArgs e)
         {
             //department
-            bool IsOpen = false;
-            foreach (Form f in Application.OpenForms)
-            {
-                if (f.Text == "Frm_Department")
-                {
-                    IsOpen = true;
-                    f.BringToFront();
-                    //MessageBox.Show("Already Open");
-                    break;
-                }
-            }
-            if (IsOpen == false)
-            {
-                Frm_Department.Frm_Department frm_in = new Frm_Department.Frm_Department() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                this.panel_body.Controls.Add(frm_in);
-                frm_in.Show();
-                frm_in.BringToFront();
-            }
+            //bool IsOpen = false;
+            //foreach (Form f in Application.OpenForms)
+            //{
+            //    if (f.Text == "Frm_Department")
+            //    {
+            //        IsOpen = true;
+            //        f.BringToFront();
+            //        //MessageBox.Show("Already Open");
+            //        break;
+            //    }
+            //}
+            //if (IsOpen == false)
+            //{
+            //    Frm_Department.Frm_Department frm_in = new Frm_Department.Frm_Department() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            //    this.panel_body.Controls.Add(frm_in);
+            //    frm_in.Show();
+            //    frm_in.BringToFront();
+            //}
         }
 
         private void toolStripMenuItem22_Click(object sender, EventArgs e)

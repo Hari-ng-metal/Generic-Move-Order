@@ -1,5 +1,5 @@
 ﻿
-namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
+namespace Generic_Move_Order.Frm_Receiving
 {
     partial class Frm_Add_Account_Title
     {
@@ -64,7 +64,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(695, 40);
-            this.panel1.TabIndex = 9;
+            this.panel1.TabIndex = 10;
             // 
             // panel5
             // 
@@ -74,7 +74,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.panel5.Location = new System.Drawing.Point(0, 222);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(695, 41);
-            this.panel5.TabIndex = 10;
+            this.panel5.TabIndex = 11;
             // 
             // label_bcategory_id
             // 
@@ -93,7 +93,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.64829F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.2772F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.Controls.Add(this.cb_company, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.text_company, 3, 0);
@@ -124,7 +124,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(695, 182);
-            this.tableLayoutPanel1.TabIndex = 11;
+            this.tableLayoutPanel1.TabIndex = 12;
             // 
             // cb_company
             // 
@@ -141,9 +141,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.btn_cancel.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cancel.Location = new System.Drawing.Point(439, 126);
+            this.btn_cancel.Location = new System.Drawing.Point(438, 123);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(105, 53);
+            this.btn_cancel.Size = new System.Drawing.Size(105, 56);
             this.btn_cancel.TabIndex = 5;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
@@ -153,9 +153,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.text_company.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_company.Enabled = false;
-            this.text_company.Location = new System.Drawing.Point(439, 3);
+            this.text_company.Location = new System.Drawing.Point(438, 3);
             this.text_company.Name = "text_company";
-            this.text_company.Size = new System.Drawing.Size(222, 22);
+            this.text_company.Size = new System.Drawing.Size(221, 22);
             this.text_company.TabIndex = 1;
             // 
             // label1
@@ -174,7 +174,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.Location = new System.Drawing.Point(40, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 31);
+            this.label2.Size = new System.Drawing.Size(123, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "Department Code:";
             // 
@@ -182,7 +182,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(362, 0);
+            this.label4.Location = new System.Drawing.Point(361, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 30);
             this.label4.TabIndex = 3;
@@ -192,16 +192,16 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(60, 61);
+            this.label3.Location = new System.Drawing.Point(60, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 31);
+            this.label3.Size = new System.Drawing.Size(103, 30);
             this.label3.TabIndex = 16;
             this.label3.Text = "Location Code:";
             // 
             // cb_location
             // 
             this.cb_location.FormattingEnabled = true;
-            this.cb_location.Location = new System.Drawing.Point(169, 64);
+            this.cb_location.Location = new System.Drawing.Point(169, 63);
             this.cb_location.Name = "cb_location";
             this.cb_location.Size = new System.Drawing.Size(157, 24);
             this.cb_location.TabIndex = 2;
@@ -211,9 +211,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(367, 61);
+            this.label5.Location = new System.Drawing.Point(366, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 31);
+            this.label5.Size = new System.Drawing.Size(66, 30);
             this.label5.TabIndex = 4;
             this.label5.Text = "Location:";
             // 
@@ -221,16 +221,16 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Location = new System.Drawing.Point(347, 30);
+            this.label6.Location = new System.Drawing.Point(346, 30);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 31);
+            this.label6.Size = new System.Drawing.Size(86, 30);
             this.label6.TabIndex = 18;
             this.label6.Text = "Department:";
             // 
             // label_area_id
             // 
             this.label_area_id.AutoSize = true;
-            this.label_area_id.Location = new System.Drawing.Point(3, 123);
+            this.label_area_id.Location = new System.Drawing.Point(3, 120);
             this.label_area_id.Name = "label_area_id";
             this.label_area_id.Size = new System.Drawing.Size(46, 17);
             this.label_area_id.TabIndex = 14;
@@ -240,7 +240,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // cb_account
             // 
             this.cb_account.FormattingEnabled = true;
-            this.cb_account.Location = new System.Drawing.Point(169, 95);
+            this.cb_account.Location = new System.Drawing.Point(169, 93);
             this.cb_account.Name = "cb_account";
             this.cb_account.Size = new System.Drawing.Size(157, 24);
             this.cb_account.TabIndex = 3;
@@ -249,7 +249,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // label_status
             // 
             this.label_status.AutoSize = true;
-            this.label_status.Location = new System.Drawing.Point(169, 123);
+            this.label_status.Location = new System.Drawing.Point(169, 120);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(46, 17);
             this.label_status.TabIndex = 13;
@@ -260,9 +260,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label7.Location = new System.Drawing.Point(63, 92);
+            this.label7.Location = new System.Drawing.Point(63, 90);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 31);
+            this.label7.Size = new System.Drawing.Size(100, 30);
             this.label7.TabIndex = 20;
             this.label7.Text = "Account Code:";
             // 
@@ -270,9 +270,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label8.Location = new System.Drawing.Point(370, 92);
+            this.label8.Location = new System.Drawing.Point(369, 90);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 31);
+            this.label8.Size = new System.Drawing.Size(63, 30);
             this.label8.TabIndex = 21;
             this.label8.Text = "Account:";
             // 
@@ -280,9 +280,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.text_acc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_acc.Enabled = false;
-            this.text_acc.Location = new System.Drawing.Point(439, 95);
+            this.text_acc.Location = new System.Drawing.Point(438, 93);
             this.text_acc.Name = "text_acc";
-            this.text_acc.Size = new System.Drawing.Size(222, 22);
+            this.text_acc.Size = new System.Drawing.Size(221, 22);
             this.text_acc.TabIndex = 2;
             // 
             // cb_department
@@ -298,18 +298,18 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.text_dept.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_dept.Enabled = false;
-            this.text_dept.Location = new System.Drawing.Point(439, 33);
+            this.text_dept.Location = new System.Drawing.Point(438, 33);
             this.text_dept.Name = "text_dept";
-            this.text_dept.Size = new System.Drawing.Size(222, 22);
+            this.text_dept.Size = new System.Drawing.Size(221, 22);
             this.text_dept.TabIndex = 24;
             // 
             // text_loc
             // 
             this.text_loc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_loc.Enabled = false;
-            this.text_loc.Location = new System.Drawing.Point(439, 64);
+            this.text_loc.Location = new System.Drawing.Point(438, 63);
             this.text_loc.Name = "text_loc";
-            this.text_loc.Size = new System.Drawing.Size(222, 22);
+            this.text_loc.Size = new System.Drawing.Size(221, 22);
             this.text_loc.TabIndex = 25;
             // 
             // btn_ok
@@ -318,9 +318,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.btn_ok.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ok.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_ok.Location = new System.Drawing.Point(335, 126);
+            this.btn_ok.Location = new System.Drawing.Point(335, 123);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(98, 53);
+            this.btn_ok.Size = new System.Drawing.Size(97, 56);
             this.btn_ok.TabIndex = 4;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;

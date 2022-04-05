@@ -414,6 +414,12 @@
       <DependentUpon>Frm_Product_Category.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Receiving\edit_receiving_item.cs" />
+    <Compile Include="Frm_Receiving\Frm_Add_Account_Title.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Receiving\Frm_Add_Account_Title.Designer.cs">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Receiving\Frm_Add_Receiving.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -444,6 +450,7 @@
     <Compile Include="Frm_Receiving\Frm_View_Receiving.Designer.cs">
       <DependentUpon>Frm_View_Receiving.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Receiving\receiving_account_title.cs" />
     <Compile Include="Frm_Receiving\view_receiving.cs" />
     <Compile Include="Frm_Report\Frm_Issue_History.cs">
       <SubType>Form</SubType>
@@ -692,6 +699,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Product_Category\Frm_Product_Category.resx">
       <DependentUpon>Frm_Product_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Receiving\Frm_Add_Account_Title.resx">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Receiving\Frm_Add_Receiving.resx">
       <DependentUpon>Frm_Add_Receiving.cs</DependentUpon>

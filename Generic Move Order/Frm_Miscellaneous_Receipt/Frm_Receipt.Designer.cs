@@ -262,6 +262,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             // text_reference
             // 
+            this.text_reference.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_reference.Location = new System.Drawing.Point(536, 55);
             this.text_reference.Name = "text_reference";
             this.text_reference.Size = new System.Drawing.Size(243, 22);
@@ -281,7 +282,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 372F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 376F));
             this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
@@ -297,9 +298,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.text_account.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_account.Location = new System.Drawing.Point(112, 3);
+            this.text_account.Location = new System.Drawing.Point(111, 3);
             this.text_account.Name = "text_account";
-            this.text_account.Size = new System.Drawing.Size(300, 22);
+            this.text_account.Size = new System.Drawing.Size(297, 22);
             this.text_account.TabIndex = 3;
             this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
             this.text_account.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_account_KeyDown);
@@ -308,7 +309,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(418, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(414, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -319,7 +320,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(12, 0);
+            this.label4.Location = new System.Drawing.Point(11, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 32);
             this.label4.TabIndex = 13;

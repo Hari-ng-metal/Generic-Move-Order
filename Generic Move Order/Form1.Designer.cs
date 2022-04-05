@@ -37,6 +37,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem24 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip5 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,6 @@ namespace Generic_Move_Order
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2020 = new System.Windows.Forms.ToolStripMenuItem();
             this.prodictCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.areaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.businessCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +85,6 @@ namespace Generic_Move_Order
             this.pb_menu = new System.Windows.Forms.PictureBox();
             this.panel_bot = new System.Windows.Forms.Panel();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_side.SuspendLayout();
             this.panel_menu.SuspendLayout();
             this.menuStrip6.SuspendLayout();
@@ -178,6 +177,15 @@ namespace Generic_Move_Order
             this.toolStripMenuItem24.Text = "Module";
             this.toolStripMenuItem24.Click += new System.EventHandler(this.toolStripMenuItem24_Click);
             // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.toolStripMenuItem20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItem20.Text = "Department";
+            this.toolStripMenuItem20.Click += new System.EventHandler(this.departmentToolStripMenuItem_Click_1);
+            // 
             // menuStrip5
             // 
             this.menuStrip5.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -198,7 +206,6 @@ namespace Generic_Move_Order
             this.toolStripMenuItem17,
             this.toolStripMenuItem18,
             this.toolStripMenuItem19,
-            this.toolStripMenuItem2020,
             this.prodictCategoryToolStripMenuItem,
             this.areaToolStripMenuItem,
             this.businessCategoryToolStripMenuItem,
@@ -255,15 +262,6 @@ namespace Generic_Move_Order
             this.toolStripMenuItem19.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem19.Text = "Category";
             this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
-            // 
-            // toolStripMenuItem2020
-            // 
-            this.toolStripMenuItem2020.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.toolStripMenuItem2020.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripMenuItem2020.Name = "toolStripMenuItem2020";
-            this.toolStripMenuItem2020.Size = new System.Drawing.Size(224, 26);
-            this.toolStripMenuItem2020.Text = "Department";
-            this.toolStripMenuItem2020.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
             // 
             // prodictCategoryToolStripMenuItem
             // 
@@ -668,15 +666,6 @@ namespace Generic_Move_Order
             this.panel_body.Size = new System.Drawing.Size(806, 621);
             this.panel_body.TabIndex = 3;
             // 
-            // toolStripMenuItem20
-            // 
-            this.toolStripMenuItem20.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.toolStripMenuItem20.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(224, 26);
-            this.toolStripMenuItem20.Text = "Department";
-            this.toolStripMenuItem20.Click += new System.EventHandler(this.departmentToolStripMenuItem_Click_1);
-            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -743,7 +732,6 @@ namespace Generic_Move_Order
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2020;
         private System.Windows.Forms.MenuStrip menuStrip4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;

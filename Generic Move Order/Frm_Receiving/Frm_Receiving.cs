@@ -29,7 +29,7 @@ namespace Generic_Move_Order.Frm_Receiving
         private void btn_new_Click(object sender, EventArgs e)
         {
             SP_GetSupplierById();
-            if (label_customer_id.Text == "0")
+            if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
             {
                 //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cb_supplier.Focus();
@@ -124,6 +124,13 @@ namespace Generic_Move_Order.Frm_Receiving
                 cmd.Parameters.AddWithValue("@supplier", supplier_id);
                 cmd.Parameters.AddWithValue("@description", text_transaction_description.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
+
+                cmd.Parameters.AddWithValue("@reference", text_reference.Text);
+                cmd.Parameters.AddWithValue("@account", text_account.Text);
+                cmd.Parameters.AddWithValue("@company", receiving_account_title.company_code);
+                cmd.Parameters.AddWithValue("@dept", receiving_account_title.department_code);
+                cmd.Parameters.AddWithValue("@loc", receiving_account_title.location_code);
+                cmd.Parameters.AddWithValue("@acc", receiving_account_title.account_code);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;
@@ -301,8 +308,16 @@ namespace Generic_Move_Order.Frm_Receiving
             text_name.Clear();
             text_transaction_description.Clear();
             label_customer_id.Text = "0";
+            text_account.Clear();
+            text_reference.Clear();
 
             dt_receiving.Rows.Clear();
+
+
+            receiving_account_title.company_code = null;
+            receiving_account_title.department_code = null;
+            receiving_account_title.location_code = null;
+            receiving_account_title.account_code = null;
         }
 
         private void cb_supplier_KeyPress(object sender, KeyPressEventArgs e)
@@ -348,10 +363,32 @@ namespace Generic_Move_Order.Frm_Receiving
 
         private void text_transaction_description_KeyDown(object sender, KeyEventArgs e)
         {
+          
+        }
+
+        private void text_account_DoubleClick(object sender, EventArgs e)
+        {
+            Frm_Add_Account_Title frm = new Frm_Add_Account_Title(this);
+            frm.ShowDialog();
+        }
+
+        private void text_account_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void text_account_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Frm_Add_Account_Title frm = new Frm_Add_Account_Title(this);
+                frm.ShowDialog();
+            }
+
             if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
             {
                 SP_GetSupplierById();
-                if (label_customer_id.Text == "0")
+                if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
                 {
                     //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cb_supplier.Focus();

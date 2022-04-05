@@ -280,7 +280,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 368F));
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
@@ -295,7 +295,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(423, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(422, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -308,7 +308,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
             this.text_account.Location = new System.Drawing.Point(113, 3);
             this.text_account.Name = "text_account";
-            this.text_account.Size = new System.Drawing.Size(304, 22);
+            this.text_account.Size = new System.Drawing.Size(303, 22);
             this.text_account.TabIndex = 3;
             this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
             this.text_account.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_account_KeyDown);

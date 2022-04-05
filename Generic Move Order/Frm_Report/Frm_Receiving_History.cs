@@ -141,6 +141,12 @@ namespace Generic_Move_Order.Frm_Report
             dt_report.Columns["quantity"].HeaderText = "Quantity";
             dt_report.Columns["transaction_date"].HeaderText = "Transaction Date";
 
+            dt_report.Columns["account_title"].HeaderText = "Account Title";
+            dt_report.Columns["company"].HeaderText = "Company";
+            dt_report.Columns["department"].HeaderText = "Department";
+            dt_report.Columns["location"].HeaderText = "Location";
+            dt_report.Columns["account"].HeaderText = "Account";
+
             dt_report.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_report.EnableHeadersVisualStyles = false;
         }
