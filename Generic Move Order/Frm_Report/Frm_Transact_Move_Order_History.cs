@@ -135,13 +135,21 @@ namespace Generic_Move_Order.Frm_Report
             dt_report.Columns["id"].HeaderText = "Id";
             dt_report.Columns["customer_code"].HeaderText = "Customer Code";
             dt_report.Columns["customer_name"].HeaderText = "Customer Name";
+            dt_report.Columns["area"].HeaderText = "Area";
             dt_report.Columns["item_code"].HeaderText = "Item Code";
             dt_report.Columns["item_description"].HeaderText = "Item Description";
             dt_report.Columns["uom"].HeaderText = "UOM";
+            dt_report.Columns["move_order"].HeaderText = "Move Order Qty";
+            dt_report.Columns["variance"].HeaderText = "Variance";
+            dt_report.Columns["percent_var"].HeaderText = "% Variance";
             dt_report.Columns["quantity"].HeaderText = "Actual Quantity";
             dt_report.Columns["move_order_transact_date"].HeaderText = "Transact Move Order Date";
             dt_report.Columns["reason"].HeaderText = "Reason";
-            //dt_report.Columns["area"].HeaderText = "Business Type";
+            dt_report.Columns["account_title"].HeaderText = "Account Title";
+            dt_report.Columns["company"].HeaderText = "Company";
+            dt_report.Columns["department"].HeaderText = "Department";
+            dt_report.Columns["location"].HeaderText = "Location";
+            dt_report.Columns["account"].HeaderText = "Account";
 
             dt_report.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_report.EnableHeadersVisualStyles = false;

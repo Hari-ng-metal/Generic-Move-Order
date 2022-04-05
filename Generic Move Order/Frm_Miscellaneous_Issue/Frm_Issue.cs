@@ -71,7 +71,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         {
             connect.DatabaseConnection();
             connect.con.Open();
-            SqlCommand cmd = new SqlCommand("SP_GetCustomerById", connect.con);
+            SqlCommand cmd = new SqlCommand("SP_GetCustomerOnlyById", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@code", cb_customer.Text);
             DataTable dt = new DataTable();
@@ -106,6 +106,13 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
                 cmd.Parameters.AddWithValue("@customer_id", customer_id);
                 cmd.Parameters.AddWithValue("@description", text_transaction_description.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
+
+                cmd.Parameters.AddWithValue("@reference", text_reference.Text);
+                cmd.Parameters.AddWithValue("@account", text_account.Text);
+                cmd.Parameters.AddWithValue("@company", issue_account_title.company_code);
+                cmd.Parameters.AddWithValue("@dept", issue_account_title.department_code);
+                cmd.Parameters.AddWithValue("@loc", issue_account_title.location_code);
+                cmd.Parameters.AddWithValue("@acc", issue_account_title.account_code);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;
@@ -182,7 +189,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         private void btn_new_Click(object sender, EventArgs e)
         {
             SP_GetCustomerById();
-            if (label_customer_id.Text == "0")
+            if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
             {
                 //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cb_customer.Focus();
@@ -245,8 +252,15 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             text_name.Clear();
             text_transaction_description.Clear();
             label_customer_id.Text = "0";
+            text_account.Clear();
+            text_reference.Clear();
 
             dt_issue.Rows.Clear();
+
+            issue_account_title.company_code = null;
+            issue_account_title.department_code = null;
+            issue_account_title.location_code = null;
+            issue_account_title.account_code = null;
         }
 
         private void dt_issue_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -323,11 +337,27 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
 
         private void text_transaction_description_KeyDown(object sender, KeyEventArgs e)
         {
+           
+        }
+
+        private void text_account_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void text_account_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Frm_Add_Account_Title frm = new Frm_Add_Account_Title(this);
+                frm.ShowDialog();
+            }
+
             //keydown
             if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
             {
                 SP_GetCustomerById();
-                if (label_customer_id.Text == "0")
+                if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
                 {
                     //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cb_customer.Focus();
@@ -364,6 +394,12 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
                     //Some task…  
                 }
             }
+        }
+
+        private void text_account_DoubleClick(object sender, EventArgs e)
+        {
+            Frm_Add_Account_Title frm = new Frm_Add_Account_Title(this);
+            frm.ShowDialog();
         }
     }
 }

@@ -235,6 +235,11 @@ namespace Generic_Move_Order.Frm_Move_Order
                 cmd.Parameters.AddWithValue("@reference", text_reference.Text);
                 cmd.Parameters.AddWithValue("@account", text_account.Text);
                 cmd.Parameters.AddWithValue("@date", dp_delivery_date.Text);
+
+                cmd.Parameters.AddWithValue("@company", account_title.company_code);
+                cmd.Parameters.AddWithValue("@dept", account_title.department_code);
+                cmd.Parameters.AddWithValue("@loc", account_title.location_code);
+                cmd.Parameters.AddWithValue("@acc", account_title.account_code);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;
@@ -511,6 +516,11 @@ namespace Generic_Move_Order.Frm_Move_Order
             text_reference.Clear();
             text_account.Clear();
             dt_move.Rows.Clear();
+
+            account_title.company_code = null;
+            account_title.department_code = null;
+            account_title.location_code = null;
+            account_title.account_code = null;
         }
 
         private void cb_customer_KeyPress(object sender, KeyPressEventArgs e)
@@ -657,7 +667,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
             {
                 //SP_GetCustomerById(); old
-                if (label_customer_id.Text == "0")
+                if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
                 {
                     //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cb_customer.Focus();
@@ -745,6 +755,11 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void dp_delivery_date_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

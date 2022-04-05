@@ -36,7 +36,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.text_transaction_description = new System.Windows.Forms.TextBox();
             this.text_sales_id = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.cb_customer = new System.Windows.Forms.ComboBox();
             this.text_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,11 +46,13 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.text_date = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.text_reference = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.text_transaction_description = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label_customer_id = new System.Windows.Forms.Label();
+            this.text_account = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
@@ -130,7 +134,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.59899F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.3401F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.2335F));
+            this.tableLayoutPanel1.Controls.Add(this.text_transaction_description, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.text_sales_id, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_customer, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.text_name, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
@@ -138,6 +144,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_date, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.text_reference, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -148,6 +156,15 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel1.Size = new System.Drawing.Size(788, 80);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
+            // text_transaction_description
+            // 
+            this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_transaction_description.Location = new System.Drawing.Point(176, 55);
+            this.text_transaction_description.Name = "text_transaction_description";
+            this.text_transaction_description.Size = new System.Drawing.Size(236, 22);
+            this.text_transaction_description.TabIndex = 1;
+            this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
+            // 
             // text_sales_id
             // 
             this.text_sales_id.Enabled = false;
@@ -156,13 +173,23 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.text_sales_id.Size = new System.Drawing.Size(236, 22);
             this.text_sales_id.TabIndex = 40;
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(87, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 17);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Description:";
+            // 
             // cb_customer
             // 
             this.cb_customer.FormattingEnabled = true;
             this.cb_customer.Location = new System.Drawing.Point(176, 29);
             this.cb_customer.Name = "cb_customer";
             this.cb_customer.Size = new System.Drawing.Size(236, 24);
-            this.cb_customer.TabIndex = 19;
+            this.cb_customer.TabIndex = 0;
             this.cb_customer.SelectedIndexChanged += new System.EventHandler(this.cb_customer_SelectedIndexChanged);
             // 
             // text_name
@@ -221,6 +248,24 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.text_date.Size = new System.Drawing.Size(243, 22);
             this.text_date.TabIndex = 43;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label4.Location = new System.Drawing.Point(452, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 28);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Reference:";
+            // 
+            // text_reference
+            // 
+            this.text_reference.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_reference.Location = new System.Drawing.Point(536, 55);
+            this.text_reference.Name = "text_reference";
+            this.text_reference.Size = new System.Drawing.Size(243, 22);
+            this.text_reference.TabIndex = 2;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel2);
@@ -235,10 +280,10 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 364F));
-            this.tableLayoutPanel2.Controls.Add(this.text_transaction_description, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 367F));
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -247,35 +292,37 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel2.Size = new System.Drawing.Size(788, 32);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
-            // text_transaction_description
-            // 
-            this.text_transaction_description.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.text_transaction_description.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_transaction_description.Location = new System.Drawing.Point(114, 3);
-            this.text_transaction_description.Name = "text_transaction_description";
-            this.text_transaction_description.Size = new System.Drawing.Size(306, 22);
-            this.text_transaction_description.TabIndex = 11;
-            this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 17);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Description:";
-            // 
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(426, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(423, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
             this.label_customer_id.Text = "0";
             this.label_customer_id.Visible = false;
+            // 
+            // text_account
+            // 
+            this.text_account.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.text_account.Location = new System.Drawing.Point(113, 3);
+            this.text_account.Name = "text_account";
+            this.text_account.Size = new System.Drawing.Size(304, 22);
+            this.text_account.TabIndex = 3;
+            this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
+            this.text_account.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_account_KeyDown);
+            this.text_account.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_account_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Location = new System.Drawing.Point(13, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 32);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Account Title:";
             // 
             // panel5
             // 
@@ -298,7 +345,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_save.Location = new System.Drawing.Point(499, 0);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
-            this.btn_save.TabIndex = 10;
+            this.btn_save.TabIndex = 6;
             this.btn_save.Text = "SAVE";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
@@ -312,7 +359,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_cancel.Location = new System.Drawing.Point(604, 0);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
-            this.btn_cancel.TabIndex = 9;
+            this.btn_cancel.TabIndex = 7;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -379,7 +426,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_edit.Location = new System.Drawing.Point(105, 0);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(105, 41);
-            this.btn_edit.TabIndex = 9;
+            this.btn_edit.TabIndex = 5;
             this.btn_edit.Text = "EDIT";
             this.btn_edit.UseVisualStyleBackColor = false;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
@@ -393,7 +440,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_new.Location = new System.Drawing.Point(0, 0);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(105, 41);
-            this.btn_new.TabIndex = 8;
+            this.btn_new.TabIndex = 4;
             this.btn_new.Text = "NEW";
             this.btn_new.UseVisualStyleBackColor = false;
             this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
@@ -550,5 +597,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         private System.Windows.Forms.DataGridViewTextBoxColumn uom;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewButtonColumn remove;
+        public System.Windows.Forms.TextBox text_account;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox text_reference;
     }
 }

@@ -211,6 +211,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             dt_receiving.Columns["id"].HeaderText = "Id";
             dt_receiving.Columns["customer_code"].HeaderText = "Customer Code";
             dt_receiving.Columns["customer_name"].HeaderText = "Customer Name";
+            dt_receiving.Columns["area"].HeaderText = "Area";
             dt_receiving.Columns["description"].HeaderText = "Description";
             dt_receiving.Columns["transaction_date"].HeaderText = "Transaction Date";
 

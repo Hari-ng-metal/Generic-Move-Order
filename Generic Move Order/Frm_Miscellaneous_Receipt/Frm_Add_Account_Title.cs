@@ -9,16 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Generic_Move_Order.Frm_Move_Order
+namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
 {
     public partial class Frm_Add_Account_Title : Form
     {
         Connection connect = new Connection();
-        Frm_Move_Order frm;
-        public Frm_Add_Account_Title(Frm_Move_Order _frm)
+        Frm_Receipt frm;
+        public Frm_Add_Account_Title(Frm_Receipt _frm)
         {
             InitializeComponent();
             this.frm = _frm;
+        }
+
+        private void Frm_Add_Account_Title_Load(object sender, EventArgs e)
+        {
+            LoadAccount();
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
@@ -28,10 +33,10 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void account()
         {
-            account_title.company_code = cb_company.Text;
-            account_title.department_code = cb_department.Text;
-            account_title.location_code = cb_location.Text;
-            account_title.account_code = cb_account.Text;
+            receipt_account_title.company_code = cb_company.Text;
+            receipt_account_title.department_code = cb_department.Text;
+            receipt_account_title.location_code = cb_location.Text;
+            receipt_account_title.account_code = cb_account.Text;
 
             string account = cb_company.Text + "." + cb_department.Text + "." + cb_location.Text + "." + cb_account.Text;
             frm.text_account.Text = account;
@@ -39,7 +44,7 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(text_company.Text) || string.IsNullOrEmpty(text_dept.Text) || string.IsNullOrEmpty(text_loc.Text) || string.IsNullOrEmpty(text_acc.Text))
+            if (string.IsNullOrEmpty(text_company.Text) || string.IsNullOrEmpty(text_dept.Text) || string.IsNullOrEmpty(text_loc.Text) || string.IsNullOrEmpty(text_acc.Text))
             {
                 MessageBox.Show("Please input the required field", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -72,11 +77,6 @@ namespace Generic_Move_Order.Frm_Move_Order
             GetLocation();
             GetDepartment();
             GetAccount();
-        }
-
-        private void Frm_Add_Account_Title_Load(object sender, EventArgs e)
-        {
-            LoadAccount();
         }
 
         public void GetCompany()

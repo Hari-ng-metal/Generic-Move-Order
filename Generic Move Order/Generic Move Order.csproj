@@ -239,6 +239,12 @@
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Miscellaneous_Issue\edit_issue_item.cs" />
+    <Compile Include="Frm_Miscellaneous_Issue\Frm_Add_Account_Title.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Miscellaneous_Issue\Frm_Add_Account_Title.Designer.cs">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Miscellaneous_Issue\Frm_Add_Issue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,8 +275,15 @@
     <Compile Include="Frm_Miscellaneous_Issue\Frm_View_Issue.Designer.cs">
       <DependentUpon>Frm_View_Issue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Miscellaneous_Issue\issue_account_title.cs" />
     <Compile Include="Frm_Miscellaneous_Issue\view_issue.cs" />
     <Compile Include="Frm_Miscellaneous_Receipt\edit_receipt_item.cs" />
+    <Compile Include="Frm_Miscellaneous_Receipt\Frm_Add_Account_Title.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Miscellaneous_Receipt\Frm_Add_Account_Title.Designer.cs">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Miscellaneous_Receipt\Frm_Add_Receipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +314,7 @@
     <Compile Include="Frm_Miscellaneous_Receipt\Frm_View_Receipt.Designer.cs">
       <DependentUpon>Frm_View_Receipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Miscellaneous_Receipt\receipt_account_title.cs" />
     <Compile Include="Frm_Miscellaneous_Receipt\view_receipt.cs" />
     <Compile Include="Frm_Module\edit_module.cs" />
     <Compile Include="Frm_Module\Frm_Add_Module.cs">
@@ -598,6 +612,9 @@
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Miscellaneous_Issue\Frm_Add_Account_Title.resx">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Miscellaneous_Issue\Frm_Add_Issue.resx">
       <DependentUpon>Frm_Add_Issue.cs</DependentUpon>
     </EmbeddedResource>
@@ -612,6 +629,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Miscellaneous_Issue\Frm_View_Issue.resx">
       <DependentUpon>Frm_View_Issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Miscellaneous_Receipt\Frm_Add_Account_Title.resx">
+      <DependentUpon>Frm_Add_Account_Title.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Miscellaneous_Receipt\Frm_Add_Receipt.resx">
       <DependentUpon>Frm_Add_Receipt.cs</DependentUpon>

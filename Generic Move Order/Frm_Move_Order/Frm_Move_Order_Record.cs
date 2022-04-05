@@ -217,6 +217,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move_order.Columns["id"].HeaderText = "Id";
             dt_move_order.Columns["customer_code"].HeaderText = "Customer Code";
             dt_move_order.Columns["customer_name"].HeaderText = "Customer Name";
+            dt_move_order.Columns["area"].HeaderText = "Area";
             dt_move_order.Columns["description"].HeaderText = "Description";
             dt_move_order.Columns["transaction_date"].HeaderText = "Transaction Date";
 

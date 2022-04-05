@@ -29,10 +29,9 @@ namespace Generic_Move_Order.Frm_Move_Order
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pb_exit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -77,8 +76,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.slab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pb_exit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,6 +87,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dt_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,18 +100,6 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(770, 40);
             this.panel1.TabIndex = 8;
-            // 
-            // pb_exit
-            // 
-            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
-            this.pb_exit.Location = new System.Drawing.Point(738, 0);
-            this.pb_exit.Name = "pb_exit";
-            this.pb_exit.Size = new System.Drawing.Size(32, 40);
-            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pb_exit.TabIndex = 7;
-            this.pb_exit.TabStop = false;
-            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
             // 
             // label1
             // 
@@ -312,6 +300,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // text_reference
             // 
+            this.text_reference.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_reference.Location = new System.Drawing.Point(524, 95);
             this.text_reference.Name = "text_reference";
             this.text_reference.Size = new System.Drawing.Size(243, 22);
@@ -329,9 +318,9 @@ namespace Generic_Move_Order.Frm_Move_Order
             // text_date
             // 
             this.text_date.Enabled = false;
-            this.text_date.Location = new System.Drawing.Point(156, 32);
+            this.text_date.Location = new System.Drawing.Point(3, 32);
             this.text_date.Name = "text_date";
-            this.text_date.Size = new System.Drawing.Size(243, 22);
+            this.text_date.Size = new System.Drawing.Size(147, 22);
             this.text_date.TabIndex = 43;
             this.text_date.Visible = false;
             // 
@@ -349,7 +338,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 389F));
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
@@ -365,7 +354,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 0);
+            this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 17);
             this.label7.TabIndex = 10;
@@ -374,19 +363,20 @@ namespace Generic_Move_Order.Frm_Move_Order
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(388, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(383, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
             this.label_customer_id.Text = "0";
+            this.label_customer_id.Visible = false;
             // 
             // text_account
             // 
             this.text_account.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_account.Location = new System.Drawing.Point(104, 3);
+            this.text_account.Location = new System.Drawing.Point(103, 3);
             this.text_account.Name = "text_account";
-            this.text_account.Size = new System.Drawing.Size(278, 22);
+            this.text_account.Size = new System.Drawing.Size(274, 22);
             this.text_account.TabIndex = 6;
             this.text_account.TextChanged += new System.EventHandler(this.text_account_TextChanged);
             this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
@@ -458,7 +448,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.125F));
             this.tableLayoutPanel3.Controls.Add(this.label_counting, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label_bcategory_id, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.text_date, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.text_date, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -485,6 +475,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label_bcategory_id.Size = new System.Drawing.Size(16, 17);
             this.label_bcategory_id.TabIndex = 1;
             this.label_bcategory_id.Text = "0";
+            this.label_bcategory_id.Visible = false;
             // 
             // panel6
             // 
@@ -539,14 +530,14 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.quantity,
             this.slab,
             this.remove});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dt_move.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dt_move.DefaultCellStyle = dataGridViewCellStyle8;
             this.dt_move.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dt_move.Location = new System.Drawing.Point(0, 233);
             this.dt_move.Name = "dt_move";
@@ -602,16 +593,28 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.remove.DefaultCellStyle = dataGridViewCellStyle7;
             this.remove.FillWeight = 53.47594F;
             this.remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remove.HeaderText = "remove";
             this.remove.MinimumWidth = 3;
             this.remove.Name = "remove";
             this.remove.Text = "(-)";
+            // 
+            // pb_exit
+            // 
+            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
+            this.pb_exit.Location = new System.Drawing.Point(738, 0);
+            this.pb_exit.Name = "pb_exit";
+            this.pb_exit.Size = new System.Drawing.Size(32, 40);
+            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_exit.TabIndex = 7;
+            this.pb_exit.TabStop = false;
+            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
             // 
             // Frm_Move_Order
             // 
@@ -633,7 +636,6 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_Move_Order_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -646,6 +648,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dt_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             this.ResumeLayout(false);
 
         }

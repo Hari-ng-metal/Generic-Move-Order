@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generic_Move_Order.Frm_Move_Order
+namespace Generic_Move_Order.Frm_Miscellaneous_Issue
 {
-    class account_title
+    class issue_account_title
     {
         public static string company_code { get; set; }
         public static string company { get; set; }
