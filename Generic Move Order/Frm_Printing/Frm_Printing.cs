@@ -168,19 +168,31 @@ namespace Generic_Move_Order.Frm_Printing
         private void Frm_Printing_KeyDown(object sender, KeyEventArgs e)
         {
             //print
-            if (e.Control && e.KeyCode == Keys.P)
-            {
-                MessageBox.Show("Sample Lang");
-                //crv_report.PrintReport();
-            }
+            //if (e.Control && e.KeyCode == Keys.P)
+            //{
+            //    MessageBox.Show("Sample Lang");
+            //    //crv_report.PrintReport();
+            //}
         }
 
         private void crv_report_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.P)
+            //if (e.Control && e.KeyCode == Keys.P)
+            //{
+            //    MessageBox.Show("Sample Lang");
+            //}
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.P))
             {
-                MessageBox.Show("Sample Lang");
+                //MessageBox.Show("Do you want to print?");
+                crv_report.PrintReport();
+                return true;
             }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

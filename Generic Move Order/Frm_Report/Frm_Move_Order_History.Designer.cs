@@ -268,7 +268,7 @@ namespace Generic_Move_Order.Frm_Report
             // dt_report
             // 
             this.dt_report.AllowUserToAddRows = false;
-            this.dt_report.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dt_report.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dt_report.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dt_report.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

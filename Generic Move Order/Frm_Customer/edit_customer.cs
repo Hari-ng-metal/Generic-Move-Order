@@ -19,5 +19,6 @@ namespace Generic_Move_Order.Frm_Customer
 
         public static int bcategory_id { get; set; }
         public static string bcategory { get; set; }
+        public static string org { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace Generic_Move_Order.Frm_Category
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_exit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,15 +47,14 @@ namespace Generic_Move_Order.Frm_Category
             this.cb_status = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dt_category = new System.Windows.Forms.DataGridView();
-            this.pb_exit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dt_category)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +67,18 @@ namespace Generic_Move_Order.Frm_Category
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(770, 40);
             this.panel1.TabIndex = 20;
+            // 
+            // pb_exit
+            // 
+            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
+            this.pb_exit.Location = new System.Drawing.Point(738, 0);
+            this.pb_exit.Name = "pb_exit";
+            this.pb_exit.Size = new System.Drawing.Size(32, 40);
+            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pb_exit.TabIndex = 7;
+            this.pb_exit.TabStop = false;
+            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
             // 
             // label1
             // 
@@ -261,18 +273,6 @@ namespace Generic_Move_Order.Frm_Category
             this.dt_category.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_category_CellClick);
             this.dt_category.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_category_DataBindingComplete);
             // 
-            // pb_exit
-            // 
-            this.pb_exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pb_exit.Image = global::Generic_Move_Order.Properties.Resources.delete_sign_FLAT_32px;
-            this.pb_exit.Location = new System.Drawing.Point(738, 0);
-            this.pb_exit.Name = "pb_exit";
-            this.pb_exit.Size = new System.Drawing.Size(32, 40);
-            this.pb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pb_exit.TabIndex = 7;
-            this.pb_exit.TabStop = false;
-            this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
-            // 
             // Frm_Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,6 +289,7 @@ namespace Generic_Move_Order.Frm_Category
             this.Load += new System.EventHandler(this.Frm_Category_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -297,7 +298,6 @@ namespace Generic_Move_Order.Frm_Category
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dt_category)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).EndInit();
             this.ResumeLayout(false);
 
         }

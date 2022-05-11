@@ -33,6 +33,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             text_name.Text = view_move_order.customer_name;
             text_code.Text = view_move_order.customer_code;
             text_transaction_description.Text = view_move_order.description;
+            text_account_title.Text = view_move_order.account_title;
+            text_reference.Text = view_move_order.reference;
 
             GetMoveOrderItemById();
         }

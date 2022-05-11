@@ -33,6 +33,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             text_name.Text = view_issue.customer_name;
             text_code.Text = view_issue.customer_code;
             text_transaction_description.Text = view_issue.description;
+            text_reference.Text = view_issue.reference;
+            text_account_title.Text = view_issue.account_title;
 
             GetIssueItemById();
         }

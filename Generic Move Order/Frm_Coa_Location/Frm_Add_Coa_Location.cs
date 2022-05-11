@@ -34,7 +34,7 @@ namespace Generic_Move_Order.Frm_Coa_Location
             {
                 connect.DatabaseConnection();
                 connect.con.Open();
-                SqlCommand cmd = new SqlCommand("SP_InsertUOM", connect.con);
+                SqlCommand cmd = new SqlCommand("SP_InsertCoaLocation", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@code", text_code.Text);
                 cmd.Parameters.AddWithValue("@location", text_location.Text);

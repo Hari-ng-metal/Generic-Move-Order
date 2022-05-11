@@ -30,8 +30,8 @@ namespace Generic_Move_Order.Frm_Product_Category
         private void HeaderName()
         {
             dt_p_category.Columns["id"].HeaderText = "Id";
-            dt_p_category.Columns["category"].HeaderText = "Category";
-            dt_p_category.Columns["product_category"].HeaderText = "Product Category";
+            dt_p_category.Columns["category"].HeaderText = "Product Category";
+            dt_p_category.Columns["product_category"].HeaderText = "Product Sub Category";
             dt_p_category.Columns["status"].HeaderText = "Status";
             dt_p_category.Columns["date_added"].HeaderText = "Date Added";
 

@@ -168,6 +168,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move_order.Columns["area"].HeaderText = "Area";
             dt_move_order.Columns["description"].HeaderText = "Description";
             dt_move_order.Columns["transaction_date"].HeaderText = "Transaction Date";
+            dt_move_order.Columns["name"].HeaderText = "Encoded By";
 
             dt_move_order.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_move_order.EnableHeadersVisualStyles = false;

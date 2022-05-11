@@ -22,6 +22,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
 
         private void Frm_Issue_Record_Load(object sender, EventArgs e)
         {
+            CustomDatePicker();
             DisableAccess();
             UserAccess();
             cb_status.SelectedIndex = 0;
@@ -30,6 +31,12 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             btn_view.Enabled = false;
             HeaderName();
             //GetMoveOrderRecordsBySearch();
+        }
+
+        private void CustomDatePicker()
+        {
+            dp_start.CustomFormat = "MM/dd/yyyy";
+            dp_end.CustomFormat = "MM/dd/yyyy";
         }
 
         private void DisableAccess()
@@ -128,6 +135,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
                 view_issue.customer_name = row.Cells["customer_name"].Value.ToString();
                 view_issue.description = row.Cells["description"].Value.ToString();
                 view_issue.transaction_date = DateTime.Parse(row.Cells["transaction_date"].Value.ToString());
+                view_issue.reference = row.Cells["reference"].Value.ToString();
+                view_issue.account_title = row.Cells["account_title"].Value.ToString();
 
                 btn_view.Enabled = true;
                 btn_print.Enabled = true;
@@ -214,6 +223,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             dt_receiving.Columns["area"].HeaderText = "Area";
             dt_receiving.Columns["description"].HeaderText = "Description";
             dt_receiving.Columns["transaction_date"].HeaderText = "Transaction Date";
+            dt_receiving.Columns["reference"].HeaderText = "Reference";
+            dt_receiving.Columns["account_title"].HeaderText = "Account Title";
 
             dt_receiving.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_receiving.EnableHeadersVisualStyles = false;

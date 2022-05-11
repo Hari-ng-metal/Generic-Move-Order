@@ -128,7 +128,6 @@ namespace Generic_Move_Order.Frm_Coa_Account
             // 
             // text_code
             // 
-            this.text_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_code.Location = new System.Drawing.Point(166, 3);
             this.text_code.Name = "text_code";
             this.text_code.Size = new System.Drawing.Size(157, 22);
@@ -196,7 +195,6 @@ namespace Generic_Move_Order.Frm_Coa_Account
             // 
             // text_account
             // 
-            this.text_account.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_account.Location = new System.Drawing.Point(166, 48);
             this.text_account.Name = "text_account";
             this.text_account.Size = new System.Drawing.Size(157, 22);

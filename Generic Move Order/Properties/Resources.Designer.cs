@@ -134,6 +134,16 @@ namespace Generic_Move_Order.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap help_50px {
+            get {
+                object obj = ResourceManager.GetObject("help_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_32px {
             get {
                 object obj = ResourceManager.GetObject("menu_32px", resourceCulture);

@@ -60,6 +60,7 @@ namespace Generic_Move_Order.Frm_Customer
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 cmd.Parameters.AddWithValue("@b_category_id", label_bcategory_id.Text);
+                cmd.Parameters.AddWithValue("@org", text_org.Text);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;
@@ -91,6 +92,7 @@ namespace Generic_Move_Order.Frm_Customer
                 cmd.Parameters.AddWithValue("@b_category_id", label_bcategory_id.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
+                cmd.Parameters.AddWithValue("@org", text_org.Text);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 //dt_user.DataSource = dt;

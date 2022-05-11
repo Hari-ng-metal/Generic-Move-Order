@@ -91,12 +91,12 @@ namespace Generic_Move_Order.Frm_Inventory
             dt_mrp.Columns["item_code"].HeaderText = "Item Code";
             dt_mrp.Columns["item_description"].HeaderText = "Item Description";
             dt_mrp.Columns["uom"].HeaderText = "UOM";
-            dt_mrp.Columns["category"].HeaderText = "Category";
+            dt_mrp.Columns["category"].HeaderText = "Product Category";
             dt_mrp.Columns["status"].HeaderText = "Status";
             dt_mrp.Columns["received"].HeaderText = "Received";
             dt_mrp.Columns["move_order"].HeaderText = "Move Order";
             dt_mrp.Columns["stock"].HeaderText = "Stock";
-            dt_mrp.Columns["product_category"].HeaderText = "Product Category";
+            dt_mrp.Columns["product_category"].HeaderText = "Product Sub Category";
             dt_mrp.Columns["receipt"].HeaderText = "Receipt";
             dt_mrp.Columns["issue"].HeaderText = "Issue";
             dt_mrp.Columns["reserve"].HeaderText = "Reserve";

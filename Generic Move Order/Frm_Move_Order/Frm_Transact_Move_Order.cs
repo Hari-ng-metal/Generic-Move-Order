@@ -41,7 +41,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             dp_delivery_date.CustomFormat = "MM/dd/yyyy";
             dp_delivery_date.MinDate = DateTime.Now.Date.AddDays(-60);
-            dp_delivery_date.MaxDate = DateTime.Now.Date;
+            dp_delivery_date.MaxDate = DateTime.Now.Date.AddDays(7);
         }
 
         private void FIllQuantityReceived()
@@ -260,8 +260,6 @@ namespace Generic_Move_Order.Frm_Move_Order
 
                 throw;
             }
-
-          
         }
 
         private void Column1_KeyPress(object sender, KeyPressEventArgs e)

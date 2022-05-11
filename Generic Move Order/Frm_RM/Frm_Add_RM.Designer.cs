@@ -97,11 +97,11 @@ namespace Generic_Move_Order.Frm_RM
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(367, 45);
+            this.label5.Location = new System.Drawing.Point(338, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 45);
+            this.label5.Size = new System.Drawing.Size(151, 45);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Product Category:";
+            this.label5.Text = "Product Sub Category:";
             // 
             // label4
             // 

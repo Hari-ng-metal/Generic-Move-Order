@@ -37,7 +37,6 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.text_transaction_description = new System.Windows.Forms.TextBox();
-            this.text_sales_id = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cb_customer = new System.Windows.Forms.ComboBox();
             this.text_name = new System.Windows.Forms.TextBox();
@@ -45,9 +44,11 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.text_date = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.text_reference = new System.Windows.Forms.TextBox();
+            this.text_warehouse_name = new System.Windows.Forms.TextBox();
+            this.cb_warehouse = new System.Windows.Forms.ComboBox();
+            this.text_date = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label_customer_id = new System.Windows.Forms.Label();
@@ -135,7 +136,6 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.3401F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.2335F));
             this.tableLayoutPanel1.Controls.Add(this.text_transaction_description, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.text_sales_id, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_customer, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.text_name, 3, 1);
@@ -143,9 +143,10 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.text_date, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.text_reference, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.text_warehouse_name, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cb_warehouse, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -162,16 +163,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.text_transaction_description.Location = new System.Drawing.Point(176, 55);
             this.text_transaction_description.Name = "text_transaction_description";
             this.text_transaction_description.Size = new System.Drawing.Size(236, 22);
-            this.text_transaction_description.TabIndex = 1;
+            this.text_transaction_description.TabIndex = 2;
             this.text_transaction_description.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_transaction_description_KeyDown);
-            // 
-            // text_sales_id
-            // 
-            this.text_sales_id.Enabled = false;
-            this.text_sales_id.Location = new System.Drawing.Point(176, 3);
-            this.text_sales_id.Name = "text_sales_id";
-            this.text_sales_id.Size = new System.Drawing.Size(236, 22);
-            this.text_sales_id.TabIndex = 40;
             // 
             // label7
             // 
@@ -189,7 +182,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.cb_customer.Location = new System.Drawing.Point(176, 29);
             this.cb_customer.Name = "cb_customer";
             this.cb_customer.Size = new System.Drawing.Size(236, 24);
-            this.cb_customer.TabIndex = 0;
+            this.cb_customer.TabIndex = 1;
             this.cb_customer.SelectedIndexChanged += new System.EventHandler(this.cb_customer_SelectedIndexChanged);
             // 
             // text_name
@@ -224,29 +217,21 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Location = new System.Drawing.Point(68, 0);
+            this.label6.Location = new System.Drawing.Point(48, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 26);
+            this.label6.Size = new System.Drawing.Size(122, 26);
             this.label6.TabIndex = 41;
-            this.label6.Text = "Transaction Id:";
+            this.label6.Text = "Warehouse Code:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label8.Location = new System.Drawing.Point(488, 0);
+            this.label8.Location = new System.Drawing.Point(445, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 26);
+            this.label8.Size = new System.Drawing.Size(85, 26);
             this.label8.TabIndex = 42;
-            this.label8.Text = "Date:";
-            // 
-            // text_date
-            // 
-            this.text_date.Enabled = false;
-            this.text_date.Location = new System.Drawing.Point(536, 3);
-            this.text_date.Name = "text_date";
-            this.text_date.Size = new System.Drawing.Size(243, 22);
-            this.text_date.TabIndex = 43;
+            this.label8.Text = "Warehouse:";
             // 
             // label4
             // 
@@ -264,7 +249,33 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.text_reference.Location = new System.Drawing.Point(536, 55);
             this.text_reference.Name = "text_reference";
             this.text_reference.Size = new System.Drawing.Size(243, 22);
-            this.text_reference.TabIndex = 2;
+            this.text_reference.TabIndex = 3;
+            // 
+            // text_warehouse_name
+            // 
+            this.text_warehouse_name.Enabled = false;
+            this.text_warehouse_name.Location = new System.Drawing.Point(536, 3);
+            this.text_warehouse_name.Name = "text_warehouse_name";
+            this.text_warehouse_name.Size = new System.Drawing.Size(243, 22);
+            this.text_warehouse_name.TabIndex = 45;
+            // 
+            // cb_warehouse
+            // 
+            this.cb_warehouse.FormattingEnabled = true;
+            this.cb_warehouse.Location = new System.Drawing.Point(176, 3);
+            this.cb_warehouse.Name = "cb_warehouse";
+            this.cb_warehouse.Size = new System.Drawing.Size(236, 24);
+            this.cb_warehouse.TabIndex = 0;
+            this.cb_warehouse.SelectedIndexChanged += new System.EventHandler(this.cb_warehouse_SelectedIndexChanged);
+            // 
+            // text_date
+            // 
+            this.text_date.Enabled = false;
+            this.text_date.Location = new System.Drawing.Point(533, 9);
+            this.text_date.Name = "text_date";
+            this.text_date.Size = new System.Drawing.Size(243, 22);
+            this.text_date.TabIndex = 43;
+            this.text_date.Visible = false;
             // 
             // panel3
             // 
@@ -280,7 +291,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 368F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 372F));
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
@@ -295,7 +306,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(422, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(418, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -306,10 +317,10 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // 
             this.text_account.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_account.Location = new System.Drawing.Point(113, 3);
+            this.text_account.Location = new System.Drawing.Point(112, 3);
             this.text_account.Name = "text_account";
-            this.text_account.Size = new System.Drawing.Size(303, 22);
-            this.text_account.TabIndex = 3;
+            this.text_account.Size = new System.Drawing.Size(300, 22);
+            this.text_account.TabIndex = 4;
             this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
             this.text_account.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_account_KeyDown);
             this.text_account.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_account_KeyPress);
@@ -318,7 +329,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(13, 0);
+            this.label2.Location = new System.Drawing.Point(12, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 32);
             this.label2.TabIndex = 14;
@@ -345,7 +356,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_save.Location = new System.Drawing.Point(499, 0);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
-            this.btn_save.TabIndex = 6;
+            this.btn_save.TabIndex = 7;
             this.btn_save.Text = "SAVE";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
@@ -359,7 +370,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_cancel.Location = new System.Drawing.Point(604, 0);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
-            this.btn_cancel.TabIndex = 7;
+            this.btn_cancel.TabIndex = 8;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -411,6 +422,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.panel6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel6.Controls.Add(this.btn_edit);
             this.panel6.Controls.Add(this.btn_new);
+            this.panel6.Controls.Add(this.text_date);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, 59);
             this.panel6.Name = "panel6";
@@ -426,7 +438,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_edit.Location = new System.Drawing.Point(105, 0);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(105, 41);
-            this.btn_edit.TabIndex = 5;
+            this.btn_edit.TabIndex = 6;
             this.btn_edit.Text = "EDIT";
             this.btn_edit.UseVisualStyleBackColor = false;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
@@ -440,7 +452,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.btn_new.Location = new System.Drawing.Point(0, 0);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(105, 41);
-            this.btn_new.TabIndex = 4;
+            this.btn_new.TabIndex = 5;
             this.btn_new.Text = "NEW";
             this.btn_new.UseVisualStyleBackColor = false;
             this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
@@ -555,6 +567,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dt_issue)).EndInit();
             this.ResumeLayout(false);
 
@@ -567,7 +580,6 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox text_sales_id;
         private System.Windows.Forms.ComboBox cb_customer;
         private System.Windows.Forms.TextBox text_name;
         private System.Windows.Forms.Label label3;
@@ -601,5 +613,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox text_reference;
+        private System.Windows.Forms.TextBox text_warehouse_name;
+        private System.Windows.Forms.ComboBox cb_warehouse;
     }
 }

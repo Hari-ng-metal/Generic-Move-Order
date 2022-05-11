@@ -218,5 +218,22 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
                 text_acc.Text = cb_account.SelectedValue.ToString();
             }
         }
+
+        private void cb_account_KeyDown(object sender, KeyEventArgs e)
+        {
+            //enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(text_company.Text) || string.IsNullOrEmpty(text_dept.Text) || string.IsNullOrEmpty(text_loc.Text) || string.IsNullOrEmpty(text_acc.Text))
+                {
+                    MessageBox.Show("Please input the required field", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    account();
+                    this.Close();
+                }
+            }
+        }
     }
 }

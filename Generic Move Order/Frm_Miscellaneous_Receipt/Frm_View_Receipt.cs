@@ -33,6 +33,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             text_name.Text = view_receipt.supplier_name;
             text_code.Text = view_receipt.supplier_code;
             text_transaction_description.Text = view_receipt.description;
+            text_reference.Text = view_receipt.reference;
+            text_account_title.Text = view_receipt.account_title;
 
             GetReceiveItemById();
         }

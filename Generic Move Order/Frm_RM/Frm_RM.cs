@@ -149,8 +149,8 @@ namespace Generic_Move_Order.Frm_RM
             dt_rm.Columns["item_code"].HeaderText = "Item Code";
             dt_rm.Columns["item_description"].HeaderText = "Item Description";
             dt_rm.Columns["uom"].HeaderText = "UOM";
-            dt_rm.Columns["category"].HeaderText = "Category";
-            dt_rm.Columns["product_category"].HeaderText = "Product Category";
+            dt_rm.Columns["category"].HeaderText = "Product Category";
+            dt_rm.Columns["product_category"].HeaderText = "Product Sub Category";
             dt_rm.Columns["status"].HeaderText = "Status";
             dt_rm.Columns["date_added"].HeaderText = "Date Added";
 

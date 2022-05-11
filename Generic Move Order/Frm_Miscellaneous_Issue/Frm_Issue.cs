@@ -28,7 +28,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
 
         private void Frm_Issue_Load(object sender, EventArgs e)
         {
+            GetWarehouse();
             GetCustomer();
+            text_warehouse_name.Clear();
             text_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             label_counting.Text = "TOTAL # OF ITEM/S: " + (dt_issue.RowCount);
             btn_save.Enabled = false;
@@ -39,6 +41,35 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             cb_customer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_customer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cb_customer.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+
+        public void GetWarehouse()
+        {
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetWarehouse", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_warehouse.DataSource = dt;
+                connect.con.Close();
+
+                cb_warehouse.ValueMember = "warehouse";
+                cb_warehouse.DisplayMember = "code";
+
+                cb_warehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+                cb_warehouse.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cb_warehouse.AutoCompleteSource = AutoCompleteSource.ListItems;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_warehouse.SelectedIndex = -1;
         }
 
         public void GetCustomer()
@@ -103,6 +134,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
                 connect.con.Open();
                 SqlCommand cmd = new SqlCommand("SP_InsertIssue", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@warehouse", cb_warehouse.Text);
                 cmd.Parameters.AddWithValue("@customer_id", customer_id);
                 cmd.Parameters.AddWithValue("@description", text_transaction_description.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
@@ -188,13 +220,36 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
 
         private void btn_new_Click(object sender, EventArgs e)
         {
+            //SP_GetCustomerById();
+            //if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
+            //{
+            //    //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    cb_customer.Focus();
+            //    text_name.Clear();
+            //    label_customer_id.Text = "0";
+            //}
+            //else
+            //{
+            //    Frm_Add_Issue frm = new Frm_Add_Issue(this);
+            //    frm.ShowDialog();
+            //}
+            //btn_edit.Enabled = false;
+
             SP_GetCustomerById();
-            if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
+            if (label_customer_id.Text == "0")
             {
                 //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cb_customer.Focus();
                 text_name.Clear();
                 label_customer_id.Text = "0";
+            }
+            else if (string.IsNullOrEmpty(cb_warehouse.Text))
+            {
+                cb_warehouse.Focus();
+            }
+            else if (string.IsNullOrEmpty(text_account.Text))
+            {
+                text_account.Focus();
             }
             else
             {
@@ -236,6 +291,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             {
                 //Some task…  
             }
+
         }
 
         private void CallPrintOut()
@@ -357,12 +413,20 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             if (e.Control && e.KeyCode == Keys.N || e.KeyCode == Keys.Down)
             {
                 SP_GetCustomerById();
-                if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
+                if (label_customer_id.Text == "0")
                 {
                     //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cb_customer.Focus();
                     text_name.Clear();
                     label_customer_id.Text = "0";
+                }
+                else if (string.IsNullOrEmpty(cb_warehouse.Text))
+                {
+                    cb_warehouse.Focus();
+                }
+                else if(string.IsNullOrEmpty(text_account.Text))
+                {
+                    text_account.Focus();
                 }
                 else
                 {
@@ -400,6 +464,15 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         {
             Frm_Add_Account_Title frm = new Frm_Add_Account_Title(this);
             frm.ShowDialog();
+        }
+
+        private void cb_warehouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_warehouse.SelectedIndex >= 0)
+            {
+                text_warehouse_name.Clear();
+                text_warehouse_name.Text = cb_warehouse.SelectedValue.ToString();
+            }
         }
     }
 }

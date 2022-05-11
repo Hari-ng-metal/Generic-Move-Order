@@ -111,11 +111,11 @@ namespace Generic_Move_Order.Frm_Product_Category
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(37, 0);
+            this.label1.Location = new System.Drawing.Point(8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 45);
+            this.label1.Size = new System.Drawing.Size(151, 45);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Product Category:";
+            this.label1.Text = "Product Sub Category:";
             // 
             // label4
             // 
@@ -199,11 +199,11 @@ namespace Generic_Move_Order.Frm_Product_Category
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(90, 45);
+            this.label2.Location = new System.Drawing.Point(37, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 45);
+            this.label2.Size = new System.Drawing.Size(122, 45);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Category:";
+            this.label2.Text = "Product Category:";
             // 
             // cb_category
             // 

@@ -153,7 +153,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.btn_cancel.Location = new System.Drawing.Point(495, 138);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(105, 41);
-            this.btn_cancel.TabIndex = 6;
+            this.btn_cancel.TabIndex = 5;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -167,7 +167,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.btn_save.Location = new System.Drawing.Point(384, 138);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(105, 41);
-            this.btn_save.TabIndex = 7;
+            this.btn_save.TabIndex = 4;
             this.btn_save.Text = "UPDATE";
             this.btn_save.UseVisualStyleBackColor = false;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
@@ -198,7 +198,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.cb_code.Location = new System.Drawing.Point(167, 3);
             this.cb_code.Name = "cb_code";
             this.cb_code.Size = new System.Drawing.Size(158, 24);
-            this.cb_code.TabIndex = 17;
+            this.cb_code.TabIndex = 1;
             this.cb_code.SelectedIndexChanged += new System.EventHandler(this.cb_code_SelectedIndexChanged);
             this.cb_code.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_code_KeyDown);
             // 
@@ -216,7 +216,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_qty.Location = new System.Drawing.Point(167, 48);
             this.text_qty.Name = "text_qty";
             this.text_qty.Size = new System.Drawing.Size(158, 22);
-            this.text_qty.TabIndex = 19;
+            this.text_qty.TabIndex = 2;
             this.text_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qty_KeyPress);
             // 
             // label3
@@ -252,7 +252,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_slab.Location = new System.Drawing.Point(167, 93);
             this.text_slab.Name = "text_slab";
             this.text_slab.Size = new System.Drawing.Size(158, 22);
-            this.text_slab.TabIndex = 23;
+            this.text_slab.TabIndex = 3;
             this.text_slab.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_slab_KeyDown);
             this.text_slab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_slab_KeyPress);
             // 

@@ -13,5 +13,7 @@ namespace Generic_Move_Order.Frm_Receiving
         public static string supplier_name { get; set; }
         public static string description { get; set; }
         public static DateTime transaction_date { get; set; }
+        public static string account_title { get; set; }
+        public static string reference { get; set; }
     }
 }

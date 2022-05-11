@@ -128,7 +128,6 @@ namespace Generic_Move_Order.Frm_Coa_Location
             // 
             // text_code
             // 
-            this.text_code.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_code.Location = new System.Drawing.Point(166, 3);
             this.text_code.Name = "text_code";
             this.text_code.Size = new System.Drawing.Size(157, 22);
@@ -196,7 +195,6 @@ namespace Generic_Move_Order.Frm_Coa_Location
             // 
             // text_location
             // 
-            this.text_location.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_location.Location = new System.Drawing.Point(166, 48);
             this.text_location.Name = "text_location";
             this.text_location.Size = new System.Drawing.Size(157, 22);

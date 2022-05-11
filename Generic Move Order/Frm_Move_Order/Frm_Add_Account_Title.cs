@@ -30,18 +30,25 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             account_title.company_code = cb_company.Text;
             account_title.department_code = cb_department.Text;
-            account_title.location_code = cb_location.Text;
+            //old without restriction
+            //account_title.location_code = cb_location.Text;
+
+            //new with restriction dep to loc
+            account_title.location_code = cb_tag_location.Text;
             account_title.account_code = cb_account.Text;
 
-            string account = cb_company.Text + "." + cb_department.Text + "." + cb_location.Text + "." + cb_account.Text;
+            //string account = cb_company.Text + "." + cb_department.Text + "." + cb_location.Text + "." + cb_account.Text;
+            string account = cb_company.Text + "." + cb_department.Text + "." + cb_tag_location.Text + "." + cb_account.Text;
             frm.text_account.Text = account;
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(text_company.Text) || string.IsNullOrEmpty(text_dept.Text) || string.IsNullOrEmpty(text_loc.Text) || string.IsNullOrEmpty(text_acc.Text))
+            //CheckAccountTitle();
+            if (string.IsNullOrEmpty(text_company.Text) || string.IsNullOrEmpty(text_dept.Text) || string.IsNullOrEmpty(text_loc.Text) || string.IsNullOrEmpty(text_acc.Text))
             {
-                MessageBox.Show("Please input the required field", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
@@ -200,6 +207,9 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (cb_department.SelectedIndex >= 0)
             {
                 text_dept.Text = cb_department.SelectedValue.ToString();
+
+                //enable when select department - for comment to be up once ok
+                GetLocationByDepartment();
             }
         }
 
@@ -216,6 +226,205 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (cb_account.SelectedIndex >= 0)
             {
                 text_acc.Text = cb_account.SelectedValue.ToString();
+            }
+        }
+
+        private void cb_account_KeyDown(object sender, KeyEventArgs e)
+        {
+            //
+            if (e.KeyCode == Keys.Enter)
+            {
+                //CheckAccountTitle();
+                if (string.IsNullOrEmpty(text_company.Text) || string.IsNullOrEmpty(text_dept.Text) || string.IsNullOrEmpty(text_loc.Text) || string.IsNullOrEmpty(text_acc.Text))
+                {
+                    MessageBox.Show("Please input the required field", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    account();
+                    this.Close();
+                }
+            }
+              
+        }
+
+        private void CheckDepartment()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_ValidateIfExistByMode", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@coa_code", text_dept.Text);
+            cmd.Parameters.AddWithValue("@mode", "coa_department");
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_report.DataSource = dt;
+            connect.con.Close();
+            if (dt.Rows.Count >= 1)
+            {
+                try
+                {
+                    //MessageBox.Show("Item is already exist!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+            else
+            {
+                text_dept.Clear();
+                this.Close();
+            }
+        }
+
+        private void CheckCompany()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_ValidateIfExistByMode", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@coa_code", text_company.Text);
+            cmd.Parameters.AddWithValue("@mode", "coa_company");
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_report.DataSource = dt;
+            connect.con.Close();
+            if (dt.Rows.Count >= 1)
+            {
+                try
+                {
+                    //MessageBox.Show("Item is already exist!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+            else
+            {
+                text_company.Clear();
+                this.Close();
+            }
+        }
+
+        private void CheckLocation()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_ValidateIfExistByMode", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@coa_code", text_loc.Text);
+            cmd.Parameters.AddWithValue("@mode", "coa_location");
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_report.DataSource = dt;
+            connect.con.Close();
+            if (dt.Rows.Count >= 1)
+            {
+                try
+                {
+                    //MessageBox.Show("Item is already exist!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+            else
+            {
+                text_loc.Clear();
+                this.Close();
+            }
+        }
+
+        private void CheckAccount()
+        {
+            connect.DatabaseConnection();
+            connect.con.Open();
+            SqlCommand cmd = new SqlCommand("SP_ValidateIfExistByMode", connect.con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@coa_code", text_acc.Text);
+            cmd.Parameters.AddWithValue("@mode", "coa_account");
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            //dt_report.DataSource = dt;
+            connect.con.Close();
+            if (dt.Rows.Count >= 1)
+            {
+                try
+                {
+                    //MessageBox.Show("Item is already exist!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+            else
+            {
+                text_acc.Clear();
+                this.Close();
+            }
+        }
+        //comment
+        private void CheckAccountTitle()
+        {
+            CheckCompany();
+            CheckDepartment();
+            CheckLocation();
+            CheckAccount();
+        }
+
+        private void cb_location_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        //for cb tagging of department to location
+        public void GetLocationByDepartment()
+        {
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetTaggedLocation", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                cmd.Parameters.AddWithValue("@department", cb_department.Text);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_tag_location.DataSource = dt;
+                connect.con.Close();
+
+                cb_tag_location.ValueMember = "location";
+                cb_tag_location.DisplayMember = "code";
+
+                cb_tag_location.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+                cb_tag_location.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cb_tag_location.AutoCompleteSource = AutoCompleteSource.ListItems;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_tag_location.SelectedIndex = -1;
+            cb_tag_location.Text = "";
+            text_loc.Clear();
+        }
+
+        //for cb tagging of department to location
+        private void cb_tag_location_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_tag_location.SelectedIndex >= 0)
+            {
+                text_loc.Text = cb_tag_location.SelectedValue.ToString();
             }
         }
     }

@@ -33,6 +33,8 @@ namespace Generic_Move_Order.Frm_Receiving
             text_name.Text = view_receiving.supplier_name;
             text_code.Text = view_receiving.supplier_code;
             text_transaction_description.Text = view_receiving.description;
+            text_reference.Text = view_receiving.reference;
+            text_account_title.Text = view_receiving.account_title;
 
             GetReceiveItemById();
         }

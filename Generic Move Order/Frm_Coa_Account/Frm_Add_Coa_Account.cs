@@ -34,10 +34,10 @@ namespace Generic_Move_Order.Frm_Coa_Account
             {
                 connect.DatabaseConnection();
                 connect.con.Open();
-                SqlCommand cmd = new SqlCommand("SP_InsertUOM", connect.con);
+                SqlCommand cmd = new SqlCommand("SP_InsertCoaAccount", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@uom", text_code.Text);
-                cmd.Parameters.AddWithValue("@uom_desc", text_account.Text);
+                cmd.Parameters.AddWithValue("@code", text_code.Text);
+                cmd.Parameters.AddWithValue("@account", text_account.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();

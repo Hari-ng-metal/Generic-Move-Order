@@ -22,6 +22,7 @@ namespace Generic_Move_Order.Frm_Move_Order
 
         private void Frm_Move_Order_Record_Load(object sender, EventArgs e)
         {
+            CustomDatePicker();
             DisableAccess();
             UserAccess();
             cb_status.SelectedIndex = 0;
@@ -30,6 +31,12 @@ namespace Generic_Move_Order.Frm_Move_Order
             btn_view.Enabled = false;
             HeaderName();
             //GetMoveOrderRecordsBySearch();
+        }
+
+        private void CustomDatePicker()
+        {
+            dp_start.CustomFormat = "MM/dd/yyyy";
+            dp_end.CustomFormat = "MM/dd/yyyy";
         }
 
         private void DisableAccess()
@@ -128,6 +135,8 @@ namespace Generic_Move_Order.Frm_Move_Order
                 view_move_order.customer_name = row.Cells["customer_name"].Value.ToString();
                 view_move_order.description = row.Cells["description"].Value.ToString();
                 view_move_order.transaction_date = DateTime.Parse(row.Cells["transaction_date"].Value.ToString());
+                view_move_order.reference = row.Cells["reference"].Value.ToString();
+                view_move_order.account_title = row.Cells["account_title"].Value.ToString();
 
                 btn_view.Enabled = true;
                 btn_print.Enabled = true;
@@ -171,6 +180,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             SqlCommand cmd = new SqlCommand("SP_UpdateMoveOrderStatusToInactive", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@user", User.id);
+            cmd.Parameters.AddWithValue("@cancel_date", DateTime.Now);
             cmd.Parameters.AddWithValue("@id", view_move_order.id);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
@@ -187,16 +198,19 @@ namespace Generic_Move_Order.Frm_Move_Order
 
             //GetSelectedRecords();
 
-            DialogResult res = MessageBox.Show("Are you sure you want to cancel?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (res == DialogResult.Yes)
-            {
-                InactiveMoveORder();
-                GetMoveOrderRecords();
-            }
-            if (res == DialogResult.No)
-            {
-                //Some task…  
-            }
+            //DialogResult res = MessageBox.Show("Are you sure you want to cancel?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            //if (res == DialogResult.Yes)
+            //{
+            //    InactiveMoveORder();
+            //    GetMoveOrderRecords();
+            //}
+            //if (res == DialogResult.No)
+            //{
+            //    //Some task…  
+            //}
+
+            Frm_Cancel_Move_Order frm = new Frm_Cancel_Move_Order(this);
+            frm.ShowDialog();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -220,6 +234,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             dt_move_order.Columns["area"].HeaderText = "Area";
             dt_move_order.Columns["description"].HeaderText = "Description";
             dt_move_order.Columns["transaction_date"].HeaderText = "Transaction Date";
+            dt_move_order.Columns["delivery_date"].HeaderText = "Delivery Date";
+            dt_move_order.Columns["reference"].HeaderText = "Reference";
+            dt_move_order.Columns["account_title"].HeaderText = "Account Title";
+            dt_move_order.Columns["name"].HeaderText = "Encoded By";
 
             dt_move_order.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
             dt_move_order.EnableHeadersVisualStyles = false;

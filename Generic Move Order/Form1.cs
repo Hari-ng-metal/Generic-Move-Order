@@ -73,6 +73,8 @@ namespace Generic_Move_Order
             cOADepartmentToolStripMenuItem.Visible = false;
             cOALocationToolStripMenuItem.Visible = false;
             cOAAccountToolStripMenuItem.Visible = false;
+            warehouseToolStripMenuItem.Visible = false;
+            taggingOfLocationToolStripMenuItem.Visible = false;
 
             //USER
             toolStripMenuItem22.Visible = false;
@@ -303,6 +305,18 @@ namespace Generic_Move_Order
                 if (mod_name == "cOAAccountToolStripMenuItem")
                 {
                     cOAAccountToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                //warehouse
+                if (mod_name == "warehouseToolStripMenuItem")
+                {
+                    warehouseToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                //tagging of location
+                if (mod_name == "taggingOfLocationToolStripMenuItem")
+                {
+                    taggingOfLocationToolStripMenuItem.Visible = true;
                     menuStrip5.Visible = true;
                 }
 
@@ -1422,6 +1436,52 @@ namespace Generic_Move_Order
             if (IsOpen == false)
             {
                 Frm_Department.Frm_Department frm_in = new Frm_Department.Frm_Department() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void warehouseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //warehouse
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Department")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Warehouse.Frm_Warehouse frm_in = new Frm_Warehouse.Frm_Warehouse() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void taggingOfLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //tagging
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Department")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Dept_Location.Frm_Dept_Location frm_in = new Frm_Dept_Location.Frm_Dept_Location() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 this.panel_body.Controls.Add(frm_in);
                 frm_in.Show();
                 frm_in.BringToFront();
