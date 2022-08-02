@@ -48,6 +48,8 @@ namespace Generic_Move_Order.Frm_RM
             this.panel5 = new System.Windows.Forms.Panel();
             this.label_category = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.text_conversion = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -201,6 +203,8 @@ namespace Generic_Move_Order.Frm_RM
             this.tableLayoutPanel1.Controls.Add(this.label_uom, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.cb_category, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cb_uom, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.text_conversion, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -263,6 +267,24 @@ namespace Generic_Move_Order.Frm_RM
             this.panel1.Size = new System.Drawing.Size(695, 40);
             this.panel1.TabIndex = 6;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label3.Location = new System.Drawing.Point(78, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 45);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Conversion:";
+            // 
+            // text_conversion
+            // 
+            this.text_conversion.Location = new System.Drawing.Point(167, 93);
+            this.text_conversion.Name = "text_conversion";
+            this.text_conversion.Size = new System.Drawing.Size(158, 22);
+            this.text_conversion.TabIndex = 16;
+            this.text_conversion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_conversion_KeyPress);
+            // 
             // Frm_Add_RM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,5 +330,7 @@ namespace Generic_Move_Order.Frm_RM
         private System.Windows.Forms.ComboBox cb_category;
         private System.Windows.Forms.ComboBox cb_uom;
         private System.Windows.Forms.Label label_category;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox text_conversion;
     }
 }

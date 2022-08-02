@@ -119,6 +119,10 @@ namespace Generic_Move_Order.Frm_RM
                 uom_id = cb_uom.SelectedValue.ToString();
                 label_uom.Text = uom_id;
             }
+            if(cb_uom.Text == "KG" || cb_uom.Text == "L")
+            {
+                text_conversion.Text = "1";
+            }
         }
 
         private void cb_category_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,6 +161,7 @@ namespace Generic_Move_Order.Frm_RM
                 cmd.Parameters.AddWithValue("@uom", int.Parse(uom_id.ToString()));
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@category", int.Parse(category_id.ToString()));
+                cmd.Parameters.AddWithValue("@conversion", decimal.Parse(text_conversion.Text.ToString()));
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
@@ -187,6 +192,7 @@ namespace Generic_Move_Order.Frm_RM
                 cmd.Parameters.AddWithValue("@uom", int.Parse(uom_id.ToString()));
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@category", int.Parse(category_id.ToString()));
+                cmd.Parameters.AddWithValue("@conversion", decimal.Parse(text_conversion.Text.ToString()));
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
@@ -208,7 +214,7 @@ namespace Generic_Move_Order.Frm_RM
             DialogResult res = MessageBox.Show("Are you sure you want to save?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
-                if (text_code.Text == string.Empty || cb_status.Text == string.Empty || text_desc.Text == string.Empty || cb_category.Text == string.Empty || cb_uom.Text == string.Empty)
+                if (text_code.Text == string.Empty || cb_status.Text == string.Empty || text_desc.Text == string.Empty || cb_category.Text == string.Empty || cb_uom.Text == string.Empty || text_conversion.Text == string.Empty)
                 {
                     MessageBox.Show("Please input the required field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -242,6 +248,7 @@ namespace Generic_Move_Order.Frm_RM
                 uom_id = edit_rm.uom_id.ToString();
                 category_id = edit_rm.category_id.ToString();
                 cb_category.Text = edit_rm.category;
+                text_conversion.Text = edit_rm.conversion.ToString();
                 cb_uom.Text = edit_rm.uom;
                 label_status.Text = edit_rm.status.ToString();
                 if (label_status.Text == true.ToString())
@@ -322,6 +329,21 @@ namespace Generic_Move_Order.Frm_RM
         private void text_code_KeyPress(object sender, KeyPressEventArgs e)
         {
             
+        }
+
+        private void text_conversion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

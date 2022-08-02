@@ -15,5 +15,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         public static string item_description { get; set; }
         public static string uom { get; set; }
         public static decimal quantity { get; set; }
+        public static decimal slab { get; set; }
+        public static string farm_source { get; set; }
+        public static string production_date { get; set; }
     }
 }

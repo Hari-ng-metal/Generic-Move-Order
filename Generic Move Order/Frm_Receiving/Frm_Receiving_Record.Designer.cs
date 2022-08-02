@@ -29,7 +29,7 @@ namespace Generic_Move_Order.Frm_Receiving
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_exit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +48,10 @@ namespace Generic_Move_Order.Frm_Receiving
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_view = new System.Windows.Forms.Button();
             this.dt_receiving = new System.Windows.Forms.DataGridView();
+            this.dp_start = new System.Windows.Forms.DateTimePicker();
+            this.dp_end = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
@@ -114,6 +118,10 @@ namespace Generic_Move_Order.Frm_Receiving
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cb_status, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dp_start, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dp_end, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -270,14 +278,14 @@ namespace Generic_Move_Order.Frm_Receiving
             this.dt_receiving.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dt_receiving.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dt_receiving.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dt_receiving.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dt_receiving.DefaultCellStyle = dataGridViewCellStyle3;
             this.dt_receiving.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dt_receiving.Location = new System.Drawing.Point(0, 116);
             this.dt_receiving.Name = "dt_receiving";
@@ -288,6 +296,44 @@ namespace Generic_Move_Order.Frm_Receiving
             this.dt_receiving.TabIndex = 30;
             this.dt_receiving.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_receiving_CellClick);
             this.dt_receiving.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_receiving_DataBindingComplete);
+            // 
+            // dp_start
+            // 
+            this.dp_start.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dp_start.Location = new System.Drawing.Point(580, 28);
+            this.dp_start.Name = "dp_start";
+            this.dp_start.Size = new System.Drawing.Size(121, 22);
+            this.dp_start.TabIndex = 9;
+            this.dp_start.ValueChanged += new System.EventHandler(this.dp_start_ValueChanged);
+            // 
+            // dp_end
+            // 
+            this.dp_end.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dp_end.Location = new System.Drawing.Point(580, 53);
+            this.dp_end.Name = "dp_end";
+            this.dp_end.Size = new System.Drawing.Size(121, 22);
+            this.dp_end.TabIndex = 10;
+            this.dp_end.ValueChanged += new System.EventHandler(this.dp_end_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label5.Location = new System.Drawing.Point(516, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 25);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "START:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label6.Location = new System.Drawing.Point(533, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 26);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "END:";
             // 
             // Frm_Receiving_Record
             // 
@@ -338,5 +384,9 @@ namespace Generic_Move_Order.Frm_Receiving
         private System.Windows.Forms.Button btn_print;
         private System.Windows.Forms.Button btn_view;
         private System.Windows.Forms.DataGridView dt_receiving;
+        private System.Windows.Forms.DateTimePicker dp_start;
+        private System.Windows.Forms.DateTimePicker dp_end;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

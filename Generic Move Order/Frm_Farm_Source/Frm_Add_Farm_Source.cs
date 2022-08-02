@@ -9,34 +9,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Generic_Move_Order.Frm_Business_Category
+namespace Generic_Move_Order.Frm_Farm_Source
 {
-    public partial class Frm_Add_Business_Category : Form
+    public partial class Frm_Add_Farm_Source : Form
     {
         Connection connect = new Connection();
         bool status;
 
-        Frm_Business_Category frm;
-        public Frm_Add_Business_Category(Frm_Business_Category _frm)
+        Frm_Farm_Source frm;
+        public Frm_Add_Farm_Source(Frm_Farm_Source _frm)
         {
             InitializeComponent();
             this.frm = _frm;
         }
 
-        private void Frm_Add_Business_Category_Load(object sender, EventArgs e)
+        private void Frm_Add_Farm_Source_Load(object sender, EventArgs e)
         {
             AddOrEdit();
         }
 
-        private void InsertArea()
+        private void InsertFarmSource()
         {
             try
             {
                 connect.DatabaseConnection();
                 connect.con.Open();
-                SqlCommand cmd = new SqlCommand("SP_InsertBCategory", connect.con);
+                SqlCommand cmd = new SqlCommand("SP_InsertFarmSource", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@b_category", text_bcategory.Text);
+                cmd.Parameters.AddWithValue("@code", text_code.Text);
+                cmd.Parameters.AddWithValue("@farm_source", text_farm_source.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
@@ -54,16 +55,17 @@ namespace Generic_Move_Order.Frm_Business_Category
             }
         }
 
-        private void UpdateBCategory()
+        private void UpdateFarmSource()
         {
             try
             {
                 connect.DatabaseConnection();
                 connect.con.Open();
-                SqlCommand cmd = new SqlCommand("SP_UpdateBCategory", connect.con);
+                SqlCommand cmd = new SqlCommand("SP_UpdateFarmSource", connect.con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", edit_business_category.id);
-                cmd.Parameters.AddWithValue("@b_category", text_bcategory.Text);
+                cmd.Parameters.AddWithValue("@id", edit_farmsource.id);
+                cmd.Parameters.AddWithValue("@code", text_code.Text);
+                cmd.Parameters.AddWithValue("@farm_source", text_farm_source.Text);
                 cmd.Parameters.AddWithValue("@status", label_status.Text);
                 cmd.Parameters.AddWithValue("@logged_user", User.id);
                 DataTable dt = new DataTable();
@@ -83,10 +85,11 @@ namespace Generic_Move_Order.Frm_Business_Category
 
         private void AddOrEdit()
         {
-            if (edit_business_category.id > 0)
+            if (edit_farmsource.id > 0)
             {
-                text_bcategory.Text = edit_business_category.business_category;
-                label_status.Text = edit_business_category.status.ToString();
+                text_code.Text = edit_farmsource.code;
+                text_farm_source.Text = edit_farmsource.farm_source;
+                label_status.Text = edit_farmsource.status.ToString();
                 if (label_status.Text == true.ToString())
                 {
                     cb_status.SelectedIndex = 0;
@@ -97,7 +100,7 @@ namespace Generic_Move_Order.Frm_Business_Category
                 }
 
                 btn_save.Text = "UPDATE";
-                text_bcategory.Enabled = false;
+                text_code.Enabled = false;
             }
             else
             {
@@ -111,15 +114,15 @@ namespace Generic_Move_Order.Frm_Business_Category
             DialogResult res = MessageBox.Show("Are you sure you want to save?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
-                if (text_bcategory.Text == string.Empty || cb_status.Text == string.Empty)
+                if (text_code.Text == string.Empty || text_farm_source.Text == string.Empty || cb_status.Text == string.Empty)
                 {
                     MessageBox.Show("Please input the required field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 //Some task…
-                if (edit_business_category.id > 0)
+                if (edit_farmsource.id > 0)
                 {
-                    UpdateBCategory();
+                    UpdateFarmSource();
                     this.Close();
                 }
                 else
@@ -131,8 +134,8 @@ namespace Generic_Move_Order.Frm_Business_Category
             {
                 //Some task…  
             }
-            frm.GetBCategory();
-            frm.dt_area.ClearSelection();
+            frm.GetFarmSource();
+            frm.dt_farm.ClearSelection();
         }
 
         private void cb_status_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,8 +168,8 @@ namespace Generic_Move_Order.Frm_Business_Category
             connect.con.Open();
             SqlCommand cmd = new SqlCommand("SP_ValidateIfExistByMode", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@bcategory", text_bcategory.Text);
-            cmd.Parameters.AddWithValue("@mode", "bcategory");
+            cmd.Parameters.AddWithValue("@code", text_code.Text);
+            cmd.Parameters.AddWithValue("@mode", "farm_source");
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             //dt_report.DataSource = dt;
@@ -185,7 +188,7 @@ namespace Generic_Move_Order.Frm_Business_Category
             }
             else
             {
-                InsertArea();
+                InsertFarmSource();
                 this.Close();
             }
         }

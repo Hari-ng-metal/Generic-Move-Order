@@ -1,7 +1,7 @@
 ﻿
 namespace Generic_Move_Order.Frm_Report
 {
-    partial class Frm_Transact_Move_Order_History
+    partial class Frm_Cancelled_MOS
     {
         /// <summary>
         /// Required designer variable.
@@ -68,7 +68,7 @@ namespace Generic_Move_Order.Frm_Report
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 40);
-            this.panel1.TabIndex = 22;
+            this.panel1.TabIndex = 23;
             // 
             // label1
             // 
@@ -77,9 +77,9 @@ namespace Generic_Move_Order.Frm_Report
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 17);
+            this.label1.Size = new System.Drawing.Size(187, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "TRANSACT MOVE ORDER HISTORY REPORT";
+            this.label1.Text = "CANCELLED MOVE ORDER";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -89,7 +89,7 @@ namespace Generic_Move_Order.Frm_Report
             this.panel2.Location = new System.Drawing.Point(0, 40);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(788, 76);
-            this.panel2.TabIndex = 25;
+            this.panel2.TabIndex = 26;
             // 
             // tableLayoutPanel1
             // 
@@ -188,7 +188,7 @@ namespace Generic_Move_Order.Frm_Report
             this.panel3.Location = new System.Drawing.Point(0, 474);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(788, 100);
-            this.panel3.TabIndex = 26;
+            this.panel3.TabIndex = 27;
             // 
             // tableLayoutPanel2
             // 
@@ -256,7 +256,7 @@ namespace Generic_Move_Order.Frm_Report
             // dt_report
             // 
             this.dt_report.AllowUserToAddRows = false;
-            this.dt_report.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dt_report.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dt_report.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dt_report.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -274,8 +274,7 @@ namespace Generic_Move_Order.Frm_Report
             this.dt_report.RowTemplate.Height = 24;
             this.dt_report.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt_report.Size = new System.Drawing.Size(788, 358);
-            this.dt_report.TabIndex = 27;
-            this.dt_report.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dt_report_DataBindingComplete);
+            this.dt_report.TabIndex = 28;
             this.dt_report.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dt_report_RowStateChanged);
             // 
             // pb_exit
@@ -290,7 +289,7 @@ namespace Generic_Move_Order.Frm_Report
             this.pb_exit.TabStop = false;
             this.pb_exit.Click += new System.EventHandler(this.pb_exit_Click);
             // 
-            // Frm_Transact_Move_Order_History
+            // Frm_Cancelled_MOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,9 +300,9 @@ namespace Generic_Move_Order.Frm_Report
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Frm_Transact_Move_Order_History";
-            this.Text = "Frm_Transact_Move_Order_History";
-            this.Load += new System.EventHandler(this.Frm_Transact_Move_Order_History_Load);
+            this.Name = "Frm_Cancelled_MOS";
+            this.Text = "Frm_Cancelled_MOS";
+            this.Load += new System.EventHandler(this.Frm_Cancelled_MOS_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -29,8 +29,8 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_exit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,9 +44,11 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.text_date = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.text_reference = new System.Windows.Forms.TextBox();
+            this.cb_warehouse = new System.Windows.Forms.ComboBox();
+            this.text_warehouse_name = new System.Windows.Forms.TextBox();
+            this.text_date = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.text_account = new System.Windows.Forms.TextBox();
@@ -68,9 +70,10 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.farm_source = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.production_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cb_warehouse = new System.Windows.Forms.ComboBox();
-            this.text_warehouse_name = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
             this.panel2.SuspendLayout();
@@ -235,15 +238,6 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.label8.TabIndex = 42;
             this.label8.Text = "Warehouse:";
             // 
-            // text_date
-            // 
-            this.text_date.Enabled = false;
-            this.text_date.Location = new System.Drawing.Point(521, 9);
-            this.text_date.Name = "text_date";
-            this.text_date.Size = new System.Drawing.Size(243, 22);
-            this.text_date.TabIndex = 43;
-            this.text_date.Visible = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -262,6 +256,32 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.text_reference.Size = new System.Drawing.Size(243, 22);
             this.text_reference.TabIndex = 3;
             // 
+            // cb_warehouse
+            // 
+            this.cb_warehouse.FormattingEnabled = true;
+            this.cb_warehouse.Location = new System.Drawing.Point(176, 3);
+            this.cb_warehouse.Name = "cb_warehouse";
+            this.cb_warehouse.Size = new System.Drawing.Size(236, 24);
+            this.cb_warehouse.TabIndex = 0;
+            this.cb_warehouse.SelectedIndexChanged += new System.EventHandler(this.cb_warehouse_SelectedIndexChanged);
+            // 
+            // text_warehouse_name
+            // 
+            this.text_warehouse_name.Enabled = false;
+            this.text_warehouse_name.Location = new System.Drawing.Point(536, 3);
+            this.text_warehouse_name.Name = "text_warehouse_name";
+            this.text_warehouse_name.Size = new System.Drawing.Size(243, 22);
+            this.text_warehouse_name.TabIndex = 46;
+            // 
+            // text_date
+            // 
+            this.text_date.Enabled = false;
+            this.text_date.Location = new System.Drawing.Point(521, 9);
+            this.text_date.Name = "text_date";
+            this.text_date.Size = new System.Drawing.Size(243, 22);
+            this.text_date.TabIndex = 43;
+            this.text_date.Visible = false;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel2);
@@ -276,7 +296,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 378F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
             this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
@@ -294,7 +314,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
             this.text_account.Location = new System.Drawing.Point(110, 3);
             this.text_account.Name = "text_account";
-            this.text_account.Size = new System.Drawing.Size(296, 22);
+            this.text_account.Size = new System.Drawing.Size(294, 22);
             this.text_account.TabIndex = 4;
             this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
             this.text_account.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_account_KeyDown);
@@ -303,7 +323,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(412, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(410, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -454,15 +474,18 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.item_description,
             this.uom,
             this.quantity,
+            this.slab,
+            this.farm_source,
+            this.production_date,
             this.remove});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dt_receipt.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dt_receipt.DefaultCellStyle = dataGridViewCellStyle2;
             this.dt_receipt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dt_receipt.Location = new System.Drawing.Point(0, 193);
             this.dt_receipt.Name = "dt_receipt";
@@ -509,35 +532,36 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
             // 
+            // slab
+            // 
+            this.slab.HeaderText = "Slab";
+            this.slab.MinimumWidth = 6;
+            this.slab.Name = "slab";
+            // 
+            // farm_source
+            // 
+            this.farm_source.HeaderText = "Farm Source";
+            this.farm_source.MinimumWidth = 6;
+            this.farm_source.Name = "farm_source";
+            // 
+            // production_date
+            // 
+            this.production_date.HeaderText = "Production Date";
+            this.production_date.MinimumWidth = 6;
+            this.production_date.Name = "production_date";
+            // 
             // remove
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.remove.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.remove.FillWeight = 53.47594F;
             this.remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.remove.HeaderText = "remove";
             this.remove.MinimumWidth = 6;
             this.remove.Name = "remove";
             this.remove.Text = "(-)";
-            // 
-            // cb_warehouse
-            // 
-            this.cb_warehouse.FormattingEnabled = true;
-            this.cb_warehouse.Location = new System.Drawing.Point(176, 3);
-            this.cb_warehouse.Name = "cb_warehouse";
-            this.cb_warehouse.Size = new System.Drawing.Size(236, 24);
-            this.cb_warehouse.TabIndex = 0;
-            this.cb_warehouse.SelectedIndexChanged += new System.EventHandler(this.cb_warehouse_SelectedIndexChanged);
-            // 
-            // text_warehouse_name
-            // 
-            this.text_warehouse_name.Enabled = false;
-            this.text_warehouse_name.Location = new System.Drawing.Point(536, 3);
-            this.text_warehouse_name.Name = "text_warehouse_name";
-            this.text_warehouse_name.Size = new System.Drawing.Size(243, 22);
-            this.text_warehouse_name.TabIndex = 46;
             // 
             // Frm_Receipt
             // 
@@ -605,17 +629,20 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_new;
         public System.Windows.Forms.DataGridView dt_receipt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewButtonColumn remove;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox text_account;
         private System.Windows.Forms.TextBox text_reference;
         private System.Windows.Forms.ComboBox cb_warehouse;
         private System.Windows.Forms.TextBox text_warehouse_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn farm_source;
+        private System.Windows.Forms.DataGridViewTextBoxColumn production_date;
+        private System.Windows.Forms.DataGridViewButtonColumn remove;
     }
 }

@@ -27,6 +27,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             cb_code.Select();
             cb_code.Focus();
             GetMasterlist();
+            GetFarmSource();
             text_desc.Clear();
             text_uom.Clear();
 
@@ -39,7 +40,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             try
             {
-                frm.dt_move.Rows.Add(label_id.Text, cb_code.Text, text_desc.Text, text_uom.Text, text_qty.Text, text_slab.Text);
+                frm.dt_move.Rows.Add(label_id.Text, cb_code.Text, text_desc.Text, text_uom.Text, text_qty.Text, text_slab.Text, cb_farm.Text, text_production_date.Text);
             }
             catch (Exception ex)
             {
@@ -98,6 +99,35 @@ namespace Generic_Move_Order.Frm_Move_Order
                 throw;
             }
             cb_code.SelectedIndex = -1;
+        }
+
+        public void GetFarmSource()
+        {
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetFarmSource", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_farm.DataSource = dt;
+                connect.con.Close();
+
+                cb_farm.ValueMember = "farm_source";
+                cb_farm.DisplayMember = "code";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_farm.SelectedIndex = -1;
+            cb_farm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_farm.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_farm.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void GetUOMbyItemCode()
@@ -284,7 +314,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 GetMaserlistByCode();
-                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text))
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text) || string.IsNullOrEmpty(text_production_date.Text) || string.IsNullOrEmpty(cb_farm.Text))
                 {
                     //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cb_code.Focus();
@@ -303,6 +333,45 @@ namespace Generic_Move_Order.Frm_Move_Order
                 }
                 frm.dt_move.ClearSelection();
             }
+        }
+
+        private void text_production_date_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        private void cb_farm_KeyDown(object sender, KeyEventArgs e)
+        {
+            //enter key
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                GetMaserlistByCode();
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text) || string.IsNullOrEmpty(text_production_date.Text) || string.IsNullOrEmpty(cb_farm.Text))
+                {
+                    //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_code.Focus();
+                }
+                else
+                {
+                    GetMaserlistByCode();
+                    if (int.Parse(label_id.Text.ToString()) > 0)
+                    {
+                        AddItem();
+                    }
+                    else
+                    {
+                        cb_code.Focus();
+                    }
+                }
+                frm.dt_move.ClearSelection();
+            }
+        }
+
+        private void cb_farm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
         }
     }
 }

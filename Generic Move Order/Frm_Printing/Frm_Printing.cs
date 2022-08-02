@@ -144,6 +144,66 @@ namespace Generic_Move_Order.Frm_Printing
             }
         }
 
+        private void LoadingChecklistReport()
+        {
+            var dialog = new PrintDialog();
+
+            //rpt.Load(path + "\\Receipt.rpt");
+            APPPATH = Environment.CurrentDirectory + "\\LoadingChecklist.rpt";
+            rpt.Load(APPPATH);
+            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+            //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22", @"10.10.2.6,1433", "MoveOrder");
+            rpt.Refresh();
+            string date_start = printing.date_start;
+            string date_end = printing.date_end;
+            rpt.SetParameterValue("@date_start", date_start);
+            rpt.SetParameterValue("@date_end", date_end);
+
+            crv_report.ReportSource = rpt;
+            crv_report.Refresh();
+            rpt.PrintOptions.PrinterName = dialog.PrinterSettings.PrinterName;
+
+            DialogResult res = MessageBox.Show("Do you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                rpt.PrintToPrinter(copy, false, 0, 0);
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
+        }
+
+        private void LoadingChecklistReportPerRoute()
+        {
+            var dialog = new PrintDialog();
+
+            //rpt.Load(path + "\\Receipt.rpt");
+            APPPATH = Environment.CurrentDirectory + "\\LoadingChecklistPerRoute.rpt";
+            rpt.Load(APPPATH);
+            rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22");
+            //rpt.SetDatabaseLogon("sa", "ULtR@MaVD3p0t2o22", @"10.10.2.6,1433", "MoveOrder");
+            rpt.Refresh();
+            string date_start = printing.date_start;
+            string route = printing.route;
+            rpt.SetParameterValue("@date_start", date_start);
+            rpt.SetParameterValue("@route", route);
+
+            crv_report.ReportSource = rpt;
+            crv_report.Refresh();
+            rpt.PrintOptions.PrinterName = dialog.PrinterSettings.PrinterName;
+
+            DialogResult res = MessageBox.Show("Do you want to print?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                rpt.PrintToPrinter(copy, false, 0, 0);
+            }
+            if (res == DialogResult.No)
+            {
+                //Some task…  
+            }
+        }
+
         private void CheckPrint()
         {
             if(printing.report_name == "MoveOrder")
@@ -162,6 +222,16 @@ namespace Generic_Move_Order.Frm_Printing
             if (printing.report_name == "Receipt")
             {
                 ReceiptReport();
+            }
+
+            if (printing.report_name == "LoadingChecklist")
+            {
+                LoadingChecklistReport();
+            }
+
+            if (printing.report_name == "LoadingChecklistPerRoute")
+            {
+                LoadingChecklistReportPerRoute();
             }
         }
 

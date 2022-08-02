@@ -193,6 +193,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
         {
             int p_id = 0;
             double pqty = 0;
+            float pslab = 0;
+            string prod_date;
+            string farm_source;
 
             foreach (DataGridViewRow row in dt_receipt.Rows)
             {
@@ -205,6 +208,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
                 {
                     p_id = int.Parse(row.Cells["id"].Value.ToString());
                     pqty = float.Parse(row.Cells["quantity"].Value.ToString());
+                    pslab = float.Parse(row.Cells["slab"].Value.ToString());
+                    prod_date = (row.Cells["production_date"].Value.ToString());
+                    farm_source = (row.Cells["farm_source"].Value.ToString());
                     //MessageBox.Show("" + p_id);
                 }
 
@@ -216,6 +222,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
                     cmd.Parameters.AddWithValue("@receipt_id", receive_id);
                     cmd.Parameters.AddWithValue("@item_id", int.Parse(p_id.ToString()));
                     cmd.Parameters.AddWithValue("@quantity", pqty);
+                    cmd.Parameters.AddWithValue("@slab", pslab);
+                    cmd.Parameters.AddWithValue("@prod_date", prod_date);
+                    cmd.Parameters.AddWithValue("@farm_source", farm_source);
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
                     //dt_report.DataSource = dt;
@@ -313,6 +322,10 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
                 edit_receipt_item.item_description = dt_receipt.SelectedRows[0].Cells[2].Value.ToString();
                 edit_receipt_item.uom = dt_receipt.SelectedRows[0].Cells[3].Value.ToString();
                 edit_receipt_item.quantity = Convert.ToDecimal(dt_receipt.SelectedRows[0].Cells[4].Value);
+
+                edit_receipt_item.slab = Convert.ToDecimal(dt_receipt.SelectedRows[0].Cells[5].Value);
+                edit_receipt_item.farm_source = (dt_receipt.SelectedRows[0].Cells[6].Value).ToString();
+                edit_receipt_item.production_date = (dt_receipt.SelectedRows[0].Cells[7].Value).ToString();
 
                 btn_edit.Enabled = true;
                 //MessageBox.Show("" + e.RowIndex);

@@ -10,5 +10,10 @@ namespace Generic_Move_Order.Frm_Printing
     {
         public static string report_name { get; set; }
         public static int last_id { get; set; }
+
+        public static string date_start { get; set; }
+        public static string date_end { get; set; }
+
+        public static string route { get; set; }
     }
 }

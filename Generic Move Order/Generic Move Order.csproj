@@ -247,6 +247,19 @@
     <Compile Include="Frm_Dept_Location\Frm_Dept_Location.Designer.cs">
       <DependentUpon>Frm_Dept_Location.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Farm_Source\edit_farmsource.cs" />
+    <Compile Include="Frm_Farm_Source\Frm_Add_Farm_Source.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Farm_Source\Frm_Add_Farm_Source.Designer.cs">
+      <DependentUpon>Frm_Add_Farm_Source.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Farm_Source\Frm_Farm_Source.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Farm_Source\Frm_Farm_Source.Designer.cs">
+      <DependentUpon>Frm_Farm_Source.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Inventory\Frm_MRP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -479,17 +492,47 @@
     </Compile>
     <Compile Include="Frm_Receiving\receiving_account_title.cs" />
     <Compile Include="Frm_Receiving\view_receiving.cs" />
+    <Compile Include="Frm_Report\Frm_Cancelled_MOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Cancelled_MOS.Designer.cs">
+      <DependentUpon>Frm_Cancelled_MOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Delivery_Variance_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Delivery_Variance_Report.Designer.cs">
+      <DependentUpon>Frm_Delivery_Variance_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Report\Frm_Issue_History.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_Report\Frm_Issue_History.Designer.cs">
       <DependentUpon>Frm_Issue_History.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Report\Frm_Loading_Checklist_Per_Route.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Loading_Checklist_Per_Route.Designer.cs">
+      <DependentUpon>Frm_Loading_Checklist_Per_Route.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Loading_Checklist_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Loading_Checklist_Report.Designer.cs">
+      <DependentUpon>Frm_Loading_Checklist_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Report\Frm_Move_Order_History.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_Report\Frm_Move_Order_History.Designer.cs">
       <DependentUpon>Frm_Move_Order_History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Move_Order_Record_History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Report\Frm_Move_Order_Record_History.Designer.cs">
+      <DependentUpon>Frm_Move_Order_Record_History.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Report\Frm_Receipt_History.cs">
       <SubType>Form</SubType>
@@ -656,6 +699,12 @@
     <EmbeddedResource Include="Frm_Dept_Location\Frm_Dept_Location.resx">
       <DependentUpon>Frm_Dept_Location.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Farm_Source\Frm_Add_Farm_Source.resx">
+      <DependentUpon>Frm_Add_Farm_Source.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Farm_Source\Frm_Farm_Source.resx">
+      <DependentUpon>Frm_Farm_Source.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Inventory\Frm_MRP.resx">
       <DependentUpon>Frm_MRP.cs</DependentUpon>
     </EmbeddedResource>
@@ -764,11 +813,26 @@
     <EmbeddedResource Include="Frm_Receiving\Frm_View_Receiving.resx">
       <DependentUpon>Frm_View_Receiving.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Report\Frm_Cancelled_MOS.resx">
+      <DependentUpon>Frm_Cancelled_MOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Report\Frm_Delivery_Variance_Report.resx">
+      <DependentUpon>Frm_Delivery_Variance_Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Report\Frm_Issue_History.resx">
       <DependentUpon>Frm_Issue_History.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Report\Frm_Loading_Checklist_Per_Route.resx">
+      <DependentUpon>Frm_Loading_Checklist_Per_Route.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Report\Frm_Loading_Checklist_Report.resx">
+      <DependentUpon>Frm_Loading_Checklist_Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_Report\Frm_Move_Order_History.resx">
       <DependentUpon>Frm_Move_Order_History.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Report\Frm_Move_Order_Record_History.resx">
+      <DependentUpon>Frm_Move_Order_Record_History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Report\Frm_Receipt_History.resx">
       <DependentUpon>Frm_Receipt_History.cs</DependentUpon>

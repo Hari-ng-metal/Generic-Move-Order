@@ -24,6 +24,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void Frm_Edit_Move_Order_Load(object sender, EventArgs e)
         {
             GetMasterlist();
+            GetFarmSource();
             EditItem();
 
             cb_code.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -39,6 +40,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             text_uom.Text = edit_move_item.uom.ToString();
             text_qty.Text = edit_move_item.quantity.ToString();
             text_slab.Text = edit_move_item.slab.ToString();
+            text_production_date.Text = edit_move_item.production_date.ToString();
+            cb_farm.Text = edit_move_item.farm_source.ToString();
             label_index.Text = edit_move_item.index.ToString();
         }
 
@@ -65,6 +68,35 @@ namespace Generic_Move_Order.Frm_Move_Order
                 throw;
             }
             cb_code.SelectedIndex = -1;
+        }
+
+        public void GetFarmSource()
+        {
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetFarmSource", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_farm.DataSource = dt;
+                connect.con.Close();
+
+                cb_farm.ValueMember = "farm_source";
+                cb_farm.DisplayMember = "code";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_farm.SelectedIndex = -1;
+            cb_farm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_farm.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_farm.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void GetMaserlistByCode()
@@ -175,6 +207,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             frm.dt_move.Rows[edit_move_item.index].Cells[3].Value = text_uom.Text;
             frm.dt_move.Rows[edit_move_item.index].Cells[4].Value = text_qty.Text;
             frm.dt_move.Rows[edit_move_item.index].Cells[5].Value = text_slab.Text;
+            frm.dt_move.Rows[edit_move_item.index].Cells[6].Value = cb_farm.Text;
+            frm.dt_move.Rows[edit_move_item.index].Cells[7].Value = text_production_date.Text;
 
             this.Close();
         }
@@ -236,7 +270,39 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 GetMaserlistByCode();
-                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text))
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text) || string.IsNullOrEmpty(text_production_date.Text) || string.IsNullOrEmpty(cb_farm.Text))
+                {
+                    //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_code.Focus();
+                }
+                else
+                {
+                    GetMaserlistByCode();
+                    if (int.Parse(label_id.Text.ToString()) > 0)
+                    {
+                        UpdateItem();
+                        frm.dt_move.ClearSelection();
+                    }
+                    else
+                    {
+                        cb_code.Focus();
+                    }
+                }
+            }
+        }
+
+        private void cb_farm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        private void cb_farm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                GetMaserlistByCode();
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text) || string.IsNullOrEmpty(text_production_date.Text) || string.IsNullOrEmpty(cb_farm.Text))
                 {
                     //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cb_code.Focus();

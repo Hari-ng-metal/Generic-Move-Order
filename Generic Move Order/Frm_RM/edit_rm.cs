@@ -15,6 +15,7 @@ namespace Generic_Move_Order.Frm_RM
         public static string uom { get; set; }
         public static int category_id { get; set; }
         public static string category { get; set; }
+        public static decimal conversion { get; set; }
         public static bool status { get; set; }
 
     }

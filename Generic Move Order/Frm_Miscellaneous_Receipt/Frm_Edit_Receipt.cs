@@ -24,6 +24,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
         private void Frm_Edit_Receipt_Load(object sender, EventArgs e)
         {
             GetMasterlist();
+            GetFarmSource();
             EditItem();
 
             cb_code.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -38,6 +39,10 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             text_desc.Text = edit_receipt_item.item_description;
             text_qty.Text = edit_receipt_item.quantity.ToString();
             label_index.Text = edit_receipt_item.index.ToString();
+
+            text_slab.Text = edit_receipt_item.slab.ToString();
+            cb_farm.Text = edit_receipt_item.farm_source.ToString();
+            text_production_date.Text = edit_receipt_item.production_date.ToString();
         }
 
         public void GetMasterlist()
@@ -63,6 +68,35 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
                 throw;
             }
             cb_code.SelectedIndex = -1;
+        }
+
+        public void GetFarmSource()
+        {
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetFarmSource", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_farm.DataSource = dt;
+                connect.con.Close();
+
+                cb_farm.ValueMember = "farm_source";
+                cb_farm.DisplayMember = "code";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_farm.SelectedIndex = -1;
+            cb_farm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_farm.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_farm.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public void GetMaserlistByCode()
@@ -173,13 +207,17 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             frm.dt_receipt.Rows[edit_receipt_item.index].Cells[3].Value = text_uom.Text;
             frm.dt_receipt.Rows[edit_receipt_item.index].Cells[4].Value = text_qty.Text;
 
+            frm.dt_receipt.Rows[edit_receipt_item.index].Cells[5].Value = text_slab.Text;
+            frm.dt_receipt.Rows[edit_receipt_item.index].Cells[6].Value = cb_farm.Text;
+            frm.dt_receipt.Rows[edit_receipt_item.index].Cells[7].Value = text_production_date.Text;
+
             this.Close();
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
             GetMaserlistByCode();
-            if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text))
+            if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text) || string.IsNullOrEmpty(text_production_date.Text) || string.IsNullOrEmpty(cb_farm.Text))
             {
                 //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cb_code.Focus();
@@ -210,6 +248,43 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Receipt
             {
                 text_desc.Text = cb_code.SelectedValue.ToString();
                 GetUOMbyItemCode();
+            }
+        }
+
+        private void cb_farm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void text_production_date_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+                e.KeyChar -= (char)32;
+        }
+
+        private void cb_farm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                GetMaserlistByCode();
+                if (string.IsNullOrEmpty(cb_code.Text) || string.IsNullOrEmpty(text_desc.Text) || string.IsNullOrEmpty(text_qty.Text) || string.IsNullOrEmpty(text_slab.Text) || string.IsNullOrEmpty(text_production_date.Text) || string.IsNullOrEmpty(cb_farm.Text))
+                {
+                    //MessageBox.Show("Please input the required field!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_code.Focus();
+                }
+                else
+                {
+                    GetMaserlistByCode();
+                    if (int.Parse(label_id.Text.ToString()) > 0)
+                    {
+                        UpdateItem();
+                        frm.dt_receipt.ClearSelection();
+                    }
+                    else
+                    {
+                        cb_code.Focus();
+                    }
+                }
             }
         }
     }

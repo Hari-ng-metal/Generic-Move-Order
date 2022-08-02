@@ -48,6 +48,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.text_uom = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.text_slab = new System.Windows.Forms.TextBox();
+            this.cb_farm = new System.Windows.Forms.ComboBox();
+            this.text_production_date = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,10 +96,6 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btn_save, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label_id, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label_uom, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.cb_code, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_desc, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.text_qty, 1, 1);
@@ -103,15 +103,23 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.tableLayoutPanel1.Controls.Add(this.text_uom, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.text_slab, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_cancel, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btn_save, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label_uom, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label_id, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cb_farm, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.text_production_date, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(695, 182);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
@@ -119,9 +127,9 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(96, 45);
+            this.label2.Location = new System.Drawing.Point(96, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 45);
+            this.label2.Size = new System.Drawing.Size(65, 34);
             this.label2.TabIndex = 16;
             this.label2.Text = "Quantity:";
             // 
@@ -131,7 +139,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Location = new System.Drawing.Point(86, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 45);
+            this.label1.Size = new System.Drawing.Size(75, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Item Code:";
             // 
@@ -141,18 +149,19 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Location = new System.Drawing.Point(376, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 45);
+            this.label4.Size = new System.Drawing.Size(113, 34);
             this.label4.TabIndex = 3;
             this.label4.Text = "Item Description:";
             // 
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btn_cancel.Dock = System.Windows.Forms.DockStyle.Left;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_cancel.Location = new System.Drawing.Point(495, 138);
+            this.btn_cancel.Location = new System.Drawing.Point(495, 139);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(105, 41);
+            this.btn_cancel.Size = new System.Drawing.Size(105, 40);
             this.btn_cancel.TabIndex = 5;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.UseVisualStyleBackColor = false;
@@ -164,9 +173,9 @@ namespace Generic_Move_Order.Frm_Move_Order
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save.Location = new System.Drawing.Point(384, 138);
+            this.btn_save.Location = new System.Drawing.Point(384, 139);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(105, 41);
+            this.btn_save.Size = new System.Drawing.Size(105, 40);
             this.btn_save.TabIndex = 4;
             this.btn_save.Text = "UPDATE";
             this.btn_save.UseVisualStyleBackColor = false;
@@ -175,7 +184,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // label_id
             // 
             this.label_id.AutoSize = true;
-            this.label_id.Location = new System.Drawing.Point(3, 135);
+            this.label_id.Location = new System.Drawing.Point(3, 136);
             this.label_id.Name = "label_id";
             this.label_id.Size = new System.Drawing.Size(16, 17);
             this.label_id.TabIndex = 13;
@@ -185,7 +194,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // label_uom
             // 
             this.label_uom.AutoSize = true;
-            this.label_uom.Location = new System.Drawing.Point(167, 135);
+            this.label_uom.Location = new System.Drawing.Point(167, 136);
             this.label_uom.Name = "label_uom";
             this.label_uom.Size = new System.Drawing.Size(46, 17);
             this.label_uom.TabIndex = 14;
@@ -213,7 +222,7 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             // text_qty
             // 
-            this.text_qty.Location = new System.Drawing.Point(167, 48);
+            this.text_qty.Location = new System.Drawing.Point(167, 37);
             this.text_qty.Name = "text_qty";
             this.text_qty.Size = new System.Drawing.Size(158, 22);
             this.text_qty.TabIndex = 2;
@@ -223,16 +232,16 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(445, 45);
+            this.label3.Location = new System.Drawing.Point(445, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 45);
+            this.label3.Size = new System.Drawing.Size(44, 34);
             this.label3.TabIndex = 20;
             this.label3.Text = "UOM:";
             // 
             // text_uom
             // 
             this.text_uom.Enabled = false;
-            this.text_uom.Location = new System.Drawing.Point(495, 48);
+            this.text_uom.Location = new System.Drawing.Point(495, 37);
             this.text_uom.Name = "text_uom";
             this.text_uom.Size = new System.Drawing.Size(158, 22);
             this.text_uom.TabIndex = 21;
@@ -241,20 +250,57 @@ namespace Generic_Move_Order.Frm_Move_Order
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(92, 90);
+            this.label5.Location = new System.Drawing.Point(92, 68);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 45);
+            this.label5.Size = new System.Drawing.Size(69, 34);
             this.label5.TabIndex = 22;
             this.label5.Text = "Slab/Bag:";
             // 
             // text_slab
             // 
-            this.text_slab.Location = new System.Drawing.Point(167, 93);
+            this.text_slab.Location = new System.Drawing.Point(167, 71);
             this.text_slab.Name = "text_slab";
             this.text_slab.Size = new System.Drawing.Size(158, 22);
             this.text_slab.TabIndex = 3;
             this.text_slab.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_slab_KeyDown);
             this.text_slab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_slab_KeyPress);
+            // 
+            // cb_farm
+            // 
+            this.cb_farm.FormattingEnabled = true;
+            this.cb_farm.Location = new System.Drawing.Point(167, 105);
+            this.cb_farm.Name = "cb_farm";
+            this.cb_farm.Size = new System.Drawing.Size(158, 24);
+            this.cb_farm.TabIndex = 23;
+            this.cb_farm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cb_farm_KeyDown);
+            this.cb_farm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_farm_KeyPress);
+            // 
+            // text_production_date
+            // 
+            this.text_production_date.Location = new System.Drawing.Point(495, 71);
+            this.text_production_date.Name = "text_production_date";
+            this.text_production_date.Size = new System.Drawing.Size(158, 22);
+            this.text_production_date.TabIndex = 24;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label6.Location = new System.Drawing.Point(68, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 34);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Farm Source:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label7.Location = new System.Drawing.Point(375, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(114, 34);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Production Date:";
             // 
             // Frm_Edit_Move_Order
             // 
@@ -300,5 +346,9 @@ namespace Generic_Move_Order.Frm_Move_Order
         private System.Windows.Forms.TextBox text_uom;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox text_slab;
+        private System.Windows.Forms.ComboBox cb_farm;
+        private System.Windows.Forms.TextBox text_production_date;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

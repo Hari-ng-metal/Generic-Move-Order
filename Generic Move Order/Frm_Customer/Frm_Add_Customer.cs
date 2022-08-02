@@ -150,6 +150,7 @@ namespace Generic_Move_Order.Frm_Customer
                 bcategory_id = edit_customer.bcategory_id.ToString();
                 cb_bcategory.Text = edit_customer.bcategory;
                 label_status.Text = edit_customer.status.ToString();
+                text_org.Text = edit_customer.org.ToString();
                 if (label_status.Text == true.ToString())
                 {
                     cb_status.SelectedIndex = 0;

@@ -59,6 +59,11 @@ namespace Generic_Move_Order
             transactedMoveOrderHistoryToolStripMenuItem.Visible = false;
             miscellaneousIssueHistoryToolStripMenuItem.Visible = false;
             miscellaneousReceiptHistoryToolStripMenuItem.Visible = false;
+            loadingChecklistReportToolStripMenuItem.Visible = false;
+            loadingChecklistReportPerRouteToolStripMenuItem.Visible = false;
+            cancelledMoveOrderReportToolStripMenuItem.Visible = false;
+            moveOrderRecordTranasctionToolStripMenuItem.Visible = false;
+            deliveryVarianceReportToolStripMenuItem.Visible = false;
 
             //SETUP
             toolStripMenuItem15.Visible = false;
@@ -75,6 +80,7 @@ namespace Generic_Move_Order
             cOAAccountToolStripMenuItem.Visible = false;
             warehouseToolStripMenuItem.Visible = false;
             taggingOfLocationToolStripMenuItem.Visible = false;
+            farmSourceToolStripMenuItem.Visible = false;
 
             //USER
             toolStripMenuItem22.Visible = false;
@@ -229,6 +235,36 @@ namespace Generic_Move_Order
                     menuStrip4.Visible = true;
                 }
 
+                if (mod_name == "loadingChecklistReportToolStripMenuItem")
+                {
+                    loadingChecklistReportToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                if (mod_name == "loadingChecklistReportPerRouteToolStripMenuItem")
+                {
+                    loadingChecklistReportPerRouteToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                if (mod_name == "cancelledMoveOrderReportToolStripMenuItem")
+                {
+                    cancelledMoveOrderReportToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                if (mod_name == "moveOrderRecordTranasctionToolStripMenuItem")
+                {
+                    moveOrderRecordTranasctionToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
+                if (mod_name == "deliveryVarianceReportToolStripMenuItem")
+                {
+                    deliveryVarianceReportToolStripMenuItem.Visible = true;
+                    menuStrip4.Visible = true;
+                }
+
                 //SETUP
                 if (mod_name == "toolStripMenuItem15")
                 {
@@ -259,6 +295,7 @@ namespace Generic_Move_Order
                     toolStripMenuItem19.Visible = true;
                     menuStrip5.Visible = true;
                 }
+
 
                 //if (mod_name == "toolStripMenuItem20")
                 //{
@@ -319,6 +356,14 @@ namespace Generic_Move_Order
                     taggingOfLocationToolStripMenuItem.Visible = true;
                     menuStrip5.Visible = true;
                 }
+
+                //farm_source
+                if (mod_name == "farmSourceToolStripMenuItem")
+                {
+                    farmSourceToolStripMenuItem.Visible = true;
+                    menuStrip5.Visible = true;
+                }
+                
 
                 //USER
                 if (mod_name == "toolStripMenuItem22")
@@ -1482,6 +1527,144 @@ namespace Generic_Move_Order
             if (IsOpen == false)
             {
                 Frm_Dept_Location.Frm_Dept_Location frm_in = new Frm_Dept_Location.Frm_Dept_Location() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void loadingChecklistReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //loading checklist
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Loading_Checklist_Report")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Loading_Checklist_Report frm_in = new Frm_Report.Frm_Loading_Checklist_Report() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void loadingChecklistReportPerRouteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //per route checklist
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Loading_Checklist_Report")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Loading_Checklist_Per_Route frm_in = new Frm_Report.Frm_Loading_Checklist_Per_Route() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void cancelledMoveOrderReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //cancelled move order
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Loading_Checklist_Report")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Cancelled_MOS frm_in = new Frm_Report.Frm_Cancelled_MOS() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void moveOrderRecordTranasctionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //move order record transactions
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Loading_Checklist_Report")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Move_Order_Record_History frm_in = new Frm_Report.Frm_Move_Order_Record_History() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void deliveryVarianceReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //delivery variance report
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Delivery_Variance_Report")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Report.Frm_Delivery_Variance_Report frm_in = new Frm_Report.Frm_Delivery_Variance_Report() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_body.Controls.Add(frm_in);
+                frm_in.Show();
+                frm_in.BringToFront();
+            }
+        }
+
+        private void farmSourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //farmsource
+            bool IsOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Frm_Farm_Source")
+                {
+                    IsOpen = true;
+                    f.BringToFront();
+                    //MessageBox.Show("Already Open");
+                    break;
+                }
+            }
+            if (IsOpen == false)
+            {
+                Frm_Farm_Source.Frm_Farm_Source frm_in = new Frm_Farm_Source.Frm_Farm_Source() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 this.panel_body.Controls.Add(frm_in);
                 frm_in.Show();
                 frm_in.BringToFront();

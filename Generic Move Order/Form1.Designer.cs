@@ -53,6 +53,7 @@ namespace Generic_Move_Order
             this.cOALocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOAAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taggingOfLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,11 @@ namespace Generic_Move_Order
             this.transactedMoveOrderHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousIssueHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousReceiptHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadingChecklistReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadingChecklistReportPerRouteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelledMoveOrderReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveOrderRecordTranasctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deliveryVarianceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +92,7 @@ namespace Generic_Move_Order
             this.pb_menu = new System.Windows.Forms.PictureBox();
             this.panel_bot = new System.Windows.Forms.Panel();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.taggingOfLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.farmSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_side.SuspendLayout();
             this.panel_menu.SuspendLayout();
             this.menuStrip6.SuspendLayout();
@@ -216,7 +222,8 @@ namespace Generic_Move_Order
             this.cOALocationToolStripMenuItem,
             this.cOAAccountToolStripMenuItem,
             this.warehouseToolStripMenuItem,
-            this.taggingOfLocationToolStripMenuItem});
+            this.taggingOfLocationToolStripMenuItem,
+            this.farmSourceToolStripMenuItem});
             this.toolStripMenuItem14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
             this.toolStripMenuItem14.Size = new System.Drawing.Size(61, 24);
@@ -339,6 +346,15 @@ namespace Generic_Move_Order
             this.warehouseToolStripMenuItem.Text = "Warehouse";
             this.warehouseToolStripMenuItem.Click += new System.EventHandler(this.warehouseToolStripMenuItem_Click);
             // 
+            // taggingOfLocationToolStripMenuItem
+            // 
+            this.taggingOfLocationToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.taggingOfLocationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.taggingOfLocationToolStripMenuItem.Name = "taggingOfLocationToolStripMenuItem";
+            this.taggingOfLocationToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.taggingOfLocationToolStripMenuItem.Text = "Tagging of Location";
+            this.taggingOfLocationToolStripMenuItem.Click += new System.EventHandler(this.taggingOfLocationToolStripMenuItem_Click);
+            // 
             // menuStrip4
             // 
             this.menuStrip4.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -358,7 +374,12 @@ namespace Generic_Move_Order
             this.toolStripMenuItem13,
             this.transactedMoveOrderHistoryToolStripMenuItem,
             this.miscellaneousIssueHistoryToolStripMenuItem,
-            this.miscellaneousReceiptHistoryToolStripMenuItem});
+            this.miscellaneousReceiptHistoryToolStripMenuItem,
+            this.loadingChecklistReportToolStripMenuItem,
+            this.loadingChecklistReportPerRouteToolStripMenuItem,
+            this.cancelledMoveOrderReportToolStripMenuItem,
+            this.moveOrderRecordTranasctionToolStripMenuItem,
+            this.deliveryVarianceReportToolStripMenuItem});
             this.toolStripMenuItem11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             this.toolStripMenuItem11.Size = new System.Drawing.Size(74, 24);
@@ -369,7 +390,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem12.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(301, 26);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(334, 26);
             this.toolStripMenuItem12.Text = "Receiving Transaction History";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
@@ -378,7 +399,7 @@ namespace Generic_Move_Order
             this.toolStripMenuItem13.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.toolStripMenuItem13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(301, 26);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(334, 26);
             this.toolStripMenuItem13.Text = "Move Order Transaction History";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
@@ -387,7 +408,7 @@ namespace Generic_Move_Order
             this.transactedMoveOrderHistoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.transactedMoveOrderHistoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.transactedMoveOrderHistoryToolStripMenuItem.Name = "transactedMoveOrderHistoryToolStripMenuItem";
-            this.transactedMoveOrderHistoryToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.transactedMoveOrderHistoryToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
             this.transactedMoveOrderHistoryToolStripMenuItem.Text = "Transacted Move Order History";
             this.transactedMoveOrderHistoryToolStripMenuItem.Click += new System.EventHandler(this.transactedMoveOrderHistoryToolStripMenuItem_Click);
             // 
@@ -396,7 +417,7 @@ namespace Generic_Move_Order
             this.miscellaneousIssueHistoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.miscellaneousIssueHistoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.miscellaneousIssueHistoryToolStripMenuItem.Name = "miscellaneousIssueHistoryToolStripMenuItem";
-            this.miscellaneousIssueHistoryToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.miscellaneousIssueHistoryToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
             this.miscellaneousIssueHistoryToolStripMenuItem.Text = "Miscellaneous Issue History";
             this.miscellaneousIssueHistoryToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousIssueHistoryToolStripMenuItem_Click);
             // 
@@ -405,9 +426,54 @@ namespace Generic_Move_Order
             this.miscellaneousReceiptHistoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.miscellaneousReceiptHistoryToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.miscellaneousReceiptHistoryToolStripMenuItem.Name = "miscellaneousReceiptHistoryToolStripMenuItem";
-            this.miscellaneousReceiptHistoryToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.miscellaneousReceiptHistoryToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
             this.miscellaneousReceiptHistoryToolStripMenuItem.Text = "Miscellaneous Receipt History";
             this.miscellaneousReceiptHistoryToolStripMenuItem.Click += new System.EventHandler(this.miscellaneousReceiptHistoryToolStripMenuItem_Click);
+            // 
+            // loadingChecklistReportToolStripMenuItem
+            // 
+            this.loadingChecklistReportToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.loadingChecklistReportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.loadingChecklistReportToolStripMenuItem.Name = "loadingChecklistReportToolStripMenuItem";
+            this.loadingChecklistReportToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
+            this.loadingChecklistReportToolStripMenuItem.Text = "Loading Checklist Report - Overall";
+            this.loadingChecklistReportToolStripMenuItem.Click += new System.EventHandler(this.loadingChecklistReportToolStripMenuItem_Click);
+            // 
+            // loadingChecklistReportPerRouteToolStripMenuItem
+            // 
+            this.loadingChecklistReportPerRouteToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.loadingChecklistReportPerRouteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.loadingChecklistReportPerRouteToolStripMenuItem.Name = "loadingChecklistReportPerRouteToolStripMenuItem";
+            this.loadingChecklistReportPerRouteToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
+            this.loadingChecklistReportPerRouteToolStripMenuItem.Text = "Loading Checklist Report - Per Route";
+            this.loadingChecklistReportPerRouteToolStripMenuItem.Click += new System.EventHandler(this.loadingChecklistReportPerRouteToolStripMenuItem_Click);
+            // 
+            // cancelledMoveOrderReportToolStripMenuItem
+            // 
+            this.cancelledMoveOrderReportToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.cancelledMoveOrderReportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cancelledMoveOrderReportToolStripMenuItem.Name = "cancelledMoveOrderReportToolStripMenuItem";
+            this.cancelledMoveOrderReportToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
+            this.cancelledMoveOrderReportToolStripMenuItem.Text = "Cancelled Move Order Report";
+            this.cancelledMoveOrderReportToolStripMenuItem.Click += new System.EventHandler(this.cancelledMoveOrderReportToolStripMenuItem_Click);
+            // 
+            // moveOrderRecordTranasctionToolStripMenuItem
+            // 
+            this.moveOrderRecordTranasctionToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.moveOrderRecordTranasctionToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.moveOrderRecordTranasctionToolStripMenuItem.Name = "moveOrderRecordTranasctionToolStripMenuItem";
+            this.moveOrderRecordTranasctionToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
+            this.moveOrderRecordTranasctionToolStripMenuItem.Text = "Move Order Record Transaction";
+            this.moveOrderRecordTranasctionToolStripMenuItem.Click += new System.EventHandler(this.moveOrderRecordTranasctionToolStripMenuItem_Click);
+            // 
+            // deliveryVarianceReportToolStripMenuItem
+            // 
+            this.deliveryVarianceReportToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.deliveryVarianceReportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.deliveryVarianceReportToolStripMenuItem.Name = "deliveryVarianceReportToolStripMenuItem";
+            this.deliveryVarianceReportToolStripMenuItem.Size = new System.Drawing.Size(334, 26);
+            this.deliveryVarianceReportToolStripMenuItem.Text = "Logistic Encoder Report";
+            this.deliveryVarianceReportToolStripMenuItem.Click += new System.EventHandler(this.deliveryVarianceReportToolStripMenuItem_Click);
             // 
             // menuStrip3
             // 
@@ -679,14 +745,14 @@ namespace Generic_Move_Order
             this.panel_body.Size = new System.Drawing.Size(806, 621);
             this.panel_body.TabIndex = 3;
             // 
-            // taggingOfLocationToolStripMenuItem
+            // farmSourceToolStripMenuItem
             // 
-            this.taggingOfLocationToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.taggingOfLocationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.taggingOfLocationToolStripMenuItem.Name = "taggingOfLocationToolStripMenuItem";
-            this.taggingOfLocationToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
-            this.taggingOfLocationToolStripMenuItem.Text = "Tagging of Location";
-            this.taggingOfLocationToolStripMenuItem.Click += new System.EventHandler(this.taggingOfLocationToolStripMenuItem_Click);
+            this.farmSourceToolStripMenuItem.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.farmSourceToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.farmSourceToolStripMenuItem.Name = "farmSourceToolStripMenuItem";
+            this.farmSourceToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.farmSourceToolStripMenuItem.Text = "Farm Source";
+            this.farmSourceToolStripMenuItem.Click += new System.EventHandler(this.farmSourceToolStripMenuItem_Click);
             // 
             // Frm_Main
             // 
@@ -790,6 +856,12 @@ namespace Generic_Move_Order
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
         private System.Windows.Forms.ToolStripMenuItem warehouseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taggingOfLocationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadingChecklistReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadingChecklistReportPerRouteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelledMoveOrderReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moveOrderRecordTranasctionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deliveryVarianceReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem farmSourceToolStripMenuItem;
     }
 }
 

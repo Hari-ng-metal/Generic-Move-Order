@@ -30,6 +30,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         private void Frm_Move_Order_Load(object sender, EventArgs e)
         {
             GetWarehouse();
+            GetMeatType();
             CustomDatePicker();
             GetBCategory();
             text_warehouse_name.Clear();
@@ -48,7 +49,7 @@ namespace Generic_Move_Order.Frm_Move_Order
         {
             dp_delivery_date.CustomFormat = "MM/dd/yyyy";
             dp_delivery_date.MinDate = DateTime.Now.Date.AddDays(-1);
-            dp_delivery_date.MaxDate = DateTime.Now.AddDays(30).Date;
+            dp_delivery_date.MaxDate = DateTime.Now.AddDays(7).Date;
         }
 
         public void GetWarehouse()
@@ -78,6 +79,35 @@ namespace Generic_Move_Order.Frm_Move_Order
                 throw;
             }
             cb_warehouse.SelectedIndex = -1;
+        }
+
+        public void GetMeatType()
+        {
+            try
+            {
+                connect.DatabaseConnection();
+                connect.con.Open();
+                SqlCommand cmd = new SqlCommand("SP_GetMeatType", connect.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@status", true);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                cb_meat_type.DataSource = dt;
+                connect.con.Close();
+
+                cb_meat_type.ValueMember = "meat_type";
+                cb_meat_type.DisplayMember = "meat_type";
+
+                cb_meat_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+                cb_meat_type.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cb_meat_type.AutoCompleteSource = AutoCompleteSource.ListItems;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            cb_meat_type.SelectedIndex = -1;
         }
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -113,6 +143,10 @@ namespace Generic_Move_Order.Frm_Move_Order
             {
                 cb_warehouse.Focus();
             }
+            else if (string.IsNullOrEmpty(text_crates.Text))
+            {
+                text_crates.Focus();
+            }
             else if (string.IsNullOrEmpty(cb_reason.Text))
             {
                 cb_reason.Focus();
@@ -120,6 +154,14 @@ namespace Generic_Move_Order.Frm_Move_Order
             else if (string.IsNullOrEmpty(text_account.Text))
             {
                 text_account.Focus();
+            }
+            else if (string.IsNullOrEmpty(text_bulk_wt.Text))
+            {
+                text_bulk_wt.Focus();
+            }
+            else if (string.IsNullOrEmpty(cb_meat_type.Text))
+            {
+                cb_meat_type.Focus();
             }
             else
             {
@@ -293,6 +335,9 @@ namespace Generic_Move_Order.Frm_Move_Order
                 cmd.Parameters.AddWithValue("@account", text_account.Text);
                 cmd.Parameters.AddWithValue("@date", dp_delivery_date.Text);
                 cmd.Parameters.AddWithValue("@wh_code", cb_warehouse.Text);
+                cmd.Parameters.AddWithValue("@crates", text_crates.Text);
+                cmd.Parameters.AddWithValue("@bulk", text_bulk_wt.Text);
+                cmd.Parameters.AddWithValue("@meat_type", cb_meat_type.Text);
 
                 cmd.Parameters.AddWithValue("@company", account_title.company_code);
                 cmd.Parameters.AddWithValue("@dept", account_title.department_code);
@@ -318,8 +363,10 @@ namespace Generic_Move_Order.Frm_Move_Order
         public void InsertMoveOrderItem()
         {
             int p_id = 0;
-            double pqty = 0;
-            double pslab = 0;
+            float pqty = 0;
+            float pslab = 0;
+            string prod_date;
+            string farm_source;
 
             foreach (DataGridViewRow row in dt_move.Rows)
             {
@@ -333,6 +380,8 @@ namespace Generic_Move_Order.Frm_Move_Order
                     p_id = int.Parse(row.Cells["id"].Value.ToString());
                     pqty = float.Parse(row.Cells["quantity"].Value.ToString());
                     pslab = float.Parse(row.Cells["slab"].Value.ToString());
+                    prod_date = (row.Cells["production_date"].Value.ToString());
+                    farm_source = (row.Cells["farm_source"].Value.ToString());
                     //MessageBox.Show("" + p_id);
                 }
 
@@ -345,6 +394,8 @@ namespace Generic_Move_Order.Frm_Move_Order
                     cmd.Parameters.AddWithValue("@item_id", int.Parse(p_id.ToString()));
                     cmd.Parameters.AddWithValue("@quantity", pqty);
                     cmd.Parameters.AddWithValue("@slab", pslab);
+                    cmd.Parameters.AddWithValue("@prod_date", prod_date);
+                    cmd.Parameters.AddWithValue("@farm_source", farm_source);
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
                     //dt_report.DataSource = dt;
@@ -536,6 +587,8 @@ namespace Generic_Move_Order.Frm_Move_Order
                 edit_move_item.uom = dt_move.SelectedRows[0].Cells[3].Value.ToString();
                 edit_move_item.quantity = Convert.ToDecimal(dt_move.SelectedRows[0].Cells[4].Value);
                 edit_move_item.slab = Convert.ToDecimal(dt_move.SelectedRows[0].Cells[5].Value);
+                edit_move_item.farm_source = (dt_move.SelectedRows[0].Cells[6].Value.ToString());
+                edit_move_item.production_date = (dt_move.SelectedRows[0].Cells[7].Value.ToString());
 
                 btn_edit.Enabled = true;
             }
@@ -575,6 +628,8 @@ namespace Generic_Move_Order.Frm_Move_Order
             text_reference.Clear();
             text_account.Clear();
             dt_move.Rows.Clear();
+            text_crates.Clear();
+            text_bulk_wt.Clear();
 
             account_title.company_code = null;
             account_title.department_code = null;
@@ -739,6 +794,10 @@ namespace Generic_Move_Order.Frm_Move_Order
                 {
                     cb_warehouse.Focus();
                 }
+                else if (string.IsNullOrEmpty(text_crates.Text))
+                {
+                    text_crates.Focus();
+                }
                 else if (string.IsNullOrEmpty(cb_reason.Text))
                 {
                     cb_reason.Focus();
@@ -746,6 +805,14 @@ namespace Generic_Move_Order.Frm_Move_Order
                 else if(string.IsNullOrEmpty(text_account.Text))
                 {
                     text_account.Focus();
+                }
+                else if (string.IsNullOrEmpty(text_bulk_wt.Text))
+                {
+                    text_bulk_wt.Focus();
+                }
+                else if (string.IsNullOrEmpty(cb_meat_type.Text))
+                {
+                    cb_meat_type.Focus();
                 }
                 else
                 {
@@ -836,12 +903,36 @@ namespace Generic_Move_Order.Frm_Move_Order
             if (keyData == (Keys.Control | Keys.N))
             {
                 //shortcut for add item
-                if (label_customer_id.Text == "0" || string.IsNullOrEmpty(text_account.Text))
+                if (label_customer_id.Text == "0")
                 {
                     //MessageBox.Show("You enter invalid item!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cb_customer.Focus();
                     text_name.Clear();
                     label_customer_id.Text = "0";
+                }
+                else if (string.IsNullOrEmpty(cb_warehouse.Text))
+                {
+                    cb_warehouse.Focus();
+                }
+                else if (string.IsNullOrEmpty(text_crates.Text))
+                {
+                    text_crates.Focus();
+                }
+                else if (string.IsNullOrEmpty(cb_reason.Text))
+                {
+                    cb_reason.Focus();
+                }
+                else if (string.IsNullOrEmpty(text_account.Text))
+                {
+                    text_account.Focus();
+                }
+                else if (string.IsNullOrEmpty(text_bulk_wt.Text))
+                {
+                    text_bulk_wt.Focus();
+                }
+                else if (string.IsNullOrEmpty(cb_meat_type.Text))
+                {
+                    cb_meat_type.Focus();
                 }
                 else
                 {
@@ -890,6 +981,43 @@ namespace Generic_Move_Order.Frm_Move_Order
                 text_warehouse_name.Clear();
                 text_warehouse_name.Text = cb_warehouse.SelectedValue.ToString();
             }
+        }
+
+        private void text_crates_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            //   (e.KeyChar != '.'))
+            //{
+            //    e.Handled = true;
+            //}
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void text_bulk_wt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+              (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cb_meat_type_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

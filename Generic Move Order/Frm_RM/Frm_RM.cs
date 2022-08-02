@@ -110,7 +110,7 @@ namespace Generic_Move_Order.Frm_RM
                 edit_rm.category_id = int.Parse(row.Cells["category_id"].Value.ToString());
                 edit_rm.category = row.Cells["product_category"].Value.ToString();
                 edit_rm.status = bool.Parse(row.Cells["status"].Value.ToString());
-
+                edit_rm.conversion = decimal.Parse(row.Cells["conversion"].Value.ToString());
                 btn_edit.Enabled = true;
 
             }

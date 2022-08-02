@@ -259,11 +259,12 @@ namespace Generic_Move_Order.Frm_Customer
             // btn_save
             // 
             this.btn_save.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btn_save.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_save.Location = new System.Drawing.Point(279, 136);
+            this.btn_save.Location = new System.Drawing.Point(306, 136);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(105, 41);
+            this.btn_save.Size = new System.Drawing.Size(105, 43);
             this.btn_save.TabIndex = 5;
             this.btn_save.Text = "SAVE";
             this.btn_save.UseVisualStyleBackColor = false;

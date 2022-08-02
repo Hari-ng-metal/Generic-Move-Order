@@ -70,6 +70,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.item_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.farm_source = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.production_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_exit)).BeginInit();
@@ -291,7 +294,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.33181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.66819F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 372F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 376F));
             this.tableLayoutPanel2.Controls.Add(this.label_customer_id, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.text_account, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
@@ -306,7 +309,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // label_customer_id
             // 
             this.label_customer_id.AutoSize = true;
-            this.label_customer_id.Location = new System.Drawing.Point(418, 0);
+            this.label_customer_id.Location = new System.Drawing.Point(414, 0);
             this.label_customer_id.Name = "label_customer_id";
             this.label_customer_id.Size = new System.Drawing.Size(16, 17);
             this.label_customer_id.TabIndex = 12;
@@ -317,9 +320,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // 
             this.text_account.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.text_account.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.text_account.Location = new System.Drawing.Point(112, 3);
+            this.text_account.Location = new System.Drawing.Point(111, 3);
             this.text_account.Name = "text_account";
-            this.text_account.Size = new System.Drawing.Size(300, 22);
+            this.text_account.Size = new System.Drawing.Size(297, 22);
             this.text_account.TabIndex = 4;
             this.text_account.DoubleClick += new System.EventHandler(this.text_account_DoubleClick);
             this.text_account.KeyDown += new System.Windows.Forms.KeyEventHandler(this.text_account_KeyDown);
@@ -329,7 +332,7 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(12, 0);
+            this.label2.Location = new System.Drawing.Point(11, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 32);
             this.label2.TabIndex = 14;
@@ -469,6 +472,9 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.item_description,
             this.uom,
             this.quantity,
+            this.slab,
+            this.farm_source,
+            this.production_date,
             this.remove});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -523,6 +529,24 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
             this.quantity.HeaderText = "quantity";
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
+            // 
+            // slab
+            // 
+            this.slab.HeaderText = "Slab";
+            this.slab.MinimumWidth = 6;
+            this.slab.Name = "slab";
+            // 
+            // farm_source
+            // 
+            this.farm_source.HeaderText = "Farm Source";
+            this.farm_source.MinimumWidth = 6;
+            this.farm_source.Name = "farm_source";
+            // 
+            // production_date
+            // 
+            this.production_date.HeaderText = "Production Date";
+            this.production_date.MinimumWidth = 6;
+            this.production_date.Name = "production_date";
             // 
             // remove
             // 
@@ -603,17 +627,20 @@ namespace Generic_Move_Order.Frm_Miscellaneous_Issue
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_new;
         public System.Windows.Forms.DataGridView dt_issue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewButtonColumn remove;
         public System.Windows.Forms.TextBox text_account;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox text_reference;
         private System.Windows.Forms.TextBox text_warehouse_name;
         private System.Windows.Forms.ComboBox cb_warehouse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn farm_source;
+        private System.Windows.Forms.DataGridViewTextBoxColumn production_date;
+        private System.Windows.Forms.DataGridViewButtonColumn remove;
     }
 }

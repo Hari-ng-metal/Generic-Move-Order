@@ -64,9 +64,11 @@ namespace Generic_Move_Order.Frm_Receiving
         {
             connect.DatabaseConnection();
             connect.con.Open();
-            SqlCommand cmd = new SqlCommand("SP_GetReceivingRecords", connect.con);
+            SqlCommand cmd = new SqlCommand("SP_GetReceivingRecordsV2", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@start", dp_start.Text);
+            cmd.Parameters.AddWithValue("@end", dp_end.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             dt_receiving.DataSource = dt;
@@ -79,10 +81,12 @@ namespace Generic_Move_Order.Frm_Receiving
         {
             connect.DatabaseConnection();
             connect.con.Open();
-            SqlCommand cmd = new SqlCommand("SP_GetReceivingRecordsBySearch", connect.con);
+            SqlCommand cmd = new SqlCommand("SP_GetReceivingRecordsBySearchV2", connect.con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@status", status);
             cmd.Parameters.AddWithValue("@search", textBox1.Text);
+            cmd.Parameters.AddWithValue("@start", dp_start.Text);
+            cmd.Parameters.AddWithValue("@end", dp_end.Text);
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             dt_receiving.DataSource = dt;
@@ -225,6 +229,16 @@ namespace Generic_Move_Order.Frm_Receiving
             btn_inactive.Enabled = false;
 
             label_role_counting.Text = "TOTAL # OF RECORD/S: " + (dt_receiving.RowCount);
+        }
+
+        private void dp_start_ValueChanged(object sender, EventArgs e)
+        {
+            GetReceivingRecords();
+        }
+
+        private void dp_end_ValueChanged(object sender, EventArgs e)
+        {
+            GetReceivingRecords();
         }
     }
 }
